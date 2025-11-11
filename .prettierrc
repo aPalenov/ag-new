@@ -1,0 +1,47 @@
+{
+  "semi": false,
+  "arrowParens": "always",
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "htmlWhitespaceSensitivity": "ignore",
+  "overrides": [
+    {
+      "files": "*.php",
+      "options": {
+        "parser": "php",
+        "plugins": ["@prettier/plugin-php"],
+        "phpVersion": "8.2",
+        "tabWidth": 4,
+        "printWidth": 120
+      }
+    },
+    {
+      "files": "*.vue",
+      "options": {
+        "parser": "vue",
+        "plugins": ["prettier-plugin-tailwindcss"],
+        "tailwindStylesheet": "./resources/css/app.css"
+      }
+    },
+    {
+      "files": "*.blade.php",
+      "options": {
+        "printWidth": 100,
+        "parser": "blade",
+        "plugins": ["@shufo/prettier-plugin-blade"],
+        "phpVersion": "8.2",
+        "wrapAttributes": "force-expand-multiline",
+        "sortHtmlAttributes": "code-guide"
+      }
+    },
+    {
+      "files": "*.css",
+      "options": {
+        "tabWidth": 4,
+        "printWidth": 1000
+      }
+    }
+  ]
+}

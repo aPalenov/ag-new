@@ -1,0 +1,7 @@
+bootstrap/**
+docker/**
+public/**
+vendor/**
+resources/fonts/icons/**
+**/*.js
+**/*.ts

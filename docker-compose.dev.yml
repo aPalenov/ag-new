@@ -1,0 +1,25 @@
+services:
+    frontend:
+        container_name: ag-new-frontend
+        build: ./docker/nuxt
+        ports:
+            - "3000:3000"
+            - "${DOCKER_FRONTEND_HMR_PORT:-24678}:24678"
+        volumes:
+            - ./frontend:/var/www/html/frontend
+
+    backend:
+        build:
+            context: ./docker/php/
+            target: development
+            args:
+                DOCKER_USER: "${DOCKER_USER:-Please set user}"
+                DOCKER_UID: "${DOCKER_UID:-Please set DOCKER_UID}"
+                DOCKER_GROUP: "${DOCKER_GROUP:-Please set DOCKER_GROUP}"
+                DOCKER_GID: "${DOCKER_GID:-Please set user}"
+        ports:
+            - '${DOCKER_BACKEND_HMR_PORT:-5173}:5173'
+
+    redis:
+        ports:
+            - '${DOCKER_REDIS_PORT:-6379}:6379'
