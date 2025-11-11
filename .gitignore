@@ -1,9 +1,9 @@
 **/*Zone.Identifier
-# IDE / Editor
-.idea
-.vscode
-.env
+node_modules/
 docker/mysql/data/
 docker/redis/data/
 docker/nginx/log/
 logs/
+.env
+.idea
+.vscode

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+      <UApp>
+          edfsf
+        </UApp>
+    </div>
 </template>
