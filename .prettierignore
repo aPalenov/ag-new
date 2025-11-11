@@ -1,24 +1,31 @@
-*.yml
 /.git
 /.github
 /.vscode
-/app/Enums
-/bootstrap/cache
+
+# Node and dependencies
 /node_modules
 /vendor
+
+# Docker and logs
 /docker
-/public/**/*.*
-/storage
-_ide_helper.php
-.phpstorm.meta.php
-.eslintrc
+logs/**
+
+# Backend (Laravel) generated and heavy
+backend/vendor/**
+backend/storage/**
+backend/bootstrap/cache/**
+backend/public/**
+backend/_ide_helper.php
+backend/.phpstorm.meta.php
+
+# Frontend (Nuxt) build output
+frontend/.nuxt/**
+frontend/.output/**
+frontend/node_modules/**
+
+# Lockfiles (keep out of prettier)
 composer.lock
+backend/composer.lock
 package-lock.json
-package.json
-README.md
-resources/fonts/icons
-resources/views/mail
-resources/views/emails
-resources/js/types/ziggy-generated.d.ts
-resources/js/utils/ziggy.js
-tsconfig.json
+pnpm-lock.yaml
+yarn.lock

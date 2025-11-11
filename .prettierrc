@@ -18,11 +18,9 @@
       }
     },
     {
-      "files": "*.vue",
+      "files": ["frontend/**/*.{vue,js,jsx,ts,tsx,html}"],
       "options": {
-        "parser": "vue",
-        "plugins": ["prettier-plugin-tailwindcss"],
-        "tailwindStylesheet": "./resources/css/app.css"
+        "plugins": ["prettier-plugin-tailwindcss"]
       }
     },
     {

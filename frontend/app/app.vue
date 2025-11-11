@@ -1,7 +1,3 @@
 <template>
-  <div>
-      <UApp>
-          edfsf
-        </UApp>
-    </div>
+  <UApp>edывавf</UApp>
 </template>
