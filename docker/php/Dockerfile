@@ -1,6 +1,6 @@
 FROM php:8.4-fpm-alpine AS base
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/backend
 
 RUN apk add --no-cache \
         autoconf \

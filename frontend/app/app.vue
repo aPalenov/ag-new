@@ -1,3 +1,7 @@
 <template>
-  <UApp>edывавf</UApp>
+  <UApp>
+    <UContainer>
+      <NuxtPage />
+    </UContainer>
+  </UApp>
 </template>
