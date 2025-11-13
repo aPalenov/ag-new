@@ -3,7 +3,7 @@ services:
         container_name: ag-new-frontend
         build: ./docker/nuxt
         ports:
-            - "3000:3000"
+            - "${DOCKER_FRONTEND_PORT:-3000}:3000"
             - "${DOCKER_FRONTEND_HMR_PORT:-24678}:24678"
         volumes:
             - ./frontend:/var/www/html/frontend

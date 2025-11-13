@@ -14,7 +14,13 @@ class PageController extends Controller
      */
     public function show(Request $request, ?string $any = null): JsonResponse
     {
-        $host = $request->getHost();
+        // Prefer original browser host forwarded by Nuxt SSR, fallback to request host
+        $xfh = $request->headers->get('x-forwarded-host');
+        if ($xfh) {
+            $host = trim(explode(',', $xfh)[0]);
+        } else {
+            $host = $request->getHost();
+        }
         $path = '/' . ltrim($any ?? '', '/');
         if ($path === '//') {
             $path = '/';
@@ -24,7 +30,6 @@ class PageController extends Controller
 
         $app = [
             'baseUrl' => $request->getSchemeAndHttpHost(),
-            'serverTime' => now()->toIso8601String(),
             'tenant' => $tenant,
         ];
 
@@ -45,17 +50,20 @@ class PageController extends Controller
             'props' => array_merge($data, [
                 'app' => $app,
                 'url' => $path,
-                'version' => Str::random(16),
+                'layout' => [
+                    'name' => 'primary',
+                ],
             ]),
         ];
 
         return response()->json($payload);
     }
 
+    // Theme is not included in API: layout decides visuals on the client side
+
     private function detectTenant(string $host): string
     {
-        // Example hosts: ag-new.loc, kia.ag-new.loc, lada.ag-new.loc
-        if (str_ends_with($host, 'ag-new.loc')) {
+        if (str_contains($host, 'ag-new.loc')) {
             $parts = explode('.', $host);
             if (count($parts) === 2) {
                 return 'main';
@@ -76,6 +84,10 @@ class PageController extends Controller
             'kia' => [
                 '/' => $this->pageHome('KIA Dealer'),
                 '/service' => $this->pageService('KIA Dealer'),
+            ],
+            'tenet' => [
+                '/' => $this->pageHome('Tenet Dealer'),
+                '/service' => $this->pageService('Tenet Dealer'),
             ],
             'lada' => [
                 '/' => $this->pageHome('LADA Center'),

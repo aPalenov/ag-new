@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, onBeforeRouteUpdate } from 'vue-router'
-import { useHead } from '#imports'
 import PageBuilder from '@/components/PageBuilder.vue'
 import { usePageData } from '@/composables/usePageData'
 
@@ -15,12 +12,19 @@ const path = computed(() => {
 })
 
 const { page, loading, error, fetchPage } = usePageData()
+
 await fetchPage(path.value)
+{
+  setPageLayout(page.value?.props?.layout?.name)
+}
 
 onBeforeRouteUpdate(async (to) => {
   const slug = (to.params.slug as string[] | undefined) || []
   const newPath = '/' + slug.join('/')
   await fetchPage(newPath === '//' ? '/' : newPath)
+  {
+    setPageLayout(page.value?.props?.layout?.name)
+  }
 })
 
 useHead(() => ({
@@ -35,7 +39,6 @@ useHead(() => ({
     <div v-if="loading">Загрузка...</div>
     <div v-else-if="error" class="text-red-600">Ошибка: {{ error }}</div>
     <template v-else>
-      {{ page?.props }}
       <PageBuilder :blocks="page?.props?.pageBuilderData" />
     </template>
   </div>

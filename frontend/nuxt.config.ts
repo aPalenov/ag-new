@@ -28,6 +28,19 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@nuxt/eslint', '@nuxt/ui'],
+  css: ['~/assets/css/main.css'],
+  icon: {
+    customCollections: [
+      {
+        prefix: 'ag',
+        dir: './app/assets/icons',
+      },
+      {
+        prefix: 'ag-logo',
+        dir: './app/assets/icons/logos',
+      },
+    ],
+  },
   runtimeConfig: {
     // Server-only runtime config (available on server and not exposed to client)
     // Use the internal Docker network to reach Nginx, which forwards /api to PHP-FPM backend
