@@ -17,6 +17,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
   } as UseFetchOptions<PagePayloadLite>)
 
   if (!error.value) {
-    setPageLayout(data.value?.props?.layout?.name)
+    setPageLayout(data.value?.props?.theme)
   }
 })

@@ -1,8 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// Declare Node process for TS without adding @types/node
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare const process: any
-console.log(process.env?.NUXT_API_BASE)
 
 export default defineNuxtConfig({
   devServer: {
@@ -18,6 +14,12 @@ export default defineNuxtConfig({
       allowedHosts: true,
     },
   },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   pages: true,
   compatibilityDate: '2025-07-15',
   devtools: {
@@ -28,7 +30,7 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@nuxt/eslint', '@nuxt/ui'],
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/app.css'],
   icon: {
     customCollections: [
       {

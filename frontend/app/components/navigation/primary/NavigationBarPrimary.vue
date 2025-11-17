@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import NavigationItemPrimary from './NavigationItemPrimary.vue'
 import type { NavigationItemData } from './NavigationItemPrimary.vue'
 
-const _props = withDefaults(defineProps<{ items?: NavigationItemData[] }>(), { items: () => [] })
+const props = withDefaults(defineProps<{ items?: NavigationItemData[] }>(), { items: () => [] })
 </script>
 
 <template>
@@ -10,7 +9,7 @@ const _props = withDefaults(defineProps<{ items?: NavigationItemData[] }>(), { i
     <ul
       class="flex w-full items-center gap-2 text-xs tracking-[0.18em] whitespace-nowrap text-[#1F273A] uppercase md:text-sm"
     >
-      <NavigationItemPrimary v-for="(item, i) in items" :key="i" :item="item" />
+      <NavigationItemPrimary v-for="(item, i) in props.items" :key="i" :item="item" />
     </ul>
   </nav>
 </template>

@@ -50,9 +50,7 @@ class PageController extends Controller
             'props' => array_merge($data, [
                 'app' => $app,
                 'url' => $path,
-                'layout' => [
-                    'name' => 'primary',
-                ],
+                'theme' => 'primary',
             ]),
         ];
 

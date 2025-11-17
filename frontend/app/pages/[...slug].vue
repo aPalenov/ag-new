@@ -15,7 +15,7 @@ const { page, loading, error, fetchPage } = usePageData()
 
 await fetchPage(path.value)
 {
-  setPageLayout(page.value?.props?.layout?.name)
+  setPageLayout(page.value?.props?.theme)
 }
 
 onBeforeRouteUpdate(async (to) => {
@@ -23,7 +23,7 @@ onBeforeRouteUpdate(async (to) => {
   const newPath = '/' + slug.join('/')
   await fetchPage(newPath === '//' ? '/' : newPath)
   {
-    setPageLayout(page.value?.props?.layout?.name)
+    setPageLayout(page.value?.props?.theme)
   }
 })
 

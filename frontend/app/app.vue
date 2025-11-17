@@ -1,6 +1,10 @@
+<script setup lang="ts">
+const theme = useCurrentTheme()
+</script>
+
 <template>
   <UApp>
-    <NuxtLayout>
+    <NuxtLayout :class="`layout-${theme}`">
       <NuxtPage />
     </NuxtLayout>
   </UApp>

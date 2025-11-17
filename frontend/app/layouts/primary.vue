@@ -52,7 +52,7 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
 <template>
   <div>
     <header class="bg-white shadow-sm">
-      <UContainer class="flex flex-wrap items-center gap-6 py-3 md:flex-nowrap md:py-4">
+      <UContainer class="flex flex-wrap items-center gap-6 py-3 md:flex-nowrap">
         <!-- Left: Logo + dealership info -->
         <NuxtLink to="/" class="flex items-center gap-4 no-underline">
           <UIcon name="i-ag-logo-tenet" class="w-[190px] text-[#3e3a39]" />
@@ -64,16 +64,13 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
 
         <!-- Right: Location + Call button -->
         <div class="ml-auto flex flex-1 items-center justify-end gap-4 sm:gap-6">
-          <button
-            type="button"
-            class="flex items-center gap-2 rounded-full border border-transparent px-3 py-2 text-sm font-medium whitespace-nowrap text-gray-700 transition-colors hover:border-[#4B6FE8]/40 hover:text-gray-900 md:text-base"
-          >
+          <Button type="button" size="xs">
             <UIcon name="i-ag-map-marker" class="size-5 text-[#4B6FE8]" />
             <span class="hidden text-left text-sm md:block">
               г. Москва, Дмитровское ш., д. 161А
             </span>
             <UIcon name="i-heroicons-chevron-down-20-solid" class="size-4 text-gray-400" />
-          </button>
+          </Button>
 
           <UButton
             color="neutral"
@@ -94,7 +91,7 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
     </header>
 
     <main>
-      <UContainer class="py-6">
+      <UContainer>
         <slot />
       </UContainer>
     </main>

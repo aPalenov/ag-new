@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import NavigationItemPrimary from './NavigationItemPrimary.vue'
 import type { NavigationItemData } from './NavigationItemPrimary.vue'
 
 const props = withDefaults(

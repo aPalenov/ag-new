@@ -1,33 +1,14 @@
-@import 'tailwindcss';
+@config "../../../tailwind.config.ts";
+
+@import 'tailwindcss' source(none);
+
+@source "../../**/*.{js,ts,vue}";
+
 @import '@nuxt/ui';
 
-@layer base {
-    :root {
-        --shell-color-brand: 75 111 232;
-        --shell-color-brand-soft: 238 242 255;
-        --shell-color-brand-contrast: 255 255 255;
-        --shell-color-accent: 75 111 232;
-        --shell-color-accent-soft: 229 237 255;
-        --shell-color-accent-contrast: 17 24 39;
-        --shell-color-neutral-900: 17 24 39;
-        --shell-radius-button: 0.75rem;
-        --shell-radius-card: 1.5rem;
-        --shell-radius-input: 0.75rem;
-    }
+/* Theme */
+@import './theme/primary.css';
 
-    html {
-        color: rgb(var(--shell-color-neutral-900));
-        background-color: #fff;
-    }
-
-    body {
-        min-height: 100vh;
-        font-family:
-            'Inter',
-            system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            sans-serif;
-    }
+@theme inline {
+    --color-brand-accent: var(--brand-color-accent);
 }

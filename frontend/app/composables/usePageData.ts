@@ -7,6 +7,7 @@ interface PageProps {
   meta?: { title?: string; description?: string }
   navigation?: Record<string, unknown>
   pageBuilderData?: Array<{ name: string; data: Record<string, unknown> }>
+  theme: 'primary'
   [key: string]: unknown
 }
 

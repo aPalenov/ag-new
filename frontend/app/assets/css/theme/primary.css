@@ -1,0 +1,19 @@
+@layer base {
+    .layout-primary {
+        --ui-container: 100%;
+        --ui-container-px: 10px;
+
+        @media (min-width: theme(--breakpoint-lg)) {
+            --ui-container-px: 20px;
+        }
+
+        @media (min-width: theme(--breakpoint-xl)) {
+            --ui-container: 1528px;
+        }
+
+        @media (min-width: theme(--breakpoint-2xl)) {
+            --ui-container: theme(--breakpoint-2xl);
+            --ui-container-px: 60px;
+        }
+    }
+}
