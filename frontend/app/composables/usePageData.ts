@@ -1,5 +1,4 @@
-import { ref } from 'vue'
-import type { Ref } from 'vue'
+import { useState } from '#app'
 import { useApiFetch } from '@/composables/useApiFetch'
 
 interface PageProps {
@@ -7,7 +6,7 @@ interface PageProps {
   meta?: { title?: string; description?: string }
   navigation?: Record<string, unknown>
   pageBuilderData?: Array<{ name: string; data: Record<string, unknown> }>
-  theme: 'primary'
+  theme: 'theme-default'
   [key: string]: unknown
 }
 
@@ -16,11 +15,11 @@ interface PagePayload {
   props: PageProps
 }
 
-const pageRef: Ref<PagePayload | null> = ref(null)
-const loadingRef: Ref<boolean> = ref(false)
-const errorRef: Ref<string | null> = ref(null)
-
 export function usePageData() {
+  const pageRef = useState<PagePayload | null>('page-data', () => null)
+  const loadingRef = useState<boolean>('page-loading', () => false)
+  const errorRef = useState<string | null>('page-error', () => null)
+
   const fetchPage = async (path: string) => {
     loadingRef.value = true
     errorRef.value = null
@@ -61,5 +60,10 @@ export function usePageData() {
     }
   }
 
-  return { page: pageRef, loading: loadingRef, error: errorRef, fetchPage }
+  return {
+    page: pageRef,
+    loading: loadingRef,
+    error: errorRef,
+    fetchPage,
+  }
 }

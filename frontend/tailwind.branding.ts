@@ -64,16 +64,16 @@ export const brands: Record<string, BrandColors> = {
 // Plugin: generate brand classes that set CSS variables
 export const brandVariables = plugin.default(({ addBase }) => {
   const rules: Record<string, Record<string, string>> = {}
-  for (const mark in brands) {
+  for (const [mark, brand] of Object.entries(brands)) {
     rules[`.${mark}`] = {
-      '--brand-color-accent': brands[mark][0],
-      '--brand-color-dark': brands[mark][1],
-      '--brand-color-light': brands[mark][2],
-      '--brand-color-blue-color': brands[mark][3],
-      '--brand-color-cyan-color': brands[mark][4],
-      '--brand-color-pink-color': brands[mark][5],
-      '--brand-color-light-text': brands[mark][6],
-      '--brand-color-text': brands[mark][7],
+      '--brand-color-accent': brand[0],
+      '--brand-color-dark': brand[1],
+      '--brand-color-light': brand[2],
+      '--brand-color-blue-color': brand[3],
+      '--brand-color-cyan-color': brand[4],
+      '--brand-color-pink-color': brand[5],
+      '--brand-color-light-text': brand[6],
+      '--brand-color-text': brand[7],
     }
   }
   addBase(rules)

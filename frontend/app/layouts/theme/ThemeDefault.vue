@@ -16,10 +16,7 @@ const fallbackPrimaryNavigation: NavigationItemData[] = [
   { label: 'Контакты', data: { type: 'page', href: '/contacts' } },
 ]
 
-const tenant = computed(() => {
-  const app = page.value?.props?.app
-  return app?.tenant ?? 'main'
-})
+const tenant = computed(() => page.value?.props?.app.tenant)
 
 const navigation = computed<NavigationSections>(() => {
   const raw = page.value?.props?.navigation as NavigationSections | undefined
@@ -51,13 +48,17 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
 
 <template>
   <div>
-    <header class="tenet bg-white shadow-sm">
+    <header class="bg-white shadow-sm" :class="tenant">
       <UContainer class="flex flex-wrap items-center gap-6 py-3 md:flex-nowrap">
         <!-- Left: Logo + dealership info -->
         <NuxtLink to="/" class="flex items-center gap-4 no-underline">
-          <UIcon name="i-ag-logo-tenet" class="w-[190px] text-[#3e3a39]" />
+          {{ tenant }}
+          <UIcon :name="`ag-logo:${tenant}`" class="w-[190px] text-[#3e3a39]" />
           <div class="hidden text-[15px] leading-tight text-[#333] sm:block">
-            <div class="font-bold">АвтоГЕРМЕС TENET</div>
+            <div class="font-bold">
+              АвтоГЕРМЕС
+              <span class="uppercase">{{ tenant }}</span>
+            </div>
             <div class="font-normal">официальный дилер</div>
           </div>
         </NuxtLink>

@@ -8,14 +8,17 @@ export default defineAppConfig({
     button: {
       slots: {
         base: 'inline-flex items-center justify-center gap-2 font-medium transition select-none disabled:opacity-50 disabled:cursor-not-allowed rounded-(--btn-radius) hover:cursor-pointer',
+        leadingIcon: '-mx-1',
+        trailingIcon: '-mx-1',
       },
       variants: {
         size: {
-          xs: { base: 'text-(--btn-text-xs) px-(--btn-px-xs) py-(--btn-py-xs)' },
-          sm: { base: 'text-(--btn-text-sm) px-(--btn-px-sm) py-(--btn-py-sm)' },
-          md: { base: 'text-(--btn-text-md) px-(--btn-px-md) py-(--btn-py-md)' },
-          lg: { base: 'text-(--btn-text-lg) px-(--btn-px-lg) py-(--btn-py-lg)' },
-          xl: { base: 'text-(--btn-text-xl) px-(--btn-px-xl) py-(--btn-py-xl)' },
+          md: {
+            base: 'text-(length:--btn-text-md) px-(--btn-px-md) py-(--btn-py-md) gap-3',
+          },
+          lg: {
+            base: 'text-(length:--btn-text-lg) px-(--btn-px-lg) py-(--btn-py-lg) gap-3',
+          },
         },
         color: {
           primary: '',
@@ -33,7 +36,7 @@ export default defineAppConfig({
           color: 'primary',
           variant: 'solid',
           class:
-            'text-brand-light-text bg-brand-accent hover:bg-brand-accent hover:brightness-90 active:bg-brand-accent active:brightness-80 disabled:bg-brand-accent aria-disabled:bg-brand-accent hover:disabled:brightness-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent',
+            'text-brand-light-text bg-brand-accent hover:bg-brand-accent hover:brightness-85 active:bg-brand-accent active:brightness-80 disabled:bg-brand-accent aria-disabled:bg-brand-accent hover:disabled:brightness-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent',
         },
         {
           color: 'secondary',
@@ -45,7 +48,7 @@ export default defineAppConfig({
           color: 'tertiary',
           variant: 'solid',
           class:
-            'text-[#333] bg-[#F0F0F0] hover:bg-[#F0F0F0] hover:brightness-90 active:bg-[#F0F0F0] active:brightness-80 disabled:bg-[#F0F0F0] aria-disabled:bg-[#F0F0F0] hover:disabled:brightness-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0F0F0]',
+            'text-[#333] bg-[#F0F0F0] hover:bg-[#F0F0F0] hover:brightness-95 active:bg-[#F0F0F0] active:brightness-90 disabled:bg-[#F0F0F0] aria-disabled:bg-[#F0F0F0] hover:disabled:brightness-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0F0F0]',
         },
         {
           color: 'primary',
@@ -58,6 +61,22 @@ export default defineAppConfig({
           variant: 'outline',
           class:
             'ring ring-inset ring-brand-dark/50 text-brand-dark hover:bg-brand-dark/5 active:bg-brand-dark/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark',
+        },
+        {
+          color: 'primary',
+          variant: 'link',
+          class:
+            'text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted',
+        },
+        {
+          size: 'md',
+          square: true,
+          class: 'p-(--btn-square-p-md)',
+        },
+        {
+          size: 'lg',
+          square: true,
+          class: 'p-(--btn-square-p-lg)',
         },
       ],
     },

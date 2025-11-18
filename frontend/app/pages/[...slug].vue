@@ -11,21 +11,7 @@ const path = computed(() => {
   return p === '//' ? '/' : p
 })
 
-const { page, loading, error, fetchPage } = usePageData()
-
-await fetchPage(path.value)
-{
-  setPageLayout(page.value?.props?.theme)
-}
-
-onBeforeRouteUpdate(async (to) => {
-  const slug = (to.params.slug as string[] | undefined) || []
-  const newPath = '/' + slug.join('/')
-  await fetchPage(newPath === '//' ? '/' : newPath)
-  {
-    setPageLayout(page.value?.props?.theme)
-  }
-})
+const { page, loading, error } = usePageData()
 
 useHead(() => ({
   title: page.value?.props?.meta?.title || 'Страница',

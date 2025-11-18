@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{ title: string; subtitle?: string; cta?: string }>()
+const props = defineProps<{
+  title: string
+  subtitle?: string
+  cta?: string
+}>()
 </script>
 
 <template>
@@ -7,10 +11,7 @@ const props = defineProps<{ title: string; subtitle?: string; cta?: string }>()
     <h1 class="text-3xl font-bold">{{ props.title }}</h1>
     <p v-if="props.subtitle" class="mt-2 text-gray-600">{{ props.subtitle }}</p>
 
-    <div class="tenet">
-      <UButton v-if="props.cta" color="primary" size="sm" trailing-icon="i-ag-arrow-right">
-        {{ props.cta }}12321
-      </UButton>
+    <div>
       <UButton
         v-if="props.cta"
         color="secondary"
