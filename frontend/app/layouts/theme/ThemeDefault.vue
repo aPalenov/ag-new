@@ -64,7 +64,6 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
 
         <!-- Right: Location + Call button -->
         <div class="ml-auto flex flex-1 items-center justify-end gap-4 sm:gap-6">
-          <div class="bg-brand-accent">123123</div>
           <UButton type="button" size="xs">
             <UIcon name="i-ag-map-marker" class="size-5 text-[#4B6FE8]" />
             <span class="hidden text-left text-sm md:block">
