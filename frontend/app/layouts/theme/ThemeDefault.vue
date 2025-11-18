@@ -52,7 +52,6 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
       <UContainer class="flex flex-wrap items-center gap-6 py-3 md:flex-nowrap">
         <!-- Left: Logo + dealership info -->
         <NuxtLink to="/" class="flex items-center gap-4 no-underline">
-          {{ tenant }}
           <UIcon :name="`ag-logo:${tenant}`" class="w-[190px] text-[#3e3a39]" />
           <div class="hidden text-[15px] leading-tight text-[#333] sm:block">
             <div class="font-bold">
