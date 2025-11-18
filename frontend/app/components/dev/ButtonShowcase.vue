@@ -36,12 +36,13 @@ const brandItems: SelectMenuItem[] = Object.keys(brands).map((brand) => ({
 
 const brandValue = ref<SelectMenuItem>(brandItems[0] as SelectMenuItem)
 
-const label = 'ПОДРОБНЕЕ'
+const label = ref('ПОДРОБНЕЕ')
 </script>
 
 <template>
   <div>
     <USelectMenu v-model="brandValue" :items="brandItems" class="w-48" />
+    <UInput v-model="label" placeholder="Enter your label" label="Label" />
     <section
       class="grid grid-cols-[repeat(auto-fill,minmax(600px,1fr))] gap-5 space-y-10"
       :class="brandValue.label"

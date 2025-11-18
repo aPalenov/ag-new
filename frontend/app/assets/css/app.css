@@ -8,7 +8,7 @@
 
 /* Theme */
 @import './theme/base.css';
-@import './theme/primary.css';
+@import './theme/theme-default.css';
 
 @theme inline {
     --color-brand-accent: var(--brand-color-accent);
