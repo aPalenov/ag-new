@@ -4,7 +4,7 @@ const theme = useCurrentTheme()
 
 <template>
   <UApp>
-    <NuxtLayout :class="`layout-${theme}`">
+    <NuxtLayout :class="`theme-${theme}`">
       <NuxtPage />
     </NuxtLayout>
   </UApp>

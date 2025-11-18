@@ -7,8 +7,16 @@
 @import '@nuxt/ui';
 
 /* Theme */
+@import './theme/base.css';
 @import './theme/primary.css';
 
 @theme inline {
     --color-brand-accent: var(--brand-color-accent);
+    --color-brand-dark: var(--brand-color-dark);
+    --color-brand-light: var(--brand-color-light);
+    --color-brand-blue-color: var(--brand-color-blue-color);
+    --color-brand-cyan-color: var(--brand-color-cyan-color);
+    --color-brand-pink-color: var(--brand-color-pink-color);
+    --color-brand-light-text: var(--brand-color-light-text);
+    --color-brand-text: var(--brand-color-text);
 }
