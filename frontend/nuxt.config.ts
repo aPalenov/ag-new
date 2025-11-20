@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     ],
   },
   ui: {
+    colorMode: false,
     fonts: false,
     colorMode: false,
   },

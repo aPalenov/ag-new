@@ -27,7 +27,7 @@ const brandItems: SelectMenuItem[] = Object.keys(brands).map((brand) => ({
   label: brand,
 }))
 
-const variants = [
+const types = [
   {
     label: 'input',
   },
@@ -40,6 +40,13 @@ const variants = [
   {
     label: 'input + trailing-icon',
     props: {
+      trailingIcon: 'ag:arrow-right',
+    },
+  },
+  {
+    label: 'input + icon + trailing-icon',
+    props: {
+      icon: 'ag:search',
       trailingIcon: 'ag:arrow-right',
     },
   },
@@ -77,15 +84,15 @@ const label = ref('ПОДРОБНЕЕ')
             <span class="text-default text-md font-semibold capitalize">{{ state }}</span>
           </div>
 
-          <template v-for="(variant, index) in variants" :key="index">
-            <div class="text-xs font-medium capitalize">{{ variant.label }}</div>
+          <template v-for="(type, index) in types" :key="index">
+            <div class="text-xs font-medium capitalize">{{ type.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
-              <Input
+              <AppInput
                 :size="size"
                 :disabled="state === 'disabled'"
-                placeholder="АПвыва ыва ываываываыв"
+                placeholder="АПвыва ыва ыва ываываыв"
                 label="Email address"
-                v-bind="variant.props || {}"
+                v-bind="type.props || {}"
               />
             </div>
           </template>

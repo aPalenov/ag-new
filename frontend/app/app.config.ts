@@ -72,32 +72,32 @@ export default defineAppConfig({
         {
           size: 'md',
           leading: true,
-          class: 'pl-(--btn-leading-pl-md)',
+          class: 'pl-(--btn-compound-leading-pl-md)',
         },
         {
           size: 'lg',
           leading: true,
-          class: 'pl-(--btn-leading-pl-lg)',
+          class: 'pl-(--btn-compound-leading-pl-lg)',
         },
         {
           size: 'md',
           trailing: true,
-          class: 'pr-(--btn-trailing-pr-md)',
+          class: 'pr-(--btn-compound-trailing-pr-md)',
         },
         {
           size: 'lg',
           trailing: true,
-          class: 'pr-(--btn-trailing-pr-lg)',
+          class: 'pr-(--btn-compound-trailing-pr-lg)',
         },
         {
           size: 'md',
           square: true,
-          class: 'p-(--btn-square-p-md)',
+          class: 'p-(--btn-compound-square-p-md)',
         },
         {
           size: 'lg',
           square: true,
-          class: 'p-(--btn-square-p-lg)',
+          class: 'p-(--btn-compound-square-p-lg)',
         },
       ],
     },
@@ -112,7 +112,7 @@ export default defineAppConfig({
       variants: {
         size: {
           md: {
-            base: 'px-(--input-px-md) py-(--input-py-md) text-(length:--input-text-md) gap-(--input-gap-md)',
+            base: 'px-(--input-px-md) pt-(--input-pt-md) pb-(--input-pb-md) text-(length:--input-text-md) gap-(--input-gap-md) leading-(--input-line-height)',
             leading: 'ps-(--input-leading-ps-md)',
             trailing: 'pe-(--input-trailing-pe-md)',
             leadingIcon: 'size-5',
@@ -120,7 +120,7 @@ export default defineAppConfig({
             trailingIcon: 'size-5',
           },
           lg: {
-            base: 'px-(--input-px-lg) py-(--input-py-lg) text-(length:--input-text-lg) gap-(--input-gap-lg)',
+            base: 'px-(--input-px-lg) pt-(--input-pt-lg) pb-(--input-pb-lg) text-(length:--input-text-lg) gap-(--input-gap-lg) leading-(--input-line-height)',
             leading: 'ps-(--input-leading-ps-lg)',
             trailing: 'pe-(--input-trailing-pe-lg)',
             leadingIcon: 'size-5',
@@ -142,6 +142,41 @@ export default defineAppConfig({
           color: 'primary',
           variant: 'outline',
           class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary',
+        },
+        {
+          leading: true,
+          size: 'md',
+          class: 'ps-(--input-compound-leading-ps-md)',
+        },
+        {
+          leading: true,
+          size: 'lg',
+          class: 'ps-(--input-compound-leading-ps-lg)',
+        },
+        {
+          trailing: true,
+          size: 'md',
+          class: 'pe-(--input-compound-trailing-pe-md)',
+        },
+        {
+          trailing: true,
+          size: 'lg',
+          class: 'pe-(--input-compound-trailing-pe-lg)',
+        },
+        {
+          loading: true,
+          leading: true,
+          class: {
+            leadingIcon: 'animate-spin',
+          },
+        },
+        {
+          loading: true,
+          leading: false,
+          trailing: true,
+          class: {
+            trailingIcon: 'animate-spin',
+          },
         },
       ],
     },
