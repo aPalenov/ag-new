@@ -47,8 +47,8 @@ const primaryNavigationItems = computed<NavigationItemData[]>(() => {
 </script>
 
 <template>
-  <div>
-    <header class="bg-white shadow-sm" :class="tenant">
+  <div :class="tenant">
+    <header class="bg-white shadow-sm">
       <UContainer class="flex flex-wrap items-center gap-6 py-3 md:flex-nowrap">
         <!-- Left: Logo + dealership info -->
         <NuxtLink to="/" class="flex items-center gap-4 no-underline">
