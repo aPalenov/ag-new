@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import HeroBanner from './blocks/HeroBanner.vue'
+import ModelSlider from './blocks/ModelSlider.vue'
 import FeatureList from './blocks/FeatureList.vue'
 import TextBlock from './blocks/TextBlock.vue'
 import ServiceGrid from './blocks/ServiceGrid.vue'
@@ -17,6 +18,7 @@ const blocks = computed(() => props.blocks || [])
 type CompLike = unknown | string
 const registry: Record<string, CompLike> = {
   HeroBanner,
+  ModelSlider,
   FeatureList,
   TextBlock,
   ServiceGrid,

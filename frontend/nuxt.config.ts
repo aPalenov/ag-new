@@ -49,10 +49,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Server-only runtime config (available on server and not exposed to client)
     // Use the internal Docker network to reach Nginx, which forwards /api to PHP-FPM backend
-    apiBase: process.env?.NUXT_API_BASE || 'http://nginx/api',
+    apiBase: import.meta.env?.NUXT_API_BASE || 'http://nginx/api',
     public: {
       // Client-side base stays relative so the browser hits Nginx at /api
-      apiBase: process.env?.NUXT_PUBLIC_API_BASE || '/api',
+      apiBase: import.meta.env?.NUXT_PUBLIC_API_BASE || '/api',
     },
   },
 })
