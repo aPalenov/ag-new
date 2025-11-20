@@ -8,16 +8,14 @@ export default defineAppConfig({
     button: {
       slots: {
         base: 'inline-flex items-center justify-center gap-2 font-medium transition select-none disabled:opacity-50 disabled:cursor-not-allowed rounded-(--btn-radius) hover:cursor-pointer',
-        leadingIcon: '-mx-1',
-        trailingIcon: '-mx-1',
       },
       variants: {
         size: {
           md: {
-            base: 'text-(length:--btn-text-md) px-(--btn-px-md) py-(--btn-py-md) gap-3',
+            base: 'text-(length:--btn-text-md) px-(--btn-px-md) py-(--btn-py-md) gap-2',
           },
           lg: {
-            base: 'text-(length:--btn-text-lg) px-(--btn-px-lg) py-(--btn-py-lg) gap-3',
+            base: 'text-(length:--btn-text-lg) px-(--btn-px-lg) py-(--btn-py-lg) gap-2',
           },
         },
         color: {
@@ -70,6 +68,26 @@ export default defineAppConfig({
         },
         {
           size: 'md',
+          leading: true,
+          class: 'pl-(--btn-leading-pl-md)',
+        },
+        {
+          size: 'lg',
+          leading: true,
+          class: 'pl-(--btn-leading-pl-lg)',
+        },
+        {
+          size: 'md',
+          trailing: true,
+          class: 'pr-(--btn-trailing-pr-md)',
+        },
+        {
+          size: 'lg',
+          trailing: true,
+          class: 'pr-(--btn-trailing-pr-lg)',
+        },
+        {
+          size: 'md',
           square: true,
           class: 'p-(--btn-square-p-md)',
         },
@@ -77,6 +95,50 @@ export default defineAppConfig({
           size: 'lg',
           square: true,
           class: 'p-(--btn-square-p-lg)',
+        },
+      ],
+    },
+    input: {
+      slots: {
+        root: 'relative inline-flex items-center',
+        base: [
+          'w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
+          'transition-colors',
+        ],
+      },
+      variants: {
+        size: {
+          md: {
+            base: 'px-(--input-px-md) py-(--input-py-md) text-(length:--input-text-md) gap-(--input-gap-md)',
+            leading: 'ps-(--input-leading-ps-md)',
+            trailing: 'pe-(--input-trailing-pe-md)',
+            leadingIcon: 'size-5',
+            leadingAvatarSize: '2xs',
+            trailingIcon: 'size-5',
+          },
+          lg: {
+            base: 'px-(--input-px-lg) py-(--input-py-lg) text-(length:--input-text-lg) gap-(--input-gap-lg)',
+            leading: 'ps-(--input-leading-ps-lg)',
+            trailing: 'pe-(--input-trailing-pe-lg)',
+            leadingIcon: 'size-5',
+            leadingAvatarSize: '2xs',
+            trailingIcon: 'size-5',
+          },
+        },
+        variant: {
+          outline: 'text-highlighted bg-default ring ring-inset ring-accented',
+          none: 'text-highlighted bg-transparent',
+        },
+        color: {
+          primary: '',
+          error: '',
+        },
+      },
+      compoundVariants: [
+        {
+          color: 'primary',
+          variant: 'outline',
+          class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary',
         },
       ],
     },

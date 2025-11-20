@@ -43,6 +43,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  ui: {
+    fonts: false,
+  },
   runtimeConfig: {
     // Server-only runtime config (available on server and not exposed to client)
     // Use the internal Docker network to reach Nginx, which forwards /api to PHP-FPM backend

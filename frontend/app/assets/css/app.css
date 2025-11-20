@@ -6,9 +6,16 @@
 
 @import '@nuxt/ui';
 
+@import './base/fonts.css';
+@import './base/scroll.css';
+
 /* Theme */
 @import './theme/base.css';
 @import './theme/theme-default.css';
+
+@theme {
+    --font-roboto: 'Roboto', sans-serif;
+}
 
 @theme inline {
     --color-brand-accent: var(--brand-color-accent);

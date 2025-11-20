@@ -37,5 +37,6 @@ const props = defineProps<{
     </div>
     <UButton v-if="props.cta" color="primary" class="mt-4">{{ props.cta }}</UButton>
   </section>
-  <ButtonShowcase />
+  <!-- <ButtonShowcase /> -->
+  <FieldShowcase />
 </template>

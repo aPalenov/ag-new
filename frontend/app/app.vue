@@ -4,7 +4,7 @@ const theme = useCurrentTheme()
 
 <template>
   <UApp>
-    <NuxtLayout :class="theme">
+    <NuxtLayout :class="theme" class="font-roboto">
       <NuxtPage />
     </NuxtLayout>
   </UApp>
