@@ -2,6 +2,9 @@
 import { computed } from 'vue'
 import HeroBanner from './blocks/HeroBanner.vue'
 import ModelSlider from './blocks/ModelSlider.vue'
+import OfferSlider from './blocks/OfferSlider.vue'
+import VideoSlider from './blocks/VideoSlider.vue'
+import CarSlider from './blocks/CarSlider.vue'
 import FeatureList from './blocks/FeatureList.vue'
 import TextBlock from './blocks/TextBlock.vue'
 import ServiceGrid from './blocks/ServiceGrid.vue'
@@ -19,6 +22,9 @@ type CompLike = unknown | string
 const registry: Record<string, CompLike> = {
   HeroBanner,
   ModelSlider,
+  OfferSlider,
+  VideoSlider,
+  CarSlider,
   FeatureList,
   TextBlock,
   ServiceGrid,

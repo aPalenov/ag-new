@@ -3,7 +3,10 @@ const props = defineProps<{
   title?: string
   columns?: number
   text: string
-  cta?: string
+  cta?: {
+    label: string
+    url: string
+  }
 }>()
 
 const columnClass = computed(() => {
@@ -23,7 +26,7 @@ const columnClass = computed(() => {
 <template>
   <section class="py-9">
     <!-- Заголовок -->
-    <HeadingSection v-if="props.title" :level="2" bottom-space>{{ props.title }}</HeadingSection>
+    <HeadingSection v-if="props.title" :level="2">{{ props.title }}</HeadingSection>
 
     <!-- Контент -->
     <div class="prose max-w-none gap-6 text-lg leading-6.5" :class="columnClass">
@@ -32,8 +35,8 @@ const columnClass = computed(() => {
 
     <!-- Кнопка -->
     <div v-if="props.cta" class="mt-9 flex justify-center">
-      <UButton to="#" color="secondary" class="" variant="outline">
-        {{ props.cta }}
+      <UButton :to="props.cta.url" color="secondary" class="" variant="outline">
+        {{ props.cta.label }}
       </UButton>
     </div>
   </section>

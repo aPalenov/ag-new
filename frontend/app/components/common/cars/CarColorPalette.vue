@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface ColorItem {
   name: string
-  code: string
+  hex: string
 }
 
 const props = defineProps<{
@@ -14,7 +14,7 @@ const modelValue = defineModel<ColorItem | null>({
 })
 
 const onSelect = (color: ColorItem) => {
-  if (props.readonly || modelValue.value?.code === color.code) {
+  if (props.readonly || modelValue.value?.hex === color.hex) {
     return
   }
   modelValue.value = color
@@ -25,16 +25,16 @@ const onSelect = (color: ColorItem) => {
   <div class="flex items-center justify-center gap-2.5">
     <div
       v-for="item in props.items"
-      :key="item.code"
+      :key="item.hex"
       type="button"
       :title="item.name"
       :aria-label="item.name"
-      :aria-pressed="modelValue?.code === item.code"
+      :aria-pressed="modelValue?.hex === item.hex"
       :disabled="readonly"
-      :style="{ backgroundColor: item.code }"
+      :style="{ backgroundColor: item.hex }"
       class="h-8 w-8 rounded-full border"
       :class="[
-        modelValue?.code === item.code ? 'border-neutral-600' : 'border-neutral-400',
+        modelValue?.hex === item.hex ? 'border-black/50' : 'border-black/25',
         props.readonly ? 'cursor-default' : 'cursor-pointer',
       ]"
       @click="onSelect(item)"

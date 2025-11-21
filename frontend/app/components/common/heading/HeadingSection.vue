@@ -2,22 +2,31 @@
 const props = withDefaults(
   defineProps<{
     level?: number
-    bottomSpace?: boolean
+    spacing?: boolean
   }>(),
   {
     level: 1,
-    bottomSpace: false,
+    spacing: true,
   },
 )
-const component = computed(() => `h${props.level}` as keyof HTMLElementTagNameMap)
+
+const slots = useSlots()
+
+const component = computed(
+  () => (props.level ? `h${props.level}` : 'div') as keyof HTMLElementTagNameMap,
+)
 </script>
 
 <template>
-  <component
-    :is="component"
-    :class="{ 'pb-10': props.bottomSpace }"
-    class="text-[40px] leading-12 font-bold"
+  <div
+    :class="{
+      'pb-10': props.spacing,
+      'flex flex-wrap items-center justify-between gap-6': slots.navigation,
+    }"
   >
-    <slot />
-  </component>
+    <component :is="component" class="text-[40px] leading-12 font-bold">
+      <slot />
+    </component>
+    <slot name="navigation" />
+  </div>
 </template>
