@@ -4,7 +4,10 @@ const props = defineProps<{
   model: string
   subtitle: string
   count: number
-  colors: Array<string>
+  colors: Array<{
+    name: string
+    hex: string
+  }>
   preview: string
   price: number
   benefit: number
@@ -32,7 +35,7 @@ const props = defineProps<{
     <div class="mb-2 text-black/25">{{ props.subtitle }}</div>
 
     <!-- Чип с количеством авто -->
-    <UBadge variant="soft" color="neutral" class="mb-6">
+    <UBadge variant="solid" color="tertiary" class="mb-6">
       {{ props.count }}
       {{ declensionByNumber(props.count, ['автомобиль', 'автомобиля', 'автомобилей']) }} в наличии
     </UBadge>

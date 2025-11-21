@@ -25,7 +25,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-[26px] border border-black/25">
+  <div class="flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
     <!-- Картинка / заглушка -->
     <div class="relative w-full bg-black/5 pt-[66.6%]">
       <img
@@ -58,7 +58,7 @@ const props = defineProps<{
 
       <!--  -->
       <div v-if="props.features?.length" class="mb-4 flex flex-wrap gap-2.5">
-        <UBadge v-for="feature in props.features" :key="feature" color="neutral" variant="soft">
+        <UBadge v-for="feature in props.features" :key="feature" color="tertiary" variant="solid">
           {{ feature }}
         </UBadge>
       </div>

@@ -37,10 +37,7 @@ const columnsClass = computed(() => {
     <div class="grid gap-x-6 gap-y-5" :class="columnsClass">
       <template v-for="(item, i) in props.items" :key="i">
         <!-- С фоном -->
-        <div v-if="item.type === 'feature'" class="rounded-3xl bg-black/5 px-8 pt-5 pb-8">
-          <div class="pb-2 text-[28px] leading-[1.14] font-bold">{{ item.title }}</div>
-          <div class="text-lg leading-[1.44]">{{ item.description }}</div>
-        </div>
+        <FeatureCard v-if="item.type === 'feature'" v-bind="item" />
 
         <!-- Только заголовок -->
         <div

@@ -5,7 +5,9 @@ import ModelSlider from './blocks/ModelSlider.vue'
 import OfferSlider from './blocks/OfferSlider.vue'
 import VideoSlider from './blocks/VideoSlider.vue'
 import CarSlider from './blocks/CarSlider.vue'
+import AsideList from './blocks/AsideList.vue'
 import FeatureList from './blocks/FeatureList.vue'
+import FeatureSlider from './blocks/FeatureSlider.vue'
 import TextBlock from './blocks/TextBlock.vue'
 import ServiceGrid from './blocks/ServiceGrid.vue'
 
@@ -26,6 +28,8 @@ const registry: Record<string, CompLike> = {
   VideoSlider,
   CarSlider,
   FeatureList,
+  FeatureSlider,
+  AsideList,
   TextBlock,
   ServiceGrid,
 }
