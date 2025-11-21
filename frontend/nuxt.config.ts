@@ -45,6 +45,7 @@ export default defineNuxtConfig({
   },
   ui: {
     fonts: false,
+    colorMode: false,
   },
   runtimeConfig: {
     // Server-only runtime config (available on server and not exposed to client)
