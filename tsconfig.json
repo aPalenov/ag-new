@@ -1,29 +1,4 @@
 {
-  "extends": [
-    "@vue/tsconfig/tsconfig.json",
-    "@vue/tsconfig/tsconfig.dom.json"
-  ],
-  "include": [
-    "resources/js/**/*",
-    "resources/js/**/*.vue",
-    "resources/js/**/*.ts",
-    "resources/js/types/**/*.d.ts",
-    "resources/fonts/icons/icons-ag-new.ts",
-    "./tailwind.config.ts",
-    "./vite.config.ts"
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./resources/js/*"],
-      "@fonts/*": ["./resources/fonts/*"],
-    },
-    "types": [
-      "node",
-      "vite/client"
-    ],
-    "allowJs": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true
-  }
+  "files": [],
+  "references": [{ "path": "./frontend" }]
 }

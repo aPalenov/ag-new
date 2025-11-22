@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { tv } from 'tailwind-variants'
 import type { InputProps } from '@nuxt/ui'
+import { useSlots } from 'vue'
 
 type Props = InputProps & {
   label?: string
@@ -12,11 +13,14 @@ const props = withDefaults(defineProps<Props>(), {
   placeholder: '',
 })
 
-// Flags based on provided props to know if we have leading / trailing visuals
+// Access slots to detect if named slots are provided
+const slots = useSlots()
+
+// Flags based on provided props or named slots to know if we have leading / trailing visuals
 const hasLeading = computed(
-  () => !!props.icon || !!props.leadingIcon || props.leading || !!props.avatar,
+  () => !!props.icon || !!props.leadingIcon || !!props.avatar || !!slots.leading,
 )
-const hasTrailing = computed(() => !!props.trailingIcon || props.trailing)
+const hasTrailing = computed(() => !!props.trailingIcon || !!slots.trailing)
 
 // Size-aware token suffix helper (md / lg)
 const sizeSuffix = computed(() => (props.size === 'lg' ? 'lg' : 'md'))
@@ -26,14 +30,22 @@ const ui = computed(() =>
   tv({
     slots: {
       label:
-        'text-(--input-label-color-active) peer-focus:text-(--input-label-color-inactive) peer-placeholder-shown:text-(--input-label-color-active) pointer-events-none absolute top-(--input-label-top-active) left-0 px-(--input-label-padding-x) text-(length:--input-label-text-active) font-(--input-label-font-weight-active) transition-all peer-placeholder-shown:top-(--input-label-top-inactive) peer-placeholder-shown:text-(length:--input-label-text-inactive) peer-placeholder-shown:font-(--input-label-font-weight-inactive) peer-focus:top-(--input-label-top-active) peer-focus:text-(length:--input-label-text-active) peer-focus:font-(--input-label-font-weight-active)',
+        'text-(--input-label-color-active) peer-focus:text-(--input-label-color-inactive) peer-placeholder-shown:text-(--input-label-color-active) pointer-events-none absolute left-0 text-(length:--input-label-text-active) font-(--input-label-font-weight-active) transition-all peer-placeholder-shown:text-(length:--input-label-text-inactive) peer-placeholder-shown:font-(--input-label-font-weight-inactive) peer-focus:text-(length:--input-label-text-active) peer-focus:font-(--input-label-font-weight-active) peer-hover:text-(--input-label-color-hover)',
       placeholder:
-        'pointer-events-none absolute w-full origin-left scale-0 truncate text-nowrap text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
+        'pointer-events-none absolute top-(--input-pt-md) w-full origin-left scale-0 truncate text-nowrap text-(length:--input-text-md) text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
     },
     variants: {
       size: {
-        md: { label: 'px-(--input-px-md)', placeholder: 'px-(--input-px-md)' },
-        lg: { label: 'px-(--input-px-lg)', placeholder: 'px-(--input-px-lg)' },
+        md: {
+          label:
+            'top-(--input-label-top-active-md) px-(--input-label-padding-x-md) peer-placeholder-shown:top-(--input-label-top-inactive-md) peer-focus:top-(--input-label-top-active-md)',
+          placeholder: 'px-(--input-placeholder-px-md)',
+        },
+        lg: {
+          label:
+            'top-(--input-label-top-active-lg) px-(--input-label-padding-x-lg) peer-placeholder-shown:top-(--input-label-top-inactive-lg) peer-focus:top-(--input-label-top-active-lg)',
+          placeholder: 'px-(--input-placeholder-px-lg)',
+        },
       },
       leading: {
         true: { label: '', placeholder: '' },
@@ -83,21 +95,53 @@ const ui = computed(() =>
   }),
 )
 
+const basePadding = computed(() =>
+  tv({
+    variants: {
+      size: {
+        md: {},
+        lg: {},
+      },
+      label: {
+        true: {},
+        false: {},
+      },
+    },
+    compoundVariants: [
+      { size: 'md', label: true, class: 'pt-(--input-pt-md) pb-(--input-pb-md)' },
+      { size: 'md', label: false, class: 'py-(--input-py-md)' },
+      { size: 'lg', label: true, class: 'pt-(--input-pt-lg) pb-(--input-pb-lg)' },
+      { size: 'lg', label: false, class: 'py-(--input-py-lg)' },
+    ],
+    defaultVariants: {
+      size: 'md',
+      label: false,
+    },
+  })({
+    size: sizeSuffix.value as 'md' | 'lg',
+    label: !!props.label,
+  }),
+)
+
 // Build UI prop passed to underlying UInput; keep peer for sibling selectors
 const propsUI = {
   ...props,
-  placeholder: '',
+  placeholder: props.label ? '' : props.placeholder,
   ui: {
     ...(props.ui ?? {}),
-    base: ['peer', props.ui?.base].filter(Boolean).join(' '),
+    base: ['peer', basePadding.value, props.ui?.base].filter(Boolean).join(' '),
   },
 }
 </script>
 
 <template>
   <UInput v-bind="propsUI">
+    <!-- Dynamically forward all named slots except default -->
+    <template v-for="(_, name) in $slots" :key="name" #[name]>
+      <slot v-if="name !== 'default'" :name="name" />
+    </template>
     <label :class="ui.label()">{{ props.label }}</label>
-    <span v-if="props.placeholder" :class="ui.placeholder()">
+    <span v-if="props.label && props.placeholder" :class="ui.placeholder()">
       {{ props.placeholder }}
     </span>
     <slot />

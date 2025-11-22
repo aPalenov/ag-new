@@ -105,14 +105,14 @@ export default defineAppConfig({
       slots: {
         root: 'relative inline-flex items-center',
         base: [
-          'w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
+          'w-full border-0 appearance-none placeholder:text-(--input-placeholder-color) focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
           'transition-colors',
         ],
       },
       variants: {
         size: {
           md: {
-            base: 'px-(--input-px-md) pt-(--input-pt-md) pb-(--input-pb-md) text-(length:--input-text-md) gap-(--input-gap-md) leading-(--input-line-height)',
+            base: 'px-(--input-px-md) text-(length:--input-text-md) gap-(--input-gap-md) leading-(--input-line-height) rounded-(--input-radius-md)',
             leading: 'ps-(--input-leading-ps-md)',
             trailing: 'pe-(--input-trailing-pe-md)',
             leadingIcon: 'size-5',
@@ -120,7 +120,7 @@ export default defineAppConfig({
             trailingIcon: 'size-5',
           },
           lg: {
-            base: 'px-(--input-px-lg) pt-(--input-pt-lg) pb-(--input-pb-lg) text-(length:--input-text-lg) gap-(--input-gap-lg) leading-(--input-line-height)',
+            base: 'px-(--input-px-lg) text-(length:--input-text-lg) gap-(--input-gap-lg) leading-(--input-line-height) rounded-(--input-radius-lg)',
             leading: 'ps-(--input-leading-ps-lg)',
             trailing: 'pe-(--input-trailing-pe-lg)',
             leadingIcon: 'size-5',
@@ -129,8 +129,8 @@ export default defineAppConfig({
           },
         },
         variant: {
-          outline: 'text-highlighted bg-default ring ring-inset ring-accented',
-          none: 'text-highlighted bg-transparent',
+          outline: '',
+          none: 'bg-transparent',
         },
         color: {
           primary: '',
@@ -141,7 +141,8 @@ export default defineAppConfig({
         {
           color: 'primary',
           variant: 'outline',
-          class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary',
+          class:
+            'ring-(--input-ring-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--input-ring-color-hover) hover:ring-(--input-ring-color-hover) transition-shadow duration-200 ease-in-out',
         },
         {
           leading: true,

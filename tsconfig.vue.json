@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue", "resources/js/types/**/*.d.ts"],
-  "compilerOptions": {
-    "types": ["vite/client"]
-  }
-}

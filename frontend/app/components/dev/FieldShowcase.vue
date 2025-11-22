@@ -9,7 +9,7 @@ const inputConfig = appConfig.ui?.input
 const sizes = Object.keys(inputConfig?.variants?.size || {})
 
 // Showcase states (not in config; keep explicit)
-const states = ['default', 'hover', 'focus', 'error', 'disabled']
+const states = ['default', 'error', 'disabled']
 // Derive variants from app config
 const result = inputConfig?.compoundVariants.reduce<Record<string, string[]>>(
   (acc, { variant, color }) => {
@@ -29,25 +29,34 @@ const brandItems: SelectMenuItem[] = Object.keys(brands).map((brand) => ({
 
 const types = [
   {
-    label: 'input',
-  },
-  {
-    label: 'input + icon',
+    label: 'label',
     props: {
-      icon: 'ag:search',
+      label: 'Email address',
     },
   },
   {
-    label: 'input + trailing-icon',
+    label: '',
+  },
+  {
+    label: 'label + icon',
     props: {
-      trailingIcon: 'ag:arrow-right',
+      icon: 'ag:search',
+      label: 'Email address',
     },
   },
   {
-    label: 'input + icon + trailing-icon',
+    label: 'label + trailing-icon',
+    props: {
+      trailingIcon: 'ag:arrow-right',
+      label: 'Email address',
+    },
+  },
+  {
+    label: 'label + icon + trailing-icon',
     props: {
       icon: 'ag:search',
       trailingIcon: 'ag:arrow-right',
+      label: 'Email address',
     },
   },
 ]
@@ -60,10 +69,7 @@ const label = ref('ПОДРОБНЕЕ')
 <template>
   <USelectMenu v-model="brandValue" :items="brandItems" class="w-48" />
   <UInput v-model="label" placeholder="Enter your label" label="Label" />
-  <section
-    class="grid grid-cols-[repeat(auto-fill,minmax(1200px,1fr))] gap-5 space-y-10"
-    :class="brandValue.label"
-  >
+  <section class="grid grid-cols-[repeat(auto-fill,minmax(1200px,1fr))] gap-5 space-y-10">
     <!-- Per-size sections -->
     <div v-for="size in sizes" :key="size" class="h-full rounded-lg border border-dashed p-5">
       <div class="mb-4 text-sm font-semibold">
@@ -72,7 +78,7 @@ const label = ref('ПОДРОБНЕЕ')
       </div>
 
       <!-- Grid header: states -->
-      <div class="grid grid-cols-[220px_repeat(5,minmax(0,1fr))] items-start gap-3">
+      <div class="grid grid-cols-[220px_repeat(3,minmax(0,1fr))] items-start gap-3">
         <template v-for="(colors, variant) in result" :key="variant">
           <div />
           <div
@@ -90,8 +96,7 @@ const label = ref('ПОДРОБНЕЕ')
               <AppInput
                 :size="size"
                 :disabled="state === 'disabled'"
-                placeholder="АПвыва ыва ыва ываываыв"
-                label="Email address"
+                placeholder="Please enter your email address"
                 v-bind="type.props || {}"
               />
             </div>
