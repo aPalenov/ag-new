@@ -15,7 +15,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-[26px] border-1 border-black/25">
+  <div class="flex h-full w-full flex-col overflow-hidden rounded-3xl border-1 border-black/25">
     <!-- Картинка / заглушка -->
     <div class="relative w-full bg-black/80 pt-[66.6%]">
       <img
@@ -24,7 +24,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
         :alt="props.title"
         class="absolute inset-0 h-full w-full object-cover"
       />
-      <UBadge color="neutral" variant="soft" class="absolute top-4 right-6" size="sm">
+      <UBadge variant="solid" color="tertiary" class="absolute top-4 right-6" size="sm">
         Реклама
       </UBadge>
     </div>

@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-[26px_26px_0_0]">
+  <div class="flex h-full w-full flex-col overflow-hidden rounded-t-3xl">
     <!-- Картинка / заглушка -->
     <div class="relative mb-7 bg-black/80 pt-[66.6%]">
       <img

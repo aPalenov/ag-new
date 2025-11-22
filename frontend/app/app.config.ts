@@ -58,6 +58,12 @@ export default defineAppConfig({
             'ring ring-inset ring-brand-accent/50 text-brand-accent hover:bg-brand-accent/5 active:bg-brand-accent/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent',
         },
         {
+          color: 'tertiary',
+          variant: 'outline',
+          class:
+            'ring ring-inset ring-[#F0F0F0]/50 text-[#F0F0F0] hover:bg-[#F0F0F0]/5 active:bg-[#F0F0F0]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F0F0F0]',
+        },
+        {
           color: 'secondary',
           variant: 'outline',
           class:
@@ -218,15 +224,15 @@ export default defineAppConfig({
           class: 'bg-brand-dark text-inverted',
         },
         {
-          color: 'neutral',
-          variant: 'soft',
+          color: 'tertiary',
+          variant: 'solid',
           class: 'bg-neutral-200/70',
         },
       ],
       color: {
         primary: '',
         secondary: '',
-        neutral: '',
+        tertiary: '',
       },
       variant: {
         solid: '',
