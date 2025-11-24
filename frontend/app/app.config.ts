@@ -119,19 +119,23 @@ export default defineAppConfig({
         size: {
           md: {
             base: 'px-(--input-px-md) text-(length:--input-text-md) gap-(--input-gap-md) leading-(--input-line-height) rounded-(--input-radius-md)',
-            leading: 'ps-(--input-leading-ps-md)',
-            trailing: 'pe-(--input-trailing-pe-md)',
-            leadingIcon: 'size-5',
+            leading:
+              'ps-(--input-leading-ps-md) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) transition-colors',
+            trailing:
+              'pe-(--input-trailing-pe-md) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) transition-colors',
+            leadingIcon: 'size-5 text-inherit',
             leadingAvatarSize: '2xs',
-            trailingIcon: 'size-5',
+            trailingIcon: 'size-5 text-inherit',
           },
           lg: {
             base: 'px-(--input-px-lg) text-(length:--input-text-lg) gap-(--input-gap-lg) leading-(--input-line-height) rounded-(--input-radius-lg)',
-            leading: 'ps-(--input-leading-ps-lg)',
-            trailing: 'pe-(--input-trailing-pe-lg)',
-            leadingIcon: 'size-5',
+            leading:
+              'ps-(--input-leading-ps-lg) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) transition-colors',
+            trailing:
+              'pe-(--input-trailing-pe-lg) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) transition-colors',
+            leadingIcon: 'size-5 text-inherit',
             leadingAvatarSize: '2xs',
-            trailingIcon: 'size-5',
+            trailingIcon: 'size-5 text-inherit',
           },
         },
         variant: {
@@ -149,6 +153,12 @@ export default defineAppConfig({
           variant: 'outline',
           class:
             'ring-(--input-ring-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--input-ring-color-hover) hover:ring-(--input-ring-color-hover) transition-shadow duration-200 ease-in-out',
+        },
+        {
+          color: 'error',
+          variant: 'outline',
+          class:
+            'ring-(--input-ring-error-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--input-ring-error-color-hover) hover:ring-(--input-ring-error-color-hover) transition-shadow duration-200 ease-in-out',
         },
         {
           leading: true,

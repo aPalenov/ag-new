@@ -29,11 +29,18 @@
         --btn-compound-square-p-lg: 1rem;
 
         /* Input styles */
+        --input-base-color: #bdbdbd;
+        --input-base-color-hover: #333;
+
         --input-line-height: 1.2;
         --input-radius-md: 10px;
         --input-radius-lg: 10px;
-        --input-ring-color: #bdbdbd;
-        --input-ring-color-hover: #333;
+        --input-ring-color: var(--input-base-color);
+        --input-ring-color-hover: var(--input-base-color-hover);
+        --input-ring-error-color: #c30d23;
+        --input-ring-error-color-hover: var(--input-ring-error-color);
+        --input-leading-icon-color: var(--input-base-color);
+        --input-leading-icon-color-hover: var(--input-base-color-hover);
 
         /* Input Size */
         --input-px-md: 20px;
@@ -43,7 +50,7 @@
         --input-trailing-pe-md: 16px;
         --input-gap-md: 6px;
         --input-text-md: 15px;
-        --input-py-md: 16px;
+        --input-py-md: 14px;
 
         --input-px-lg: 20px;
         --input-pt-lg: 20px;
@@ -59,9 +66,9 @@
         --input-label-text-active: 10px;
         --input-label-font-weight-inactive: 400;
         --input-label-font-weight-active: 500;
-        --input-label-color-hover: #333;
-        --input-label-color-inactive: #333;
-        --input-label-color-active: #8d8d8d;
+        --input-label-color-hover: var(--input-base-color-hover);
+        --input-label-color-inactive: var(--input-base-color-hover);
+        --input-label-color-active: var(--input-base-color);
 
         /* Input label Size */
         --input-label-top-inactive-md: 12px;

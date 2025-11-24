@@ -32,7 +32,7 @@ const ui = computed(() =>
       label:
         'text-(--input-label-color-active) peer-focus:text-(--input-label-color-inactive) peer-placeholder-shown:text-(--input-label-color-active) pointer-events-none absolute left-0 text-(length:--input-label-text-active) font-(--input-label-font-weight-active) transition-all peer-placeholder-shown:text-(length:--input-label-text-inactive) peer-placeholder-shown:font-(--input-label-font-weight-inactive) peer-focus:text-(length:--input-label-text-active) peer-focus:font-(--input-label-font-weight-active) peer-hover:text-(--input-label-color-hover)',
       placeholder:
-        'pointer-events-none absolute top-(--input-pt-md) w-full origin-left scale-0 truncate text-nowrap text-(length:--input-text-md) text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
+        'pointer-events-none absolute top-(--input-pt-md) w-full origin-bottom scale-0 truncate text-nowrap text-(length:--input-text-md) text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
     },
     variants: {
       size: {

@@ -5,20 +5,22 @@ import { brands } from '../../../tailwind.branding'
 const appConfig = useAppConfig()
 const buttonConfig = appConfig.ui?.button
 
-// Derive sizes from app config
-const sizes = Object.keys(buttonConfig?.variants?.size || {})
+// Derive keys from typed app config (augmented in types/app-config.d.ts)
+type SizeKey = keyof typeof buttonConfig.variants.size
+type VariantKey = keyof typeof buttonConfig.variants.variant
+type ColorKey = keyof typeof buttonConfig.variants.color
 
-// Derive variants from app config
-const result = buttonConfig?.compoundVariants.reduce<Record<string, string[]>>(
-  (acc, { variant, color }) => {
-    if (!variant || !color) {
-      return acc
+const sizes = Object.keys(buttonConfig.variants.size) as SizeKey[]
+
+// Build map variant -> colors from compoundVariants entries that have both
+const result = buttonConfig.compoundVariants.reduce<Record<VariantKey, ColorKey[]>>(
+  (acc, cv) => {
+    if ('variant' in cv && 'color' in cv && cv.variant && cv.color) {
+      ;(acc[cv.variant] ??= []).push(cv.color)
     }
-
-    ;(acc[variant] ??= []).push(color)
     return acc
   },
-  {},
+  {} as Record<VariantKey, ColorKey[]>,
 )
 
 // Showcase states (not in config; keep explicit)
@@ -30,8 +32,8 @@ const states = [
 const brandItems: SelectMenuItem[] = Object.keys(brands).map((brand) => ({
   label: brand,
 }))
-
-const brandValue = ref<SelectMenuItem>(brandItems[0] as SelectMenuItem)
+// Allow null and guard in template
+const brandValue = ref<SelectMenuItem | null>(brandItems[0] ?? null)
 
 const label = ref('ПОДРОБНЕЕ')
 </script>
@@ -39,10 +41,7 @@ const label = ref('ПОДРОБНЕЕ')
 <template>
   <USelectMenu v-model="brandValue" :items="brandItems" class="w-48" />
   <UInput v-model="label" placeholder="Enter your label" label="Label" />
-  <section
-    class="grid grid-cols-[repeat(auto-fill,minmax(600px,1fr))] gap-5 space-y-10"
-    :class="brandValue.label"
-  >
+  <section class="grid grid-cols-[repeat(auto-fill,minmax(600px,1fr))] gap-5 space-y-10">
     <!-- Per-size sections -->
     <div v-for="size in sizes" :key="size" class="h-full rounded-lg border border-dashed p-5">
       <div class="mb-4 text-sm font-semibold">
@@ -61,7 +60,7 @@ const label = ref('ПОДРОБНЕЕ')
           </div>
           <div
             v-for="state in states"
-            :key="state"
+            :key="state.key"
             class="self-end text-xs font-medium text-gray-400"
           >
             state:
