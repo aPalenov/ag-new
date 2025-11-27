@@ -18,7 +18,7 @@ const props = defineProps<{
     <div class="max-w-[280px] pb-3 text-[28px] leading-[1.14] font-bold">
       {{ props.title }}
     </div>
-    <div class="text-lg leading-snug">{{ props.description }}</div>
+    <div class="mb-2 text-lg leading-[1.444]">{{ props.description }}</div>
 
     <NuxtLink v-if="props.url" :to="props.url" class="mt-auto ml-auto">
       <UIcon name="ag:arrow-right" size="36" class="-mt-1 -mb-3 text-black/25" />

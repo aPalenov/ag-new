@@ -8,6 +8,7 @@ import CarSlider from './blocks/CarSlider.vue'
 import AsideList from './blocks/AsideList.vue'
 import FeatureList from './blocks/FeatureList.vue'
 import FeatureSlider from './blocks/FeatureSlider.vue'
+import MapBlock from './blocks/MapBlock.vue'
 import TextBlock from './blocks/TextBlock.vue'
 import ServiceGrid from './blocks/ServiceGrid.vue'
 
@@ -30,6 +31,7 @@ const registry: Record<string, CompLike> = {
   FeatureList,
   FeatureSlider,
   AsideList,
+  MapBlock,
   TextBlock,
   ServiceGrid,
 }
