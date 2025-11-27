@@ -8,18 +8,20 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-t-3xl">
+  <div class="group flex h-full w-full flex-col overflow-hidden rounded-t-3xl">
     <!-- Картинка / заглушка -->
-    <div class="relative mb-7 bg-black/80 pt-[66.6%]">
+    <div class="relative mb-7 overflow-hidden bg-black/80 pt-[66.6%]">
       <img
         v-if="props.preview"
         :src="props.preview"
         :alt="props.title"
-        class="absolute inset-0 h-full w-full object-cover"
+        class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
       />
 
       <div class="absolute inset-0 flex items-center justify-center">
-        <UIcon name="ag:play-solid" class="text-2xl text-white/90" />
+        <div class="drop-shadow-lg">
+          <UIcon name="ag:play-solid" class="text-4xl text-white" />
+        </div>
       </div>
     </div>
 
@@ -29,7 +31,7 @@ const props = defineProps<{
     </h3>
 
     <!--  -->
-    <div class="text-[13px] text-black/70">
+    <div v-if="props.publishedAt" class="text-[13px] text-black/70">
       {{ formatDate(props.publishedAt) }}
     </div>
   </div>
