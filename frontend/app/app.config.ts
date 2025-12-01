@@ -78,32 +78,32 @@ export default defineAppConfig({
         {
           size: 'md',
           leading: true,
-          class: 'pl-(--btn-leading-pl-md)',
+          class: 'pl-(--btn-compound-leading-pl-md)',
         },
         {
           size: 'lg',
           leading: true,
-          class: 'pl-(--btn-leading-pl-lg)',
+          class: 'pl-(--btn-compound-leading-pl-lg)',
         },
         {
           size: 'md',
           trailing: true,
-          class: 'pr-(--btn-trailing-pr-md)',
+          class: 'pr-(--btn-compound-trailing-pr-md)',
         },
         {
           size: 'lg',
           trailing: true,
-          class: 'pr-(--btn-trailing-pr-lg)',
+          class: 'pr-(--btn-compound-trailing-pr-lg)',
         },
         {
           size: 'md',
           square: true,
-          class: 'p-(--btn-square-p-md)',
+          class: 'p-(--btn-compound-square-p-md)',
         },
         {
           size: 'lg',
           square: true,
-          class: 'p-(--btn-square-p-lg)',
+          class: 'p-(--btn-compound-square-p-lg)',
         },
       ],
     },
@@ -111,32 +111,36 @@ export default defineAppConfig({
       slots: {
         root: 'relative inline-flex items-center',
         base: [
-          'w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
+          'w-full border-0 appearance-none placeholder:text-(--input-placeholder-color) focus:outline-none disabled:cursor-not-allowed disabled:bg-[#bdbdbd]/10',
           'transition-colors',
         ],
       },
       variants: {
         size: {
           md: {
-            base: 'px-(--input-px-md) py-(--input-py-md) text-(length:--input-text-md) gap-(--input-gap-md)',
-            leading: 'ps-(--input-leading-ps-md)',
-            trailing: 'pe-(--input-trailing-pe-md)',
-            leadingIcon: 'size-5',
+            base: 'px-(--input-px-md) text-(length:--input-text-md) gap-(--input-gap-md) leading-(--input-line-height) rounded-(--input-radius-md)',
+            leading:
+              'ps-(--input-leading-ps-md) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) peer-disabled:text-(--input-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--input-trailing-pe-md) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) peer-disabled:text-(--input-leading-icon-color) transition-colors',
+            leadingIcon: 'size-5 text-inherit',
             leadingAvatarSize: '2xs',
-            trailingIcon: 'size-5',
+            trailingIcon: 'size-5 text-inherit',
           },
           lg: {
-            base: 'px-(--input-px-lg) py-(--input-py-lg) text-(length:--input-text-lg) gap-(--input-gap-lg)',
-            leading: 'ps-(--input-leading-ps-lg)',
-            trailing: 'pe-(--input-trailing-pe-lg)',
-            leadingIcon: 'size-5',
+            base: 'px-(--input-px-lg) text-(length:--input-text-lg) gap-(--input-gap-lg) leading-(--input-line-height) rounded-(--input-radius-lg)',
+            leading:
+              'ps-(--input-leading-ps-lg) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) peer-disabled:text-(--input-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--input-trailing-pe-lg) text-(--input-leading-icon-color) peer-hover:text-(--input-leading-icon-color-hover) peer-focus:text-(--input-leading-icon-color-hover) peer-disabled:text-(--input-leading-icon-color) transition-colors',
+            leadingIcon: 'size-5 text-inherit',
             leadingAvatarSize: '2xs',
-            trailingIcon: 'size-5',
+            trailingIcon: 'size-5 text-inherit',
           },
         },
         variant: {
-          outline: 'text-highlighted bg-default ring ring-inset ring-accented',
-          none: 'text-highlighted bg-transparent',
+          outline: '',
+          none: 'bg-transparent',
         },
         color: {
           primary: '',
@@ -147,9 +151,170 @@ export default defineAppConfig({
         {
           color: 'primary',
           variant: 'outline',
-          class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary',
+          class:
+            'ring-(--input-ring-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--input-ring-color-hover) hover:ring-(--input-ring-color-hover) disabled:ring-(--input-ring-color) transition-shadow duration-200 ease-in-out',
+        },
+        {
+          color: 'error',
+          variant: 'outline',
+          class:
+            'ring-(--input-ring-error-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--input-ring-error-color-hover) hover:ring-(--input-ring-error-color-hover) transition-shadow duration-200 ease-in-out',
+        },
+        {
+          leading: true,
+          size: 'md',
+          class: 'ps-(--input-compound-leading-ps-md)',
+        },
+        {
+          leading: true,
+          size: 'lg',
+          class: 'ps-(--input-compound-leading-ps-lg)',
+        },
+        {
+          trailing: true,
+          size: 'md',
+          class: 'pe-(--input-compound-trailing-pe-md)',
+        },
+        {
+          trailing: true,
+          size: 'lg',
+          class: 'pe-(--input-compound-trailing-pe-lg)',
+        },
+        {
+          loading: true,
+          leading: true,
+          class: {
+            leadingIcon: 'animate-spin',
+          },
+        },
+        {
+          loading: true,
+          leading: false,
+          trailing: true,
+          class: {
+            trailingIcon: 'animate-spin',
+          },
         },
       ],
+    },
+
+    select: {
+      slots: {
+        base: [
+          'relative group rounded-md inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
+          'transition-colors',
+        ],
+        leading: 'absolute inset-y-0 start-0 flex items-center',
+        leadingIcon: 'shrink-0 text-dimmed',
+        leadingAvatar: 'shrink-0',
+        leadingAvatarSize: '',
+        trailing: 'absolute inset-y-0 end-0 flex items-center',
+        trailingIcon: 'shrink-0 text-dimmed',
+        placeholder: 'truncate text-(--select-placeholder-color)',
+      },
+      variants: {
+        fieldGroup: {
+          horizontal:
+            'not-only:first:rounded-e-none not-only:last:rounded-s-none not-last:not-first:rounded-none focus-visible:z-1',
+          vertical:
+            'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none focus-visible:z-1',
+        },
+        size: {
+          md: {
+            base: 'px-(--select-px-md) text-(length:--select-text-md) gap-(--select-gap-md) leading-(--select-line-height) rounded-(--select-radius-md)',
+            leading:
+              'ps-(--select-leading-ps-md) text-(--select-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--select-trailing-pe-md) text-(--select-leading-icon-color) transition-colors',
+            leadingIcon: 'size-5',
+            leadingAvatarSize: '2xs',
+            trailingIcon: 'size-5',
+          },
+          lg: {
+            base: 'px-(--select-px-lg) text-(length:--select-text-lg) gap-(--select-gap-lg) leading-(--select-line-height) rounded-(--select-radius-lg)',
+            leading:
+              'ps-(--select-leading-ps-lg) text-(--select-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--select-trailing-pe-lg) text-(--select-leading-icon-color) transition-colors',
+            leadingIcon: 'size-5',
+            leadingAvatarSize: '2xs',
+            trailingIcon: 'size-5',
+          },
+        },
+        variant: {
+          outline: '',
+        },
+        color: {
+          primary: '',
+          error: '',
+        },
+        leading: {
+          true: '',
+        },
+        trailing: {
+          true: '',
+        },
+        loading: {
+          true: 'ps-(--select-compound-leading-ps-md)',
+        },
+        type: {
+          file: 'file:me-1.5 file:font-medium file:text-muted file:outline-none',
+        },
+      },
+      compoundVariants: [
+        {
+          color: 'primary',
+          variant: 'outline',
+          class:
+            'ring-(--select-ring-color) focus:ring-1 focus:ring-inset focus:ring-(--select-ring-color-hover) hover:ring-(--select-ring-color-hover) disabled:ring-(--select-ring-color) transition-shadow duration-200 ease-in-out',
+        },
+        {
+          color: 'error',
+          variant: 'outline',
+          class:
+            'ring-(--select-ring-error-color) focus:ring-1 focus:ring-inset focus:ring-(--select-ring-error-color-hover) hover:ring-(--select-ring-error-color-hover) transition-shadow duration-200 ease-in-out',
+        },
+        {
+          leading: true,
+          size: 'md',
+          class: 'ps-(--select-compound-leading-ps-md)',
+        },
+        {
+          leading: true,
+          size: 'lg',
+          class: 'ps-(--select-compound-leading-ps-lg)',
+        },
+        {
+          trailing: true,
+          size: 'md',
+          class: 'pe-(--select-compound-trailing-pe-md)',
+        },
+        {
+          trailing: true,
+          size: 'lg',
+          class: 'pe-(--select-compound-trailing-pe-lg)',
+        },
+        {
+          loading: true,
+          leading: true,
+          class: {
+            leadingIcon: 'animate-spin',
+          },
+        },
+        {
+          loading: true,
+          leading: false,
+          trailing: true,
+          class: {
+            trailingIcon: 'animate-spin',
+          },
+        },
+      ],
+      defaultVariants: {
+        size: 'md',
+        color: 'primary',
+        variant: 'outline',
+      },
     },
 
     // Badge component styles

@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt'],
   css: ['~/assets/css/app.css'],
   icon: {
     customCollections: [
@@ -44,8 +44,8 @@ export default defineNuxtConfig({
     ],
   },
   ui: {
-    fonts: false,
     colorMode: false,
+    fonts: false,
   },
   runtimeConfig: {
     // Server-only runtime config (available on server and not exposed to client)

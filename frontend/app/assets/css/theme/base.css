@@ -10,33 +10,145 @@
 
         /* Button styles */
         --btn-radius: 0.5rem;
+
+        /* Button Size */
         --btn-px-md: 1.5rem;
         --btn-py-md: 1rem;
-        --btn-leading-pl-md: 1.25rem;
-        --btn-trailing-pr-md: 1.25rem;
-        --btn-square-p-md: 1rem;
         --btn-text-md: 0.875rem;
         --btn-px-lg: 1.25rem;
         --btn-py-lg: 0.75rem;
-        --btn-leading-pl-lg: 1.25rem;
-        --btn-trailing-pr-lg: 1.25rem;
-        --btn-square-p-lg: 1rem;
         --btn-text-lg: 0.875rem;
 
-        /* Input styles */
-        --input-px-md: 0.625rem;
-        --input-py-md: 0.375rem;
-        --input-leading-ps-md: 0.625rem;
-        --input-trailing-pe-md: 0.625rem;
-        --input-gap-md: 0.375rem;
-        --input-text-md: 0.875rem;
+        /* Button Compound Size */
+        --btn-compound-leading-pl-md: 1.25rem;
+        --btn-compound-trailing-pr-md: 1.25rem;
+        --btn-compound-square-p-md: 1rem;
 
-        --input-px-lg: 0.75rem;
-        --input-py-lg: 0.5rem;
-        --input-leading-ps-lg: 0.75rem;
-        --input-trailing-pe-lg: 0.75rem;
-        --input-gap-lg: 0.5rem;
-        --input-text-lg: 0.875rem;
+        --btn-compound-leading-pl-lg: 1.25rem;
+        --btn-compound-trailing-pr-lg: 1.25rem;
+        --btn-compound-square-p-lg: 1rem;
+
+        /* Input styles */
+        --input-base-color: #bdbdbd;
+        --input-base-color-hover: #333;
+
+        --input-line-height: 1.2;
+        --input-radius-md: 10px;
+        --input-radius-lg: 10px;
+        --input-ring-color: var(--input-base-color);
+        --input-ring-color-hover: var(--input-base-color-hover);
+        --input-ring-error-color: #c30d23;
+        --input-ring-error-color-hover: var(--input-ring-error-color);
+        --input-leading-icon-color: var(--input-base-color);
+        --input-leading-icon-color-hover: var(--input-base-color-hover);
+
+        /* Input Size */
+        --input-px-md: 20px;
+        --input-pt-md: 20px;
+        --input-pb-md: 8px;
+        --input-leading-ps-md: 16px;
+        --input-trailing-pe-md: 16px;
+        --input-gap-md: 6px;
+        --input-text-md: 15px;
+        --input-py-md: 14px;
+
+        --input-px-lg: 20px;
+        --input-pt-lg: 20px;
+        --input-pb-lg: 12px;
+        --input-leading-ps-lg: 16px;
+        --input-trailing-pe-lg: 16px;
+        --input-gap-lg: 6px;
+        --input-text-lg: 15px;
+        --input-py-lg: 16px;
+
+        /* Input label */
+        --input-label-text-inactive: var(--input-text-md);
+        --input-label-text-active: 10px;
+        --input-label-font-weight-inactive: 400;
+        --input-label-font-weight-active: 400;
+        --input-label-color-hover: var(--input-base-color-hover);
+        --input-label-color-inactive: var(--input-base-color-hover);
+        --input-label-color-active: var(--input-base-color);
+
+        /* Input label Size */
+        --input-label-top-inactive-md: 14px;
+        --input-label-top-active-md: 6px;
+        --input-label-padding-x-md: var(--input-px-md);
+
+        --input-label-top-inactive-lg: 14px;
+        --input-label-top-active-lg: 6px;
+        --input-label-padding-x-lg: var(--input-px-lg);
+
+        /* Input placeholder */
+        --input-placeholder-color: #d1d5db;
+
+        /* Input placeholder Size */
+        --input-placeholder-px-md: var(--input-px-md);
+        --input-placeholder-px-lg: var(--input-px-lg);
+
+        /* Input Compound Size */
+        --input-compound-leading-ps-lg: 40px;
+        --input-compound-trailing-pe-lg: 40px;
+
+        --input-compound-leading-ps-md: 40px;
+        --input-compound-trailing-pe-md: 40px;
+
+        /* Select styles (mapped to input) */
+        --select-pt-md: var(--input-pt-md);
+        --select-pb-md: var(--input-pb-md);
+        --select-py-md: var(--input-py-md);
+        --select-pt-lg: var(--input-pt-lg);
+        --select-pb-lg: var(--input-pb-lg);
+        --select-py-lg: var(--input-py-lg);
+
+        --select-text-md: var(--input-text-md);
+        --select-text-lg: var(--input-text-lg);
+
+        --select-label-top-inactive-md: var(--input-label-top-inactive-md);
+        --select-label-top-active-md: var(--input-label-top-active-md);
+        --select-label-top-inactive-lg: var(--input-label-top-inactive-lg);
+        --select-label-top-active-lg: var(--input-label-top-active-lg);
+
+        --select-label-padding-x-md: var(--input-label-padding-x-md);
+        --select-label-padding-x-lg: var(--input-label-padding-x-lg);
+
+        --select-label-text-inactive: var(--input-label-text-inactive);
+        --select-label-text-active: var(--input-label-text-active);
+        --select-label-font-weight-inactive: var(--input-label-font-weight-inactive);
+        --select-label-font-weight-active: var(--input-label-font-weight-active);
+        --select-label-color-hover: var(--input-label-color-hover);
+        --select-label-color-inactive: var(--input-label-color-inactive);
+        --select-label-color-active: var(--input-label-color-active);
+
+        --select-placeholder-color: var(--input-placeholder-color);
+        --select-placeholder-px-md: var(--input-placeholder-px-md);
+        --select-placeholder-px-lg: var(--input-placeholder-px-lg);
+
+        --select-compound-leading-ps-md: var(--input-compound-leading-ps-md);
+        --select-compound-leading-ps-lg: var(--input-compound-leading-ps-lg);
+        --select-compound-trailing-pe-md: var(--input-compound-trailing-pe-md);
+        --select-compound-trailing-pe-lg: var(--input-compound-trailing-pe-lg);
+
+        /* Additional Select Size & Layout (mapped to input) */
+        --select-px-md: var(--input-px-md);
+        --select-px-lg: var(--input-px-lg);
+        --select-gap-md: var(--input-gap-md);
+        --select-gap-lg: var(--input-gap-lg);
+        --select-line-height: var(--input-line-height);
+        --select-radius-md: var(--input-radius-md);
+        --select-radius-lg: var(--input-radius-lg);
+        --select-leading-ps-md: var(--input-leading-ps-md);
+        --select-leading-ps-lg: var(--input-leading-ps-lg);
+        --select-trailing-pe-md: var(--input-trailing-pe-md);
+        --select-trailing-pe-lg: var(--input-trailing-pe-lg);
+
+        /* Select Icon & Ring Colors (mapped) */
+        --select-leading-icon-color: var(--input-leading-icon-color);
+        --select-leading-icon-color-hover: var(--input-leading-icon-color-hover);
+        --select-ring-color: var(--input-ring-color);
+        --select-ring-color-hover: var(--input-ring-color-hover);
+        --select-ring-error-color: var(--input-ring-error-color);
+        --select-ring-error-color-hover: var(--input-ring-error-color-hover);
     }
 
     @media (min-width: theme(--breakpoint-lg)) {
