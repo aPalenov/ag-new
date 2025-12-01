@@ -8,28 +8,30 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-t-3xl">
+  <div class="group flex h-full w-full flex-col overflow-hidden rounded-t-3xl">
     <!-- Картинка / заглушка -->
-    <div class="relative mb-7 bg-black/80 pt-[66.6%]">
-      <img
-        v-if="props.preview"
-        :src="props.preview"
-        :alt="props.title"
-        class="absolute inset-0 h-full w-full object-cover"
-      />
-
+    <PreviewImage
+      class="mb-7 aspect-3/2"
+      :to="props.url"
+      :preview="props.preview"
+      :title="props.title"
+    >
       <div class="absolute inset-0 flex items-center justify-center">
-        <UIcon name="ag:play-solid" class="text-2xl text-white/90" />
+        <div class="drop-shadow-lg">
+          <UIcon name="ag:play-solid" class="text-4xl text-white" />
+        </div>
       </div>
-    </div>
+    </PreviewImage>
 
     <!--  -->
     <h3 class="mb-5 text-xl leading-6 font-bold">
-      {{ props.title }}
+      <NuxtLink :to="props.url" class="hover:text-brand-accent transition-colors">
+        {{ props.title }}
+      </NuxtLink>
     </h3>
 
     <!--  -->
-    <div class="text-[13px] text-black/70">
+    <div v-if="props.publishedAt" class="text-[13px] text-black/70">
       {{ formatDate(props.publishedAt) }}
     </div>
   </div>

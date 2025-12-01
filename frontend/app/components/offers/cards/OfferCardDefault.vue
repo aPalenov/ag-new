@@ -15,19 +15,24 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-3xl border-1 border-black/25">
+  <div class="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
     <!-- Картинка / заглушка -->
-    <div class="relative w-full bg-black/80 pt-[66.6%]">
-      <img
-        v-if="props.preview"
-        :src="props.preview"
-        :alt="props.title"
-        class="absolute inset-0 h-full w-full object-cover"
-      />
-      <UBadge variant="solid" color="tertiary" class="absolute top-4 right-6" size="sm">
+    <PreviewImage
+      class="aspect-3/2"
+      :to="props.cta?.url"
+      :preview="props.preview"
+      :title="props.title"
+    >
+      <UBadge
+        variant="solid"
+        color="tertiary"
+        class="absolute top-4 right-6 cursor-default"
+        size="sm"
+        @click.stop.prevent="() => {}"
+      >
         Реклама
       </UBadge>
-    </div>
+    </PreviewImage>
 
     <!-- Контент -->
     <div class="flex flex-1 flex-col gap-6 px-6 pt-4 pb-9">
@@ -36,14 +41,16 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
           {{ typeLabel }}
         </UBadge>
 
-        <span class="text-[13px] text-black/70">
+        <span v-if="props.publishedAt" class="text-[13px] text-black/70">
           {{ formatDate(props.publishedAt) }}
         </span>
       </div>
 
       <div class="space-y-3">
         <h3 class="text-xl leading-6 font-bold">
-          {{ props.title }}
+          <NuxtLink :to="props.cta?.url" class="hover:text-brand-accent transition-colors">
+            {{ props.title }}
+          </NuxtLink>
         </h3>
         <p class="text-sm leading-snug">
           {{ props.description }}

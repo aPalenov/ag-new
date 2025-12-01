@@ -19,16 +19,22 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center pb-11 text-center">
+  <div class="group flex w-full flex-col items-center pb-11 text-center">
     <!-- Картинка авто -->
-    <div class="aspect-3/2">
-      <img :src="props.preview" :alt="`${props.mark} ${props.model}`" class="h-auto w-full" />
-    </div>
+    <NuxtLink :to="props.cta?.url" class="block aspect-3/2">
+      <img
+        :src="props.preview"
+        :alt="`${props.mark} ${props.model}`"
+        class="h-auto w-full transition duration-500 group-hover:scale-105"
+      />
+    </NuxtLink>
 
     <!-- Заголовок -->
     <HeadingSection class="text-center" :level="3" :spacing="false">
-      {{ props.mark }}
-      <span class="text-brand-accent">{{ props.model }}</span>
+      <NuxtLink :to="props.cta?.url" class="hover:text-brand-accent transition-colors">
+        {{ props.mark }}
+        <span class="text-brand-accent">{{ props.model }}</span>
+      </NuxtLink>
     </HeadingSection>
 
     <!-- Подзаголовок -->

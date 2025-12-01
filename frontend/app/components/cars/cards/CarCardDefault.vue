@@ -25,17 +25,17 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
+  <div class="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
     <!-- Картинка / заглушка -->
-    <div class="relative w-full bg-black/5 pt-[66.6%]">
-      <img
-        v-if="props.preview"
-        :src="props.preview"
-        :alt="`${props.mark} ${props.model}`"
-        class="absolute inset-0 h-full w-full object-cover"
-      />
-    </div>
+    <PreviewImage
+      class="aspect-3/2"
+      bg-class="bg-black/5"
+      :to="props.cta?.url"
+      :preview="props.preview"
+      :title="`${props.mark} ${props.model}`"
+    />
 
+    <!-- Контент -->
     <div class="flex flex-1 flex-col px-6 pt-6 pb-9">
       <h3 class="text-2xl font-bold">
         {{ props.mark }}
@@ -69,7 +69,7 @@ const props = defineProps<{
           <div>Цена от</div>
           <div class="text-lg font-bold">{{ numberFormat(props.price) }} ₽</div>
         </div>
-        <div>
+        <div v-if="props.benefit">
           <div>Выгода до</div>
           <div class="text-brand-accent text-lg font-bold">{{ numberFormat(props.benefit) }} ₽</div>
         </div>

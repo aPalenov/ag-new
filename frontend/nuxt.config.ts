@@ -54,6 +54,8 @@ export default defineNuxtConfig({
     public: {
       // Client-side base stays relative so the browser hits Nginx at /api
       apiBase: import.meta.env?.NUXT_PUBLIC_API_BASE || '/api',
+      ymapsApiKey:
+        import.meta.env?.NUXT_PUBLIC_YMAPS_API_KEY || 'a8b82efc-e7d3-428b-9395-1b4ee45175be',
     },
   },
 })
