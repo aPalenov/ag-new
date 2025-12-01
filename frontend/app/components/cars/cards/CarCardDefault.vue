@@ -36,7 +36,7 @@ const props = defineProps<{
     />
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col px-6 pt-6 pb-9">
+    <div class="flex flex-1 flex-col p-5 pb-7 md:px-6 md:pt-6 md:pb-9">
       <h3 class="text-2xl font-bold">
         {{ props.mark }}
         <span class="text-brand-accent">{{ props.model }}</span>

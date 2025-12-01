@@ -51,7 +51,7 @@ const props = defineProps<{
 
     <!-- Цены -->
     <div
-      class="mb-6 flex w-full max-w-72 justify-between gap-8 text-left text-[15px] lg:max-w-[348px] lg:text-base"
+      class="mb-6 flex w-full max-w-72 justify-between gap-4 text-left text-[15px] lg:max-w-[348px] lg:text-base"
     >
       <div>
         <div>Цена от</div>

@@ -20,7 +20,7 @@ const component = computed(
 <template>
   <div
     :class="{
-      'pb-10': props.spacing,
+      'pb-7 md:pb-10': props.spacing,
       'flex items-center justify-between gap-6': slots.navigation,
     }"
   >

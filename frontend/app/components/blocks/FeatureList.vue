@@ -34,7 +34,7 @@ const columnsClass = computed(() => {
     </HeadingSection>
 
     <!-- Список -->
-    <div class="grid gap-x-6 gap-y-5" :class="columnsClass">
+    <div class="grid gap-2.5 md:gap-x-6 md:gap-y-5" :class="columnsClass">
       <template v-for="(item, i) in props.items" :key="i">
         <!-- С фоном -->
         <FeatureCard v-if="item.type === 'feature'" v-bind="item" />
@@ -42,7 +42,7 @@ const columnsClass = computed(() => {
         <!-- Только заголовок -->
         <div
           v-else-if="item.type === 'heading'"
-          class="self-center text-[32px] leading-[1.18] font-bold"
+          class="mb-4 self-center text-[32px] leading-[1.18] font-bold md:mb-0"
         >
           {{ item.title }}
         </div>

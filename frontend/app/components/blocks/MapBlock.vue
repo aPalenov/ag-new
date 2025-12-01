@@ -15,17 +15,14 @@ const activeIndex = ref<number>(-1)
 <template>
   <section>
     <!-- Правая колонка с фото -->
-    <div class="grid grid-cols-12 overflow-hidden rounded-3xl bg-black/5">
-      <!-- Карта -->
-      <div class="relative bg-black/5 md:col-span-6 xl:col-span-8">
-        <YandexMap v-bind="props" v-model:active-index="activeIndex" class="absolute inset-0" />
-      </div>
-
-      <!-- Левая колонка -->
-      <div class="p-8 pb-12 md:col-span-6 xl:col-span-4">
-        <h2 class="mb-10 text-[40px] font-bold">
+    <div
+      class="-mx-(--ui-container-px) grid overflow-hidden rounded-3xl bg-black/5 sm:mx-0 sm:grid-cols-12"
+    >
+      <!-- Информация -->
+      <div class="p-6 pb-12 sm:col-span-6 md:p-8 xl:col-span-4">
+        <HeadingSection>
           {{ props.title }}
-        </h2>
+        </HeadingSection>
 
         <ul class="mb-14 space-y-3 text-base lg:text-lg">
           <li v-for="(item, index) in props.items" :key="index" class="flex items-center gap-2">
@@ -44,6 +41,13 @@ const activeIndex = ref<number>(-1)
         <div class="mb-2 text-2xl leading-tight font-bold"><AdvPhone /></div>
         <div class="mb-12">Ежедневно с 9:00 до 21:00</div>
         <div><UButton variant="solid" color="primary">Заказать звонок</UButton></div>
+      </div>
+
+      <!-- Карта -->
+      <div
+        class="relative aspect-11/9 bg-black/5 sm:-order-1 sm:col-span-6 sm:aspect-auto xl:col-span-8"
+      >
+        <YandexMap v-bind="props" v-model:active-index="activeIndex" class="absolute inset-0" />
       </div>
     </div>
   </section>

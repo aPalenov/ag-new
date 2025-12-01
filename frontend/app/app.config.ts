@@ -374,8 +374,8 @@ export default defineAppConfig({
       variants: {
         orientation: {
           horizontal: {
-            container: 'flex-row -ms-6 py-px',
-            item: 'ps-6',
+            container: 'flex-row -ms-2 md:-ms-6',
+            item: 'ps-2 md:ps-6',
           },
         },
       },

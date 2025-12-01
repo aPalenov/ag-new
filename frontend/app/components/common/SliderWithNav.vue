@@ -27,7 +27,7 @@ const perViewClass = computed(() => {
     case 3:
       return 'basis-1 lg:basis-1/2 xl:basis-1/3'
     case 4:
-      return 'md:basis-[354px] lg:basis-1/3 xl:basis-1/4'
+      return 'basis-[330px] md:basis-[354px] lg:basis-1/3 xl:basis-1/4'
     case 5:
       return 'md:basis-1/2.5 lg:basis-1/4 xl:basis-1/5'
     case 6:
@@ -49,7 +49,7 @@ const slots = useSlots()
         {{ props.title }}
       </template>
       <template v-if="props.cta" #navigation>
-        <HeadingNavigation :cta="props.cta" @prev="prev" @next="next" />
+        <HeadingNavigation class="hidden md:flex" :cta="props.cta" @prev="prev" @next="next" />
       </template>
     </HeadingSection>
 
@@ -73,5 +73,12 @@ const slots = useSlots()
     >
       <slot name="item" :item="item" />
     </UCarousel>
+
+    <!-- Кнопка призыва к действию -->
+    <div v-if="props.cta" class="mt-8 flex justify-center md:hidden">
+      <UButton :to="props.cta.url" color="tertiary" variant="solid">
+        {{ props.cta.label }}
+      </UButton>
+    </div>
   </div>
 </template>

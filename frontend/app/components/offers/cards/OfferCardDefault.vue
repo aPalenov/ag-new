@@ -35,7 +35,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
     </PreviewImage>
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col gap-6 px-6 pt-4 pb-9">
+    <div class="flex flex-1 flex-col gap-5 px-4 pt-4 pb-7 md:gap-6 md:px-7 md:pb-9">
       <div class="flex items-center justify-between gap-2">
         <UBadge :color="props.type === 'offer' ? 'primary' : 'secondary'">
           {{ typeLabel }}
@@ -47,7 +47,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
       </div>
 
       <div class="space-y-3">
-        <h3 class="text-xl leading-6 font-bold">
+        <h3 class="text-lg leading-[1.2] font-bold md:text-xl">
           <NuxtLink :to="props.cta?.url" class="hover:text-brand-accent transition-colors">
             {{ props.title }}
           </NuxtLink>

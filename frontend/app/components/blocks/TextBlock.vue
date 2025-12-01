@@ -3,6 +3,7 @@ const props = defineProps<{
   title?: string
   columns?: number
   text: string
+  height?: string
   cta?: {
     label: string
     url: string
@@ -29,7 +30,10 @@ const columnClass = computed(() => {
     <HeadingSection v-if="props.title" :level="2">{{ props.title }}</HeadingSection>
 
     <!-- Контент -->
-    <div class="prose max-w-none gap-6 leading-6.5 lg:text-lg" :class="columnClass">
+    <div
+      class="prose line-clamp-11 w-full gap-6 leading-6.5 text-ellipsis lg:text-lg"
+      :class="columnClass"
+    >
       <div v-html="props.text" />
     </div>
 
