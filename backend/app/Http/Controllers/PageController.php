@@ -266,7 +266,7 @@ class PageController extends Controller
                             [
                                 'type' => 'new',
                                 'label' => 'Новые',
-                                'title' => 'Новые автомобили TENET в наличии',
+                                'title' => 'Новые автомобили TENET в наличии',
                                 'cta' => [
                                     'label' => 'Все автомобили',
                                     'url' => '#',
@@ -364,33 +364,6 @@ class PageController extends Controller
                         ],
                     ],
                 ],
-                [
-                    'name' => 'AsideList',
-                    'data' => [
-                        'title' => 'Дополнительные услуги',
-                        'photo' =>
-                            'https://www.avtogermes.ru/images/promo/xl/tenet-t8-s-vygodoj-do-900-000.97a1abcfa43d2b3cc4002e50ea5632d6.jpg',
-                        'items' => [
-                            [
-                                'title' => 'Услуга 1',
-                                'description' => 'оборудование и материалы при обслуживании автомобилей',
-                                'url' => '#',
-                            ],
-                            [
-                                'title' => 'Услуга 2',
-                                'description' =>
-                                    'оборудование и материалы при обслуживании автомобилей, оборудование и материалы при обслуживании автомобилей',
-                                'url' => '#',
-                            ],
-                            [
-                                'title' => 'Услуга 3',
-                                'description' => 'оборудование и материалы при обслуживании автомобилей',
-                                'url' => '#',
-                            ],
-                        ],
-                    ],
-                ],
-
                 [
                     'name' => 'FeatureSlider',
                     'data' => [

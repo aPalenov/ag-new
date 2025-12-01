@@ -12,11 +12,11 @@ const props = defineProps<{
 const columnClass = computed(() => {
   switch (props.columns) {
     case 2:
-      return 'md:columns-2'
+      return 'lg:columns-2'
     case 3:
-      return 'md:columns-3'
+      return 'md:columns-2 lg:columns-3'
     case 4:
-      return 'md:columns-4'
+      return 'sm:columns-2 md:columns-3 lg:columns-4'
     default:
       return ''
   }
@@ -29,7 +29,7 @@ const columnClass = computed(() => {
     <HeadingSection v-if="props.title" :level="2">{{ props.title }}</HeadingSection>
 
     <!-- Контент -->
-    <div class="prose max-w-none gap-6 text-lg leading-6.5" :class="columnClass">
+    <div class="prose max-w-none gap-6 leading-6.5 lg:text-lg" :class="columnClass">
       <div v-html="props.text" />
     </div>
 

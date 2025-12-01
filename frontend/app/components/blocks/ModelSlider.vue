@@ -32,10 +32,10 @@ const props = defineProps<{
       dots
       loop
       wheel-gestures
-      class="-mx-(--ui-container-px)"
+      class="max-xl:-mx-(--ui-container-px)"
       :ui="{
-        viewport: 'px-(--ui-container-px)',
-        item: 'lg:basis-3/6 xl:basis-1/3',
+        viewport: 'max-xl:px-(--ui-container-px)',
+        item: 'md:basis-1/2 xl:basis-1/3',
         dots: 'relative flex inset-0 bottom-0 flex-wrap items-center justify-center gap-3',
         dot: 'relative w-8 h-[3px] rounded bg-black/25 data-[state=active]:bg-black/70 before:absolute before:-inset-1 before:content-[\'\']',
       }"

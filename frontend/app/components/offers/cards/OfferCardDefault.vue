@@ -41,7 +41,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
           {{ typeLabel }}
         </UBadge>
 
-        <span v-if="props.publishedAt" class="text-[13px] text-black/70">
+        <span v-if="props.publishedAt" class="text-right text-[13px] leading-tight text-black/70">
           {{ formatDate(props.publishedAt) }}
         </span>
       </div>
