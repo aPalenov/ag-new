@@ -1,16 +1,59 @@
 <script setup lang="ts">
 import { tv } from 'tailwind-variants'
 import type { InputProps } from '@nuxt/ui'
-import { useSlots } from 'vue'
+import type { HTMLAttributes, InputHTMLAttributes } from 'vue'
 
-type Props = InputProps & {
+defineOptions({ inheritAttrs: false })
+
+const appConfig = useAppConfig()
+const _inputConfig = appConfig.ui?.input
+
+type SizeKey = keyof typeof _inputConfig.variants.size
+type VariantKey = keyof typeof _inputConfig.variants.variant
+type ColorKey = keyof typeof _inputConfig.variants.color
+
+export interface AppInputProps {
+  id?: string
   label?: string
+  name?: string
+  type?: InputHTMLAttributes['type']
   placeholder?: string
+  color?: ColorKey
+  variant?: VariantKey
+  size?: SizeKey
+  required?: boolean
+  autocomplete?: InputHTMLAttributes['autocomplete']
+  autofocus?: boolean
+  autofocusDelay?: number
+  disabled?: boolean
+  highlight?: boolean
+  modelValue?: InputProps['modelValue']
+  defaultValue?: InputProps['defaultValue']
+  icon?: string
+  avatar?: InputProps['avatar']
+  leadingIcon?: string
+  trailingIcon?: string
+  loading?: boolean
+  loadingIcon?: string
+  list?: InputHTMLAttributes['list']
+  max?: InputHTMLAttributes['max']
+  maxlength?: InputHTMLAttributes['maxlength']
+  min?: InputHTMLAttributes['min']
+  pattern?: InputHTMLAttributes['pattern']
+  readonly?: InputHTMLAttributes['readonly']
+  step?: InputHTMLAttributes['step']
+  class?: HTMLAttributes['class']
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  label: '',
-  placeholder: '',
+const props = defineProps<AppInputProps>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string | number | null): void
+}>()
+
+const modelValue = useVModel(props, 'modelValue', emit, {
+  defaultValue: props.defaultValue,
+  passive: true,
 })
 
 // Access slots to detect if named slots are provided
@@ -32,19 +75,21 @@ const ui = computed(() =>
       label:
         'text-(--input-label-color-active) peer-focus:text-(--input-label-color-inactive) peer-placeholder-shown:text-(--input-label-color-active) pointer-events-none absolute left-0 text-(length:--input-label-text-active) font-(--input-label-font-weight-active) transition-all peer-placeholder-shown:text-(length:--input-label-text-inactive) peer-placeholder-shown:font-(--input-label-font-weight-inactive) peer-focus:text-(length:--input-label-text-active) peer-focus:font-(--input-label-font-weight-active) peer-hover:text-(--input-label-color-hover) peer-disabled:text-(--input-label-color-active)',
       placeholder:
-        'pointer-events-none absolute top-(--input-pt-md) w-full origin-bottom scale-0 truncate text-nowrap text-(length:--input-text-md) text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
+        'pointer-events-none absolute left-0 w-full origin-bottom scale-0 truncate text-nowrap text-(--input-placeholder-color) transition-transform select-none peer-focus:peer-placeholder-shown:scale-100',
     },
     variants: {
       size: {
         md: {
           label:
-            'top-(--input-label-top-active-md) px-(--input-label-padding-x-md) peer-placeholder-shown:top-(--input-label-top-inactive-md) peer-focus:top-(--input-label-top-active-md)',
-          placeholder: 'px-(--input-placeholder-px-md)',
+            'top-(--input-label-top-active-md) px-(--input-label-padding-x-md) peer-placeholder-shown:top-(--input-label-top-inactive-md) peer-focus:top-(--input-label-top-active-md) leading-(--input-line-height)',
+          placeholder:
+            'top-(--input-pt-md) px-(--input-placeholder-px-md) text-(length:--input-text-md) leading-(--input-line-height)',
         },
         lg: {
           label:
-            'top-(--input-label-top-active-lg) px-(--input-label-padding-x-lg) peer-placeholder-shown:top-(--input-label-top-inactive-lg) peer-focus:top-(--input-label-top-active-lg)',
-          placeholder: 'px-(--input-placeholder-px-lg)',
+            'top-(--input-label-top-active-lg) px-(--input-label-padding-x-lg) peer-placeholder-shown:top-(--input-label-top-inactive-lg) peer-focus:top-(--input-label-top-active-lg) leading-(--input-line-height)',
+          placeholder:
+            'top-(--input-pt-lg) px-(--input-placeholder-px-lg) text-(length:--input-text-lg) leading-(--input-line-height)',
         },
       },
       leading: {
@@ -128,22 +173,20 @@ const propsUI = {
   ...props,
   placeholder: props.label ? '' : props.placeholder,
   ui: {
-    ...(props.ui ?? {}),
-    base: ['peer', basePadding.value, props.ui?.base].filter(Boolean).join(' '),
+    base: ['peer', basePadding.value].filter(Boolean).join(' '),
   },
 }
 </script>
 
 <template>
-  <UInput v-bind="propsUI">
+  <UInput v-bind="propsUI" v-model="modelValue">
     <!-- Dynamically forward all named slots except default -->
-    <template v-for="(_, name) in $slots" :key="name" #[name]>
-      <slot v-if="name !== 'default'" :name="name" />
+    <template v-for="(_, slotName) of $slots" #[slotName]="scope">
+      <slot :name="slotName" v-bind="scope" />
     </template>
     <label :class="ui.label()">{{ props.label }}</label>
     <span v-if="props.label && props.placeholder" :class="ui.placeholder()">
       {{ props.placeholder }}
     </span>
-    <slot />
   </UInput>
 </template>

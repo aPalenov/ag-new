@@ -210,33 +210,7 @@ export default defineAppConfig({
         leadingAvatarSize: '',
         trailing: 'absolute inset-y-0 end-0 flex items-center',
         trailingIcon: 'shrink-0 text-dimmed',
-        value: 'truncate pointer-events-none',
-        placeholder: 'truncate text-dimmed',
-        arrow: 'fill-default',
-        content:
-          'max-h-60 w-(--reka-select-trigger-width) bg-default shadow-lg rounded-md ring ring-default overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto flex flex-col',
-        viewport: 'relative divide-y divide-default scroll-py-1 overflow-y-auto flex-1',
-        group: 'p-1 isolate',
-        empty: 'text-center text-muted',
-        label: 'font-semibold text-highlighted',
-        separator: '-mx-1 my-1 h-px bg-border',
-        item: [
-          'group relative w-full flex items-start select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-md data-disabled:cursor-not-allowed data-disabled:opacity-75 text-default data-highlighted:not-data-disabled:text-highlighted data-highlighted:not-data-disabled:before:bg-elevated/50',
-          'transition-colors before:transition-colors',
-        ],
-        itemLeadingIcon: [
-          'shrink-0 text-dimmed group-data-highlighted:not-group-data-disabled:text-default',
-          'transition-colors',
-        ],
-        itemLeadingAvatar: 'shrink-0',
-        itemLeadingAvatarSize: '',
-        itemLeadingChip: 'shrink-0',
-        itemLeadingChipSize: '',
-        itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
-        itemTrailingIcon: 'shrink-0',
-        itemWrapper: 'flex-1 flex flex-col min-w-0',
-        itemLabel: 'truncate',
-        itemDescription: 'truncate text-muted',
+        placeholder: 'truncate text-(--select-placeholder-color)',
       },
       variants: {
         fieldGroup: {
@@ -247,54 +221,32 @@ export default defineAppConfig({
         },
         size: {
           md: {
-            base: 'px-2.5 py-1.5 text-sm gap-1.5',
-            leading: 'ps-2.5',
-            trailing: 'pe-2.5',
+            base: 'px-(--select-px-md) text-(length:--select-text-md) gap-(--select-gap-md) leading-(--select-line-height) rounded-(--select-radius-md)',
+            leading:
+              'ps-(--select-leading-ps-md) text-(--select-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--select-trailing-pe-md) text-(--select-leading-icon-color) transition-colors',
             leadingIcon: 'size-5',
             leadingAvatarSize: '2xs',
             trailingIcon: 'size-5',
-            label: 'p-1.5 text-xs gap-1.5',
-            item: 'p-1.5 text-sm gap-1.5',
-            itemLeadingIcon: 'size-5',
-            itemLeadingAvatarSize: '2xs',
-            itemLeadingChip: 'size-5',
-            itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5',
-            empty: 'p-1.5 text-sm',
           },
           lg: {
-            base: 'px-3 py-2 text-sm gap-2',
-            leading: 'ps-3',
-            trailing: 'pe-3',
+            base: 'px-(--select-px-lg) text-(length:--select-text-lg) gap-(--select-gap-lg) leading-(--select-line-height) rounded-(--select-radius-lg)',
+            leading:
+              'ps-(--select-leading-ps-lg) text-(--select-leading-icon-color) transition-colors',
+            trailing:
+              'pe-(--select-trailing-pe-lg) text-(--select-leading-icon-color) transition-colors',
             leadingIcon: 'size-5',
             leadingAvatarSize: '2xs',
             trailingIcon: 'size-5',
-            label: 'p-2 text-xs gap-2',
-            item: 'p-2 text-sm gap-2',
-            itemLeadingIcon: 'size-5',
-            itemLeadingAvatarSize: '2xs',
-            itemLeadingChip: 'size-5',
-            itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5',
-            empty: 'p-2 text-sm',
           },
         },
         variant: {
-          outline: 'text-highlighted bg-default ring ring-inset ring-accented',
-          soft: 'text-highlighted bg-elevated/50 hover:bg-elevated focus:bg-elevated disabled:bg-elevated/50',
-          subtle: 'text-highlighted bg-elevated ring ring-inset ring-accented',
-          ghost:
-            'text-highlighted bg-transparent hover:bg-elevated focus:bg-elevated disabled:bg-transparent dark:disabled:bg-transparent',
-          none: 'text-highlighted bg-transparent',
+          outline: '',
         },
         color: {
           primary: '',
-          secondary: '',
-          success: '',
-          info: '',
-          warning: '',
           error: '',
-          neutral: '',
         },
         leading: {
           true: '',
@@ -303,10 +255,7 @@ export default defineAppConfig({
           true: '',
         },
         loading: {
-          true: '',
-        },
-        highlight: {
-          true: '',
+          true: 'ps-(--select-compound-leading-ps-md)',
         },
         type: {
           file: 'file:me-1.5 file:font-medium file:text-muted file:outline-none',
@@ -315,73 +264,35 @@ export default defineAppConfig({
       compoundVariants: [
         {
           color: 'primary',
-          variant: ['outline', 'subtle'],
-          class: 'focus:ring-2 focus:ring-inset focus:ring-primary',
+          variant: 'outline',
+          class:
+            'ring-(--select-ring-color) focus:ring-1 focus:ring-inset focus:ring-(--select-ring-color-hover) hover:ring-(--select-ring-color-hover) disabled:ring-(--select-ring-color) transition-shadow duration-200 ease-in-out',
         },
         {
-          color: 'primary',
-          highlight: true,
-          class: 'ring ring-inset ring-primary',
-        },
-        {
-          color: 'neutral',
-          variant: ['outline', 'subtle'],
-          class: 'focus:ring-2 focus:ring-inset focus:ring-inverted',
-        },
-        {
-          color: 'neutral',
-          highlight: true,
-          class: 'ring ring-inset ring-inverted',
-        },
-        {
-          leading: true,
-          size: 'xs',
-          class: 'ps-7',
-        },
-        {
-          leading: true,
-          size: 'sm',
-          class: 'ps-8',
+          color: 'error',
+          variant: 'outline',
+          class:
+            'ring-(--select-ring-error-color) focus:ring-1 focus:ring-inset focus:ring-(--select-ring-error-color-hover) hover:ring-(--select-ring-error-color-hover) transition-shadow duration-200 ease-in-out',
         },
         {
           leading: true,
           size: 'md',
-          class: 'ps-9',
+          class: 'ps-(--select-compound-leading-ps-md)',
         },
         {
           leading: true,
           size: 'lg',
-          class: 'ps-10',
-        },
-        {
-          leading: true,
-          size: 'xl',
-          class: 'ps-11',
-        },
-        {
-          trailing: true,
-          size: 'xs',
-          class: 'pe-7',
-        },
-        {
-          trailing: true,
-          size: 'sm',
-          class: 'pe-8',
+          class: 'ps-(--select-compound-leading-ps-lg)',
         },
         {
           trailing: true,
           size: 'md',
-          class: 'pe-9',
+          class: 'pe-(--select-compound-trailing-pe-md)',
         },
         {
           trailing: true,
           size: 'lg',
-          class: 'pe-10',
-        },
-        {
-          trailing: true,
-          size: 'xl',
-          class: 'pe-11',
+          class: 'pe-(--select-compound-trailing-pe-lg)',
         },
         {
           loading: true,

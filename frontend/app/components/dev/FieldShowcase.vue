@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { SelectMenuItem } from '@nuxt/ui'
 import { vMaska } from 'maska/vue'
+import type { AppSelectProps } from '../ui/select/AppSelect.vue'
+import type { AppInputProps } from '../ui/input/AppInput.vue'
 
 const appConfig = useAppConfig()
 const inputConfig = appConfig.ui?.input
@@ -30,8 +31,8 @@ const result = inputConfig?.compoundVariants.reduce<Record<VariantKey, ColorKey[
 
 const inputList: {
   label: string
-  props?: Record<string, unknown>
-  help?: string
+  props?: AppInputProps
+  error?: string
   mask?: string
   btn?: boolean
 }[] = [
@@ -47,21 +48,21 @@ const inputList: {
   {
     label: 'none + label',
     props: {
-      label: 'Email address',
+      label: 'Марка',
       variant: 'none',
     },
   },
   {
     label: 'label',
     props: {
-      label: 'Email address',
+      label: 'Марка',
     },
   },
   {
     label: 'label + icon',
     props: {
       icon: 'ag:search',
-      label: 'Email address',
+      label: 'Марка',
     },
   },
   {
@@ -88,7 +89,7 @@ const inputList: {
   },
   {
     label: 'label + help',
-    help: 'This is some help text',
+    error: 'This is some help text',
     props: {
       icon: 'ag:search',
       label: 'Email address',
@@ -98,63 +99,66 @@ const inputList: {
 
 const selectList: {
   label: string
-  props?: Record<string, unknown>
+  props?: AppSelectProps
+  error?: string
   help?: string
 }[] = [
   {
-    label: 'default',
+    label: 'default + clearable',
     props: {
-      label: 'Make a choice',
+      clearable: true,
       placeholder: 'Please select an option',
     },
   },
   {
-    label: 'none + label',
+    label: 'label + multiselect',
     props: {
       label: 'Make a choice',
-      placeholder: 'Please select an option',
-      variant: 'none',
-    },
-  },
-  {
-    label: 'label',
-    props: {
+      multiple: true,
+      icon: 'ag:search',
       placeholder: 'Please select an option',
     },
   },
   {
     label: 'label + icon',
     props: {
+      label: 'Make a choice',
       icon: 'ag:search',
       placeholder: 'Please select an option',
     },
   },
   {
-    label: 'label + trailing-icon',
+    label: 'label + loading',
     props: {
+      loading: true,
+      label: 'Make a choice',
       trailingIcon: 'ag:info',
       placeholder: 'Please select an option',
     },
   },
   {
-    label: 'label + icon + trailing-icon',
+    label: 'label + icon + trailing-icon + clearable',
     props: {
+      label: 'Email address',
       icon: 'ag:search',
       trailingIcon: 'ag:info',
+      clearable: true,
       placeholder: 'Please select an option',
     },
   },
   {
     label: 'label + help',
     help: 'This is some help text',
+    error: 'This is some help text',
     props: {
+      label: 'Email address',
       icon: 'ag:search',
       placeholder: 'Please select an option',
     },
   },
 ]
 
-const selectItems = ref<SelectMenuItem[]>([
+const selectItems = ref([
   [
     { label: 'Поиск', value: 'poisk', icon: 'ag:search' },
     { label: 'Информация', value: 'informaciya', icon: 'ag:info' },
@@ -201,7 +205,7 @@ const selectItems = ref<SelectMenuItem[]>([
           <template v-for="(input, index) in inputList" :key="index">
             <div class="text-xs font-medium capitalize">{{ input.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
-              <UFormField :help="input.help" class="w-full">
+              <UFormField :error="input.error" class="w-full">
                 <AppInput
                   v-maska="input.mask"
                   class="w-full max-w-60"
@@ -215,7 +219,6 @@ const selectItems = ref<SelectMenuItem[]>([
                     <UButton
                       color="neutral"
                       variant="link"
-                      size="sm"
                       icon="ag:arrow-right"
                       class="p-0 py-3 pl-2"
                     />
@@ -228,8 +231,8 @@ const selectItems = ref<SelectMenuItem[]>([
           <template v-for="(select, index) in selectList" :key="index">
             <div class="text-xs font-medium capitalize">{{ select.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
-              <UFormField :help="select.help" class="w-full">
-                <USelect
+              <UFormField :error="select.error" class="w-full">
+                <AppSelect
                   class="w-full max-w-60"
                   :items="selectItems"
                   :size="size"
