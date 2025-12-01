@@ -50,7 +50,7 @@ const tabs = computed(() => {
 </script>
 
 <template>
-  <section class="py-9">
+  <section>
     <SliderWithNav v-bind="currentProps">
       <template #tabs>
         <UButton

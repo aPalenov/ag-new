@@ -22,7 +22,7 @@ const onSelect = (color: ColorItem) => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center gap-2.5">
+  <div class="flex items-center justify-center gap-2 lg:gap-2.5">
     <div
       v-for="item in props.items"
       :key="item.hex"
@@ -32,7 +32,7 @@ const onSelect = (color: ColorItem) => {
       :aria-pressed="modelValue?.hex === item.hex"
       :disabled="readonly"
       :style="{ backgroundColor: item.hex }"
-      class="h-8 w-8 rounded-full border"
+      class="aspect-square w-7 rounded-full border lg:w-8"
       :class="[
         modelValue?.hex === item.hex ? 'border-black/50' : 'border-black/25',
         props.readonly ? 'cursor-default' : 'cursor-pointer',

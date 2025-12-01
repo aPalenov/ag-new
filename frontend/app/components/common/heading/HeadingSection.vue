@@ -21,10 +21,10 @@ const component = computed(
   <div
     :class="{
       'pb-10': props.spacing,
-      'flex flex-wrap items-center justify-between gap-6': slots.navigation,
+      'flex items-center justify-between gap-6': slots.navigation,
     }"
   >
-    <component :is="component" class="text-[40px] leading-12 font-bold">
+    <component :is="component" class="text-[32px] leading-[1.2] font-bold lg:text-[40px]">
       <slot />
     </component>
     <slot name="navigation" />

@@ -13,15 +13,16 @@ const activeIndex = ref<number>(-1)
 </script>
 
 <template>
-  <section class="py-9">
+  <section>
     <!-- Правая колонка с фото -->
-    <div class="grid grid-cols-6 overflow-hidden rounded-3xl bg-black/5">
+    <div class="grid grid-cols-12 overflow-hidden rounded-3xl bg-black/5">
       <!-- Карта -->
-      <div class="relative col-span-4 bg-black/5">
+      <div class="relative bg-black/5 lg:col-span-6 xl:col-span-8">
         <YandexMap v-bind="props" v-model:active-index="activeIndex" class="absolute inset-0" />
       </div>
+
       <!-- Левая колонка -->
-      <div class="col-span-2 p-8 pb-12">
+      <div class="p-8 pb-12 lg:col-span-6 xl:col-span-4">
         <h2 class="mb-10 text-[40px] font-bold">
           {{ props.title }}
         </h2>

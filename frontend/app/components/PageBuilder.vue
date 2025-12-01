@@ -40,7 +40,7 @@ const resolveComponent = (name: string) => registry[name] || 'div'
 </script>
 
 <template>
-  <div>
+  <div class="space-y-18">
     <component
       :is="resolveComponent(block.name)"
       v-for="(block, i) in blocks"

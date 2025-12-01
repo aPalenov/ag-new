@@ -19,7 +19,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="py-9">
+  <section>
     <!-- Заголовок -->
     <HeadingSection class="pb-3 text-center" :level="2" :spacing="false">
       {{ props.title }}
@@ -32,13 +32,15 @@ const props = defineProps<{
       dots
       loop
       wheel-gestures
+      class="-mx-(--ui-container-px)"
       :ui="{
-        item: 'basis-1/3',
+        viewport: 'px-(--ui-container-px)',
+        item: 'lg:basis-3/6 xl:basis-1/3',
         dots: 'relative flex inset-0 bottom-0 flex-wrap items-center justify-center gap-3',
         dot: 'relative w-8 h-[3px] rounded bg-black/25 data-[state=active]:bg-black/70 before:absolute before:-inset-1 before:content-[\'\']',
       }"
     >
-      <ModelCardDefault v-bind="item" />
+      <ModelCardDefault class="min-w-2xs" v-bind="item" />
     </UCarousel>
   </section>
 </template>

@@ -24,7 +24,7 @@ const columnClass = computed(() => {
 </script>
 
 <template>
-  <section class="py-9">
+  <section>
     <!-- Заголовок -->
     <HeadingSection v-if="props.title" :level="2">{{ props.title }}</HeadingSection>
 

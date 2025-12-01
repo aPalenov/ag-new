@@ -13,7 +13,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex gap-4">
+  <div class="flex shrink-0 gap-4">
     <UButton :to="props.cta.url" color="secondary" variant="outline">
       {{ props.cta.label }}
     </UButton>

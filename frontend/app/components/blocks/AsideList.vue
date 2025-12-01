@@ -13,11 +13,11 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="py-9">
-    <div class="grid grid-cols-6 overflow-hidden rounded-3xl bg-neutral-600">
+  <section>
+    <div class="grid grid-cols-12 overflow-hidden rounded-3xl bg-neutral-600">
       <!-- Левая колонка -->
-      <div class="col-span-2 bg-neutral-700 px-8 pt-9 pb-16 text-white">
-        <h2 class="mb-6 text-[32px] font-bold">
+      <div class="bg-neutral-700 px-8 pt-9 pb-16 text-white lg:col-span-5 xl:col-span-4">
+        <h2 class="mb-6 text-[32px] leading-[1.2] font-bold">
           {{ props.title }}
         </h2>
 
@@ -50,7 +50,7 @@ const props = defineProps<{
       </div>
 
       <!-- Правая колонка с фото -->
-      <div class="relative col-span-4">
+      <div class="relative lg:col-span-7 xl:col-span-8">
         <img
           :src="props.photo"
           :alt="props.title"

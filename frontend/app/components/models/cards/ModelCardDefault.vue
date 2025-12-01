@@ -38,7 +38,7 @@ const props = defineProps<{
     </HeadingSection>
 
     <!-- Подзаголовок -->
-    <div class="mb-2 text-black/25">{{ props.subtitle }}</div>
+    <div class="mb-2 text-[15px] text-black/25 lg:text-base">{{ props.subtitle }}</div>
 
     <!-- Чип с количеством авто -->
     <UBadge variant="solid" color="tertiary" class="mb-6">
@@ -50,14 +50,18 @@ const props = defineProps<{
     <CarColorPalette :items="props.colors" readonly class="mb-5.5" />
 
     <!-- Цены -->
-    <div class="mb-6 flex w-full max-w-[348px] justify-between gap-8 text-left">
+    <div
+      class="mb-6 flex w-full max-w-72 justify-between gap-8 text-left text-[15px] lg:max-w-[348px] lg:text-base"
+    >
       <div>
         <div>Цена от</div>
-        <div class="text-2xl font-bold">{{ numberFormat(props.price) }} ₽</div>
+        <div class="text-[22px] font-bold lg:text-2xl">{{ numberFormat(props.price) }} ₽</div>
       </div>
       <div>
         <div>Выгода до</div>
-        <div class="text-brand-accent text-2xl font-bold">{{ numberFormat(props.benefit) }} ₽</div>
+        <div class="text-brand-accent text-[22px] font-bold lg:text-2xl">
+          {{ numberFormat(props.benefit) }} ₽
+        </div>
       </div>
     </div>
 

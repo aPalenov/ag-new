@@ -15,7 +15,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="py-9">
+  <section>
     <SliderWithNav v-bind="props">
       <template #item="{ item }">
         <VideoCardDefault v-bind="item" />
