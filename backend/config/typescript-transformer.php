@@ -56,7 +56,10 @@ return [
      * The package will write the generated TypeScript to this file.
      */
 
-    'output_file' => resource_path('js/types/generated.ts'),
+    // Output directly into the frontend container's mounted source so Nuxt can import immediately.
+    // Using an absolute path because base_path() points to the Laravel backend root and cannot reach sibling frontend.
+    // Adjust if your container path differs.
+    'output_file' => '/var/www/html/frontend/types/generated.ts',
 
     /*
      * When the package is writing types to the output file, a writer is used to

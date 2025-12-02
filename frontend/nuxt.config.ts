@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt', '@pinia/nuxt'],
   css: ['~/assets/css/app.css'],
   icon: {
     customCollections: [

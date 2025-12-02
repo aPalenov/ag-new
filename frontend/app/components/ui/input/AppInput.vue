@@ -1,59 +1,19 @@
 <script setup lang="ts">
 import { tv } from 'tailwind-variants'
 import type { InputProps } from '@nuxt/ui'
-import type { HTMLAttributes, InputHTMLAttributes } from 'vue'
 
 defineOptions({ inheritAttrs: false })
 
-const appConfig = useAppConfig()
-const _inputConfig = appConfig.ui?.input
-
-type SizeKey = keyof typeof _inputConfig.variants.size
-type VariantKey = keyof typeof _inputConfig.variants.variant
-type ColorKey = keyof typeof _inputConfig.variants.color
-
-export interface AppInputProps {
-  id?: string
+export interface AppInputProps extends InputProps {
   label?: string
-  name?: string
-  type?: InputHTMLAttributes['type']
-  placeholder?: string
-  color?: ColorKey
-  variant?: VariantKey
-  size?: SizeKey
-  required?: boolean
-  autocomplete?: InputHTMLAttributes['autocomplete']
-  autofocus?: boolean
-  autofocusDelay?: number
-  disabled?: boolean
-  highlight?: boolean
-  modelValue?: InputProps['modelValue']
-  defaultValue?: InputProps['defaultValue']
-  icon?: string
-  avatar?: InputProps['avatar']
-  leadingIcon?: string
-  trailingIcon?: string
-  loading?: boolean
-  loadingIcon?: string
-  list?: InputHTMLAttributes['list']
-  max?: InputHTMLAttributes['max']
-  maxlength?: InputHTMLAttributes['maxlength']
-  min?: InputHTMLAttributes['min']
-  pattern?: InputHTMLAttributes['pattern']
-  readonly?: InputHTMLAttributes['readonly']
-  step?: InputHTMLAttributes['step']
-  class?: HTMLAttributes['class']
 }
 
 const props = defineProps<AppInputProps>()
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | null): void
-}>()
+const modelValue = defineModel<InputProps['modelValue']>()
 
-const modelValue = useVModel(props, 'modelValue', emit, {
-  defaultValue: props.defaultValue,
-  passive: true,
+onMounted(() => {
+  modelValue.value = props.defaultValue
 })
 
 // Access slots to detect if named slots are provided

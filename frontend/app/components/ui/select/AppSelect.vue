@@ -1,77 +1,23 @@
 <script setup lang="ts">
 import { tv } from 'tailwind-variants'
-import type { AvatarProps, SelectProps } from '@nuxt/ui'
-import type { HTMLAttributes, InputHTMLAttributes } from 'vue'
+import type { SelectProps } from '@nuxt/ui'
 import { getDisplayValue, isArrayOfArray } from '@nuxt/ui/runtime/utils/index.js'
 
 defineOptions({ inheritAttrs: false })
 
-const appConfig = useAppConfig()
-const _selectConfig = appConfig.ui?.select
-
-type SizeKey = keyof typeof _selectConfig.variants.size
-type VariantKey = keyof typeof _selectConfig.variants.variant
-type ColorKey = keyof typeof _selectConfig.variants.color
-
-export interface AppSelectProps {
-  id?: string
+export interface AppSelectProps extends SelectProps {
   label?: string
   clearable?: boolean
   placeholder?: string
-  color?: ColorKey
-  variant?: VariantKey
-  size?: SizeKey
-  trailingIcon?: string
-  selectedIcon?: string
-  content?: SelectProps['content']
-  arrow?: SelectProps['arrow']
-  portal?: SelectProps['portal']
-  valueKey?: SelectProps['valueKey']
-  labelKey?: SelectProps['labelKey']
-  descriptionKey?: SelectProps['descriptionKey']
-  items?: SelectProps['items']
-  modelValue?: SelectProps['modelValue']
-  defaultValue?: SelectProps['defaultValue']
-  multiple?: boolean
-  highlight?: boolean
-  autofocus?: boolean
-  autofocusDelay?: number
-  disabled?: boolean
-  open?: boolean
-  defaultOpen?: boolean
-  autocomplete?: InputHTMLAttributes['autocomplete']
-  name?: string
-  required?: boolean
-  icon?: string
-  avatar?: AvatarProps
-  leadingIcon?: string
-  loading?: boolean
-  loadingIcon?: string
-  class?: HTMLAttributes['class']
-  ui?: SelectProps['ui']
 }
 
 const props = withDefaults(defineProps<AppSelectProps>(), {
   clearable: false,
   portal: true,
-  defaultOpen: false,
-  valueKey: 'value',
-  labelKey: 'label',
 })
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | null): void
-  (e: 'update:open', value: boolean): void
-}>()
-
-const modelValue = useVModel(props, 'modelValue', emit, {
-  defaultValue: props.defaultValue,
-  passive: true,
-})
-const modelOpen = useVModel(props, 'open', emit, {
-  defaultValue: props.defaultOpen,
-  passive: true,
-})
+const modelValue = defineModel<SelectProps['modelValue']>()
+const modelOpen = defineModel<boolean>('open')
 
 // Access slots to detect if named slots are provided
 const slots = useSlots()

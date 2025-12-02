@@ -12,9 +12,7 @@ const props = withDefaults(
     perView?: number
   }>(),
   {
-    title: undefined,
     titleLevel: 2,
-    cta: undefined,
     align: 'start',
     perView: 4,
   },

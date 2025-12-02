@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Navigation\NavigationData;
+use App\Enums\Link\LinkTypeEnum;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
@@ -106,17 +108,135 @@ class PageController extends Controller
                     'address' => 'Some street 1',
                 ],
             ],
-            'navigation' => [
-                'main' => [
-                    ['label' => 'Главная', 'data' => ['type' => 'page', 'href' => '/'], 'children' => []],
-                    ['label' => 'О нас', 'data' => ['type' => 'page', 'href' => '/about'], 'children' => []],
-                ],
-                'footer' => [
-                    ['label' => 'Политика', 'data' => ['type' => 'page', 'href' => '/policy'], 'children' => []],
-                ],
-            ],
+            'navigation' => $this->buildTestNavigation(),
             'breadcrumbs' => [],
         ];
+    }
+
+    /**
+     * Build test navigation using one raw associative array (auto-mapped by Spatie Data).
+     */
+    private function buildTestNavigation(): array
+    {
+        $navigation = [
+            'main' => [
+                [
+                    'label' => 'Главная',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/'],
+                    'classes' => 'nav-item-home',
+                    'children' => [],
+                ],
+                [
+                    'label' => 'Модельный ряд',
+                    'data' => null,
+                    'children' => collect(['T4', 'T5', 'T6'])
+                        ->map(
+                            fn($m) => [
+                                'label' => 'TENET ' . $m,
+                                'data' => [
+                                    'type' => LinkTypeEnum::INTERNAL_LINK,
+                                    'href' => '/models/' . strtolower($m),
+                                ],
+                                'children' => [],
+                            ],
+                        )
+                        ->toArray(),
+                ],
+                [
+                    'label' => 'Автомобили в наличии',
+                    'data' => null,
+                    'children' => [
+                        [
+                            'label' => 'Новые',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/cars/new'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'С пробегом',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/cars/used'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'Спецпредложения',
+                    'data' => null,
+                    'children' => [
+                        [
+                            'label' => 'Покупка',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/offers/buy'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Сервис',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/offers/service'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'Сервис и ТО',
+                    'data' => null,
+                    'children' => [
+                        [
+                            'label' => 'Запись на ТО',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/service/maintenance'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Кузовной ремонт',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/service/body'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'О компании',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '#'],
+                    'children' => [
+                        [
+                            'label' => 'История',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/about/history'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Новости',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/about/news'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Команда',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/about/team'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'Контакты',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/contacts'],
+                    'children' => [],
+                ],
+            ],
+            'footer' => [
+                [
+                    'label' => 'Политика',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/policy'],
+                    'children' => [],
+                ],
+                [
+                    'label' => 'Конфиденциальность',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/privacy'],
+                    'children' => [],
+                ],
+                [
+                    'label' => 'Правила сайта',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/terms'],
+                    'children' => [],
+                ],
+            ],
+        ];
+
+        return NavigationData::from($navigation)->toArray();
     }
 
     private function pageHome(string $siteName): array

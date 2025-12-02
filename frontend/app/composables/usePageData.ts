@@ -1,10 +1,11 @@
 import { useState } from '#app'
 import { useApiFetch } from '@/composables/useApiFetch'
+import type { NavigationData } from '~~/types/generated'
 
 interface PageProps {
   app: Record<string, unknown>
   meta?: { title?: string; description?: string }
-  navigation?: Record<string, unknown>
+  navigation?: NavigationData
   pageBuilderData?: Array<{ name: string; data: Record<string, unknown> }>
   theme: 'theme-default'
   [key: string]: unknown

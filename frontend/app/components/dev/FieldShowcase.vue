@@ -178,6 +178,8 @@ const selectItems = ref([
     { label: 'Кисть', value: 'kist' },
   ],
 ])
+
+const test = ref('')
 </script>
 
 <template>
@@ -206,7 +208,9 @@ const selectItems = ref([
             <div class="text-xs font-medium capitalize">{{ input.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
               <UFormField :error="input.error" class="w-full">
+                {{ test }}
                 <AppInput
+                  v-model="test"
                   v-maska="input.mask"
                   class="w-full max-w-60"
                   :size="size"
@@ -232,6 +236,7 @@ const selectItems = ref([
             <div class="text-xs font-medium capitalize">{{ select.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
               <UFormField :error="select.error" class="w-full">
+                {{ test }}
                 <AppSelect
                   class="w-full max-w-60"
                   :items="selectItems"
