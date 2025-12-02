@@ -36,7 +36,7 @@ const tenant = computed(() => page.value?.props?.app.tenant)
 
       <div class="border-b-2 border-[#4B6FE8] bg-[#eef2ff]">
         <UContainer class="flex items-center justify-between gap-4 overflow-x-auto py-3">
-          <NavigationMainDefault />
+          <!-- <NavigationMainDefault /> -->
         </UContainer>
       </div>
     </header>

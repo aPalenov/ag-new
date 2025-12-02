@@ -57,10 +57,6 @@ watch(showed, (val) => {
 </script>
 
 <template>
-  <pre
-    >{{ screen }}
-</pre
-  >
   <div v-if="navigation" class="[--nav-height:54px] md:[--nav-height:96px]">
     <div class="pointer-events-none h-(--nav-height) bg-white" />
 

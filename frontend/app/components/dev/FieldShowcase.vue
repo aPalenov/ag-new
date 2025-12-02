@@ -114,7 +114,7 @@ const selectList: {
     label: 'label + multiselect',
     props: {
       label: 'Make a choice',
-      multiple: true,
+      multiple: true as any,
       icon: 'ag:search',
       placeholder: 'Please select an option',
     },
@@ -178,8 +178,6 @@ const selectItems = ref([
     { label: 'Кисть', value: 'kist' },
   ],
 ])
-
-const test = ref('')
 </script>
 
 <template>
@@ -208,9 +206,7 @@ const test = ref('')
             <div class="text-xs font-medium capitalize">{{ input.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
               <UFormField :error="input.error" class="w-full">
-                {{ test }}
                 <AppInput
-                  v-model="test"
                   v-maska="input.mask"
                   class="w-full max-w-60"
                   :size="size"
@@ -236,7 +232,6 @@ const test = ref('')
             <div class="text-xs font-medium capitalize">{{ select.label }}</div>
             <div v-for="state in states" :key="state" class="flex flex-col items-start gap-3">
               <UFormField :error="select.error" class="w-full">
-                {{ test }}
                 <AppSelect
                   class="w-full max-w-60"
                   :items="selectItems"
