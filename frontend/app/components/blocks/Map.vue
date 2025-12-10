@@ -41,7 +41,13 @@ const activeIndex = ref<number>(-1)
       <div
         class="relative aspect-11/9 bg-black/5 sm:-order-1 sm:col-span-6 sm:aspect-auto xl:col-span-8"
       >
-        <YandexMap v-bind="props" v-model:active-index="activeIndex" class="absolute inset-0" />
+        <YandexMap
+          v-model:active-index="activeIndex"
+          :center="props.center"
+          :zoom="props.zoom"
+          :items="props.items"
+          class="absolute inset-0"
+        />
       </div>
     </div>
   </section>

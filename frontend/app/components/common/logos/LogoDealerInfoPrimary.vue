@@ -7,7 +7,7 @@ const props = defineProps<{
 
 const { page } = usePageData()
 
-const tenant = computed(() => page.value?.props?.shared?.app?.tenant)
+const tenant = computed(() => page.value?.app?.tenant)
 </script>
 
 <template>

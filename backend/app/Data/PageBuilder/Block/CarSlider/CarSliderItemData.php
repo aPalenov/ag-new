@@ -26,7 +26,7 @@ class CarSliderItemData extends Data
 
         public ColorData $color,
 
-        /** @var array<int, string> */
+        /** @var array<string> */
         public Optional|array $features,
 
         public int $price,

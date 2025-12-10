@@ -19,8 +19,8 @@ const props = withDefaults(
   <Transition name="fade">
     <slot>
       <ul
-        :id="props.id"
         v-if="props.level === 0 || props.open"
+        :id="props.id"
         class="md:flex"
         :class="{
           'h-full': props.level === 0,

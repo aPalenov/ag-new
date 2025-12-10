@@ -17,7 +17,7 @@ const props = defineProps<NavigationCarSelectionDefaultTemplateData>()
           <span class="mr-1.5 text-[#333]">{{ it.mark }}</span>
           <span class="text-brand-accent">{{ it.model }}</span>
         </div>
-        <div v-if="it.price" class="mb-[2px] font-medium text-[#777]">
+        <div v-if="it.price" class="mb-0.5 font-medium text-[#777]">
           от {{ numberFormat(it.price) }} ₽
         </div>
       </li>

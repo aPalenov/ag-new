@@ -2,6 +2,15 @@
 import type * as YMapsTypes from '@yandex/ymaps3-types'
 import { useIntersectionObserver } from '@vueuse/core'
 
+const props = defineProps<{
+  center: [number, number]
+  zoom: number
+  items: Array<{
+    label: string
+    coordinates: [number, number]
+  }>
+}>()
+
 const iconClassName =
   'iconify i-ag:map-marker text-brand-dark size-14 -translate-x-1/2 -translate-y-[88%] cursor-pointer transition-colors'
 
@@ -16,15 +25,6 @@ const layerCustomization = [
     stylers: [{ saturation: -1, lightness: -0.1 }],
   },
 ] as YMapsTypes.CustomizationConfig
-
-const props = defineProps<{
-  center: [number, number]
-  zoom: number
-  items: Array<{
-    label: string
-    coordinates: [number, number]
-  }>
-}>()
 
 const activeIndex = defineModel('activeIndex', {
   type: Number,

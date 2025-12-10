@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { page } = usePageData()
 
-const navigation = computed(() => page.value?.props?.navigation)
+const navigation = computed(() => page.value?.navigation)
 
 const showed = ref(false)
 const screen = useScreen()

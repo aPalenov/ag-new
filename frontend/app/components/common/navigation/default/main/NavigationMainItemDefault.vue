@@ -56,7 +56,7 @@ onClickOutside(target, () => {
       @click="toggle"
       @keyup.enter="toggle"
     >
-      <span class="flex h-full items-center tracking-wide transition-colors">
+      <span class="flex h-full items-center tracking-wide transition-colors select-none">
         {{ props.item.label }}
       </span>
       <UIcon
@@ -72,13 +72,14 @@ onClickOutside(target, () => {
       :level="props.level + 1"
       :open="opened"
     >
-      <component
-        v-if="templateComponent"
-        :is="templateComponent"
-        v-bind="props.item.template!.props!"
-        class="md:absolute md:z-10 md:bg-[#f5f5f5]"
-        v-show="opened"
-      />
+      <KeepAlive>
+        <component
+          :is="templateComponent"
+          v-if="templateComponent && opened"
+          v-bind="props.item.template!.props!"
+          class="md:absolute md:z-10 md:bg-[#f5f5f5]"
+        />
+      </KeepAlive>
     </NavigationMainWrapperDefault>
   </li>
 </template>

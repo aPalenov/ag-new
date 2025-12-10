@@ -3,9 +3,6 @@
 namespace App\Services\PageBuilder\Block;
 
 use App\Data\PageBuilder\Block\CarSlider\CarSliderData;
-use App\Data\PageBuilder\Block\CarSlider\CarSliderTabData;
-use App\Data\PageBuilder\Block\CarSlider\CarSliderItemData;
-use App\Data\PageBuilder\Block\CarSlider\CarSliderCtaData;
 use Spatie\LaravelData\Data;
 
 class CarSliderBlock
@@ -17,7 +14,7 @@ class CarSliderBlock
                 [
                     'type' => 'new',
                     'label' => 'Новые',
-                    'title' => 'Новые автомобили TENET в\u00a0наличии',
+                    'title' => 'Новые автомобили TENET в наличии',
                     'cta' => ['label' => 'Все автомобили', 'url' => '#'],
                     'items' => collect(range(0, 8))->map(
                         fn($i) => [
