@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  icon?: string
-  title: string
-  description: string
-  url?: string
-}>()
+import type { FeatureSliderItemData } from '@@/types/generated'
+
+const props = defineProps<FeatureSliderItemData>()
 </script>
 
 <template>
@@ -27,7 +24,9 @@ const props = defineProps<{
     </div>
 
     <!-- description -->
-    <div class="text-base leading-[1.444] md:text-lg">{{ props.description }}</div>
+    <div v-if="props.description" class="text-base leading-[1.444] md:text-lg">
+      {{ props.description }}
+    </div>
 
     <NuxtLink
       v-if="props.url"

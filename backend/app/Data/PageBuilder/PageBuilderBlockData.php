@@ -9,9 +9,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class PageBuilderBlockData extends Data
 {
     public function __construct(
-        // prettier-ignore
         public string $name,
 
-        public ?Data $data,
+        public ?array $data,
     ) {}
 }

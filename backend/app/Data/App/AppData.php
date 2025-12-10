@@ -12,5 +12,7 @@ class AppData extends Data
         public string $baseUrl,
 
         public string $serverTime,
+
+        public string $tenant,
     ) {}
 }

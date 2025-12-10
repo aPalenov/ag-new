@@ -1,15 +1,7 @@
 <script setup lang="ts">
-interface AsideItem {
-  title: string
-  description: string
-  url: string
-}
+import type { AsideListData } from '@@/types/generated'
 
-const props = defineProps<{
-  title: string
-  photo: string
-  items: AsideItem[]
-}>()
+const props = defineProps<AsideListData>()
 </script>
 
 <template>
@@ -21,9 +13,7 @@ const props = defineProps<{
       <div
         class="bg-neutral-700 px-8 pt-9 pb-16 text-white sm:col-span-6 lg:col-span-5 xl:col-span-4"
       >
-        <h2 class="mb-6 text-[32px] leading-[1.2] font-bold">
-          {{ props.title }}
-        </h2>
+        <h2 class="mb-6 text-[32px] leading-[1.2] font-bold">{{ props.title }}</h2>
 
         <div class="space-y-8 md:space-y-10">
           <div

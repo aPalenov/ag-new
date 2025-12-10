@@ -1,4 +1,3 @@
-// composables/useCarousel.ts
 import type { EmblaCarouselType } from 'embla-carousel'
 
 type NuxtUiCarouselInstance = {

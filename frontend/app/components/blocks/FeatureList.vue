@@ -1,15 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title?: string
-  columns?: number
-  items: Array<{
-    type: string
-    icon?: string
-    title: string
-    description: string
-    url?: string
-  }>
-}>()
+import type { FeatureListData } from '@@/types/generated'
+
+const props = defineProps<FeatureListData>()
 
 const columnsClass = computed(() => {
   const cols = props.columns || 3
@@ -37,7 +29,11 @@ const columnsClass = computed(() => {
     <div class="grid gap-2.5 md:gap-x-6 md:gap-y-5" :class="columnsClass">
       <template v-for="(item, i) in props.items" :key="i">
         <!-- С фоном -->
-        <FeatureCard v-if="item.type === 'feature'" v-bind="item" />
+        <FeatureCard
+          v-if="item.type === 'feature'"
+          :title="item.title"
+          :description="item.description"
+        />
 
         <!-- Только заголовок -->
         <div

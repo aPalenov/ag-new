@@ -1,27 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  preview?: string
-  type: string
-  mark: string
-  model: string
-  complectation?: string
-  modification?: string
-  color?: {
-    name: string
-    hex: string
-  }
-  features?: Array<string>
-  price: number
-  benefit?: number
-  cta?: {
-    label: string
-    url: string
-  }
-  secondCta?: {
-    label: string
-    url: string
-  }
-}>()
+import type { CarSliderItemData } from '@@/types/generated'
+
+const props = defineProps<CarSliderItemData>()
 </script>
 
 <template>
@@ -57,7 +37,7 @@ const props = defineProps<{
       </div>
 
       <!--  -->
-      <div v-if="props.features?.length" class="mb-4 flex flex-wrap gap-2.5">
+      <div v-if="props.features.length" class="mb-4 flex flex-wrap gap-2.5">
         <UBadge v-for="feature in props.features" :key="feature" color="tertiary" variant="solid">
           {{ feature }}
         </UBadge>

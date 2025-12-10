@@ -11,7 +11,6 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class ErrorPageData extends Data
 {
     public function __construct(
-        // prettier-ignore
         public int $status,
 
         public Optional|MetaData $meta,

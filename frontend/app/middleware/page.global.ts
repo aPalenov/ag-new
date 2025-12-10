@@ -6,5 +6,5 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   await fetchPage(to.path)
 
-  setPageLayout(page.value?.props?.theme)
+  setPageLayout(page.value?.theme ?? 'theme-default')
 })

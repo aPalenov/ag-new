@@ -1,45 +1,13 @@
 <script setup lang="ts">
-const props = defineProps<{
-  tabs: Array<{
-    type: string
-    title: string
-    label: string
-    filter: object
-    cta?: {
-      label: string
-      url: string
-    }
-    items: Array<{
-      preview?: string
-      type: string
-      mark: string
-      model: string
-      complectation?: string
-      modification?: string
-      color?: {
-        name: string
-        hex: string
-      }
-      features?: Array<string>
-      price: number
-      benefit?: number
-      cta?: {
-        label: string
-        url: string
-      }
-      secondCta?: {
-        label: string
-        url: string
-      }
-    }>
-  }>
-}>()
+import type { CarSliderData } from '@@/types/generated'
+
+const props = defineProps<CarSliderData>()
 
 const currentTab = ref(props.tabs[0]?.type)
 
-const currentProps = computed(() => {
-  return props.tabs.find((tab) => tab.type === currentTab.value) || props.tabs[0]
-})
+const currentProps = computed(
+  () => props.tabs.find((tab) => tab.type === currentTab.value) || props.tabs[0],
+)
 
 const tabs = computed(() => {
   return props.tabs.map((tab) => ({
@@ -50,7 +18,7 @@ const tabs = computed(() => {
 </script>
 
 <template>
-  <section>
+  <section v-if="currentProps">
     <SliderWithNav v-bind="currentProps">
       <template #tabs>
         <UButton

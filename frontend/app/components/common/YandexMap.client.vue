@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type * as YMapsTypes from '@yandex/ymaps3-types'
+import { useIntersectionObserver } from '@vueuse/core'
 
 const iconClassName =
   'iconify i-ag:map-marker text-brand-dark size-14 -translate-x-1/2 -translate-y-[88%] cursor-pointer transition-colors'
@@ -35,7 +36,7 @@ const rootEl = ref<HTMLElement | null>(null)
 const mapContainer = ref<HTMLElement | null>(null)
 const isLoaded = ref(false)
 
-let observer: IntersectionObserver | null = null
+let stopObserver: (() => void) | null = null
 let map: YMapsTypes.YMap | null = null
 let markerEntities: YMapsTypes.YMapMarker[] = []
 
@@ -176,12 +177,12 @@ onMounted(async () => {
     return
   }
 
-  observer = new IntersectionObserver(
+  const { stop } = useIntersectionObserver(
+    rootEl,
     (entries) => {
       const entry = entries[0]
       if (entry?.isIntersecting) {
-        observer?.disconnect()
-        observer = null
+        stop()
         initMap()
       }
     },
@@ -192,12 +193,12 @@ onMounted(async () => {
     },
   )
 
-  observer.observe(rootEl.value)
+  stopObserver = stop
 })
 
 onBeforeUnmount(() => {
-  observer?.disconnect()
-  observer = null
+  stopObserver?.()
+  stopObserver = null
 
   if (map && markerEntities.length) {
     for (const entity of markerEntities) {

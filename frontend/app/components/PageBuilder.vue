@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import HeroBanner from './blocks/HeroBanner.vue'
-import ModelSlider from './blocks/ModelSlider.vue'
-import OfferSlider from './blocks/OfferSlider.vue'
-import VideoSlider from './blocks/VideoSlider.vue'
-import CarSlider from './blocks/CarSlider.vue'
-import AsideList from './blocks/AsideList.vue'
-import FeatureList from './blocks/FeatureList.vue'
-import FeatureSlider from './blocks/FeatureSlider.vue'
-import MapBlock from './blocks/MapBlock.vue'
-import TextBlock from './blocks/TextBlock.vue'
-import ServiceGrid from './blocks/ServiceGrid.vue'
+import HeroBanner from '@/components/blocks/HeroBanner.vue'
+import ModelSlider from '@/components/blocks/ModelSlider.vue'
+import OfferSlider from '@/components/blocks/OfferSlider.vue'
+import VideoSlider from '@/components/blocks/VideoSlider.vue'
+import CarSlider from '@/components/blocks/CarSlider.vue'
+import AsideList from '@/components/blocks/AsideList.vue'
+import FeatureList from '@/components/blocks/FeatureList.vue'
+import FeatureSlider from '@/components/blocks/FeatureSlider.vue'
+import Map from '@/components/blocks/Map.vue'
+import Text from '@/components/blocks/Text.vue'
+import ServiceGrid from '@/components/blocks/ServiceGrid.vue'
 
 interface BlockDef {
   name: string
@@ -31,8 +31,8 @@ const registry: Record<string, CompLike> = {
   FeatureList,
   FeatureSlider,
   AsideList,
-  MapBlock,
-  TextBlock,
+  Map,
+  Text,
   ServiceGrid,
 }
 

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title: string
-  subtitle?: string
-  cta?: string
-}>()
+import type { HeroBannerData } from '@@/types/generated'
+
+const props = defineProps<HeroBannerData>()
 </script>
 
 <template>

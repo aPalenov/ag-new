@@ -1,15 +1,5 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    showedValue?: boolean
-  }>(),
-  {
-    showedValue: false,
-  },
-)
-const emit = defineEmits(['update:showedValue'])
-
-const showed = useVModel(props, 'showedValue', emit)
+const showed = defineModel<boolean>({ required: true })
 
 function toggle() {
   showed.value = !showed.value
@@ -17,9 +7,10 @@ function toggle() {
 </script>
 
 <template>
-  <button
-    class="relative mr-2 h-[40px] w-[40px] border-none! p-1 text-gray-700"
+  <UButton
+    class="relative h-10 w-10 border-none! p-1 text-gray-700"
     :aria-expanded="showed"
+    variant="link"
     @click="toggle"
   >
     <span
@@ -37,5 +28,5 @@ function toggle() {
       aria-hidden="true"
       :class="{ '-rotate-45': showed, 'translate-y-2.5': !showed }"
     />
-  </button>
+  </UButton>
 </template>

@@ -1,19 +1,13 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title?: string
-  items: Array<{
-    icon?: string
-    title: string
-    description: string
-    url?: string
-  }>
-}>()
+import type { FeatureSliderData, FeatureSliderItemData } from '@@/types/generated'
+
+const props = defineProps<FeatureSliderData>()
 </script>
 
 <template>
   <section>
-    <SliderWithNav v-bind="props">
-      <template #item="{ item }">
+    <SliderWithNav :items="props.items">
+      <template #item="{ item }: { item: FeatureSliderItemData }">
         <FeatureCard v-bind="item" />
       </template>
     </SliderWithNav>

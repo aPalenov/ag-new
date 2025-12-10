@@ -1,22 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title: string
-  cta?: {
-    label: string
-    url: string
-  }
-  items: Array<{
-    preview?: string
-    type: string
-    title: string
-    description?: string
-    publishedAt?: string
-    cta?: {
-      label: string
-      url: string
-    }
-  }>
-}>()
+import type { OfferSliderData } from '@@/types/generated'
+
+const props = defineProps<OfferSliderData>()
 </script>
 
 <template>

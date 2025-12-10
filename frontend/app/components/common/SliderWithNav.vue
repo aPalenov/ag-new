@@ -1,13 +1,19 @@
 <script setup lang="ts">
+import type { CarSliderItemData, CtaData, FeatureSliderItemData } from '~~/types/generated'
+
+type SliderItem = CarSliderItemData | FeatureSliderItemData
+
+defineSlots<{
+  item(props: { item: SliderItem }): void
+  tabs(): void
+}>()
+
 const props = withDefaults(
   defineProps<{
     title?: string
     titleLevel?: number
-    cta?: {
-      label: string
-      url: string
-    }
-    items: object[]
+    cta?: CtaData
+    items: SliderItem[]
     align?: 'start' | 'center' | 'end'
     perView?: number
   }>(),

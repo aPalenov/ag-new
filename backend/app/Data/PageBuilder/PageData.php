@@ -10,7 +10,6 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class PageData extends Data
 {
     public function __construct(
-        // prettier-ignore
         /** @var PageBuilderBlockData[] */
         public Optional|array $pageBuilderData,
     ) {}
