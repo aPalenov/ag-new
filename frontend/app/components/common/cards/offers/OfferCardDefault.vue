@@ -1,15 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  preview?: string
-  type: string
-  title: string
-  description?: string
-  publishedAt?: string
-  cta?: {
-    label: string
-    url: string
-  }
-}>()
+import type { OfferSliderItemData } from '@@/types/generated'
+
+const props = defineProps<OfferSliderItemData>()
 
 const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'Спецпредложение'))
 </script>

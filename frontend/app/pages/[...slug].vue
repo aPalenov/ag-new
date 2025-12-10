@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PageBuilder from '@/components/PageBuilder.vue'
 import { usePageData } from '@/composables/usePageData'
 
 defineOptions({ name: 'CatchAllPage' })

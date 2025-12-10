@@ -1,19 +1,16 @@
 <script setup lang="ts">
-interface ColorItem {
-  name: string
-  hex: string
-}
+import type { ColorData } from '@@/types/generated'
 
 const props = defineProps<{
-  items: ColorItem[]
+  items: ColorData[]
   readonly?: boolean
 }>()
 
-const modelValue = defineModel<ColorItem | null>({
+const modelValue = defineModel<ColorData | null>({
   default: null,
 })
 
-const onSelect = (color: ColorItem) => {
+const onSelect = (color: ColorData) => {
   if (props.readonly || modelValue.value?.hex === color.hex) {
     return
   }

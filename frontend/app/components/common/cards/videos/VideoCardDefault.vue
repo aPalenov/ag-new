@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  preview?: string
-  title: string
-  publishedAt?: string
-  url: string
-}>()
+import type { VideoSliderItemData } from '@@/types/generated'
+
+const props = defineProps<VideoSliderItemData>()
 </script>
 
 <template>
