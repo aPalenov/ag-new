@@ -17,7 +17,7 @@ class CarSliderBlock
                 [
                     'type' => 'new',
                     'label' => 'Новые',
-                    'title' => 'Новые автомобили TENET в\u00a0наличии',
+                    'title' => 'Новые автомобили TENET в наличии',
                     'cta' => ['label' => 'Все автомобили', 'url' => '#'],
                     'items' => collect(range(0, 8))->map(
                         fn($i) => [

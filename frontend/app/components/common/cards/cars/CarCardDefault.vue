@@ -37,7 +37,7 @@ const props = defineProps<CarSliderItemData>()
       </div>
 
       <!--  -->
-      <div v-if="props.features.length" class="mb-4 flex flex-wrap gap-2.5">
+      <div v-if="props.features?.length" class="mb-4 flex flex-wrap gap-2.5">
         <UBadge v-for="feature in props.features" :key="feature" color="tertiary" variant="solid">
           {{ feature }}
         </UBadge>
