@@ -16,7 +16,7 @@ const props = defineProps<VideoSliderItemData>()
     </PreviewImage>
 
     <!--  -->
-    <h3 class="mt-6 mb-4 text-lg leading-[1.2] font-bold md:mt-7 md:mb-5 md:text-xl">
+    <h3 class="leading-head mt-6 mb-4 text-lg font-bold md:mt-7 md:mb-5 md:text-xl">
       <NuxtLink :to="props.url" class="hover:text-brand-accent transition-colors">
         {{ props.title }}
       </NuxtLink>

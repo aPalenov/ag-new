@@ -32,7 +32,7 @@ const props = defineProps<CarSliderItemData>()
       </div>
 
       <!--  -->
-      <div v-if="props.modification" class="mb-5 text-sm leading-tight">
+      <div v-if="props.modification" class="leading-head mb-5 text-sm">
         {{ props.modification }}
       </div>
 

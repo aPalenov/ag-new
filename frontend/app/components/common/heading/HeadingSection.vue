@@ -24,7 +24,7 @@ const component = computed(
       'flex items-center justify-between gap-6': slots.navigation,
     }"
   >
-    <component :is="component" class="text-[32px] leading-[1.2] font-bold lg:text-[40px]">
+    <component :is="component" class="leading-head text-[32px] font-bold lg:text-[40px]">
       <slot />
     </component>
     <slot name="navigation" />

@@ -32,7 +32,7 @@ const activeIndex = ref<number>(-1)
           </li>
         </ul>
 
-        <div class="mb-2 text-2xl leading-tight font-bold"><AdvPhoneLink /></div>
+        <div class="leading-head mb-2 text-2xl font-bold"><AdvPhoneLink /></div>
         <div class="mb-12">Ежедневно с 9:00 до 21:00</div>
         <div><UButton variant="solid" color="primary">Заказать звонок</UButton></div>
       </div>
