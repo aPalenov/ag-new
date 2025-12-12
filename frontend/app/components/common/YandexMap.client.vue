@@ -22,7 +22,7 @@ const layerCustomization = [
   {
     tags: { any: ['road'] },
     elements: 'geometry',
-    stylers: [{ saturation: -1, lightness: -0.1 }],
+    stylers: [{ saturation: -1 }],
   },
 ] as YMapsTypes.CustomizationConfig
 
@@ -229,7 +229,7 @@ onBeforeUnmount(() => {
     <div ref="mapContainer" class="h-full w-full" />
     <div
       v-if="!isLoaded"
-      class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs"
+      class="text-ui-xs pointer-events-none absolute inset-0 flex items-center justify-center"
     >
       Загрузка карты…
     </div>

@@ -149,6 +149,11 @@
         --select-ring-color-hover: var(--input-ring-color-hover);
         --select-ring-error-color: var(--input-ring-error-color);
         --select-ring-error-color-hover: var(--input-ring-error-color-hover);
+
+        /* Card sizes */
+        --card-radius: 26px;
+        --card-content-px: 25px;
+        --card-content-py: 20px 36px;
     }
 
     @media (min-width: theme(--breakpoint-lg)) {

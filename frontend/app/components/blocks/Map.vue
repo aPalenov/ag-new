@@ -10,7 +10,7 @@ const activeIndex = ref<number>(-1)
   <section>
     <!-- Правая колонка с фото -->
     <div
-      class="-mx-(--ui-container-px) grid overflow-hidden rounded-3xl bg-black/5 sm:mx-0 sm:grid-cols-12"
+      class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-black/5 sm:mx-0 sm:grid-cols-12"
     >
       <!-- Информация -->
       <div class="p-6 pb-12 sm:col-span-6 md:p-8 xl:col-span-4">

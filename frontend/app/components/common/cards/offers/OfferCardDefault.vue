@@ -7,7 +7,9 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <div class="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
+  <div
+    class="group flex h-full w-full flex-col overflow-hidden rounded-(--card-radius) border border-black/25"
+  >
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -27,7 +29,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
     </PreviewImage>
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col gap-5 px-4 pt-4 pb-7 md:gap-6 md:px-7 md:pb-9">
+    <div class="flex flex-1 flex-col gap-5 px-(--card-content-px) py-(--card-content-py) md:gap-6">
       <div class="flex items-center justify-between gap-2">
         <UBadge :color="props.type === 'offer' ? 'primary' : 'secondary'">
           {{ typeLabel }}

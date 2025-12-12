@@ -7,7 +7,7 @@ const props = defineProps<AsideListData>()
 <template>
   <section>
     <div
-      class="-mx-(--ui-container-px) grid overflow-hidden rounded-3xl bg-neutral-600 sm:mx-0 sm:grid-cols-12"
+      class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-neutral-600 sm:mx-0 sm:grid-cols-12"
     >
       <!-- Левая колонка -->
       <div
