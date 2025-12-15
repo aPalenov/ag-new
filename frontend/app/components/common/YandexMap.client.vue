@@ -14,15 +14,21 @@ const props = defineProps<{
 const iconClassName =
   'iconify i-ag:map-marker text-brand-dark size-14 -translate-x-1/2 -translate-y-[88%] cursor-pointer transition-colors'
 
+// Страница кастомизации слоев карты
+// https://yandex.ru/maps-api/docs/js-api/map/customization.html
 const layerCustomization = [
   {
-    tags: { any: ['water', 'landscape'] },
+    tags: { any: ['water'] },
     stylers: [{ saturation: -0.3 }],
   },
   {
     tags: { any: ['road'] },
     elements: 'geometry',
-    stylers: [{ saturation: -1 }],
+    stylers: [{ saturation: -1, lightness: -0.2 }],
+  },
+  {
+    tags: { any: ['landscape'] },
+    stylers: [{ saturation: -0.7 }],
   },
 ] as YMapsTypes.CustomizationConfig
 

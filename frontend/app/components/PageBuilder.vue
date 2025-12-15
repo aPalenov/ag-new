@@ -11,6 +11,7 @@ import FeatureSlider from '@/components/blocks/FeatureSlider.vue'
 import Map from '@/components/blocks/Map.vue'
 import Text from '@/components/blocks/Text.vue'
 import ServiceGrid from '@/components/blocks/ServiceGrid.vue'
+import ModelList from '@/components/blocks/ModelList.vue'
 
 interface BlockDef {
   name: string
@@ -34,6 +35,7 @@ const registry: Record<string, CompLike> = {
   Map,
   Text,
   ServiceGrid,
+  ModelList,
 }
 
 const resolveComponent = (name: string) => registry[name] || 'div'
