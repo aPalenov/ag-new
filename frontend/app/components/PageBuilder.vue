@@ -11,13 +11,9 @@ import FeatureSlider from '@/components/blocks/FeatureSlider.vue'
 import Map from '@/components/blocks/Map.vue'
 import Text from '@/components/blocks/Text.vue'
 import ServiceGrid from '@/components/blocks/ServiceGrid.vue'
+import type { PageBuilderBlockData } from '@@/types/generated'
 
-interface BlockDef {
-  name: string
-  data: Record<string, unknown>
-}
-
-const props = defineProps<{ blocks: BlockDef[] | undefined }>()
+const props = defineProps<{ blocks: PageBuilderBlockData[] | undefined }>()
 
 const blocks = computed(() => props.blocks || [])
 

@@ -1,7 +1,17 @@
 <script setup lang="ts">
-import type { CarSliderItemData, CtaData, FeatureSliderItemData } from '~~/types/generated'
+import type {
+  CarSliderItemData,
+  CtaData,
+  FeatureSliderItemData,
+  OfferSliderItemData,
+  VideoSliderItemData,
+} from '@@/types/generated'
 
-type SliderItem = CarSliderItemData | FeatureSliderItemData
+type SliderItem =
+  | CarSliderItemData
+  | FeatureSliderItemData
+  | OfferSliderItemData
+  | VideoSliderItemData
 
 defineSlots<{
   item(props: { item: SliderItem }): void

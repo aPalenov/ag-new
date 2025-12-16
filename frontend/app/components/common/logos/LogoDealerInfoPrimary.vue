@@ -12,10 +12,7 @@ const tenant = computed(() => page.value?.app?.tenant)
 
 <template>
   <NuxtLink to="/" :class="props.linkClass ?? 'flex items-center gap-4 no-underline'">
-    <UIcon
-      :name="`ag-logo:${tenant}`"
-      :class="props.iconClass ?? 'w-[100px] text-[#3e3a39] md:w-[190px]'"
-    />
+    <UIcon :name="`ag-logo:${tenant}`" :class="props.iconClass ?? 'h-[18px] text-[#3e3a39]'" />
     <div :class="props.textClass ?? 'text-xs leading-tight text-[#333] md:text-[15px]'">
       <div class="font-bold">
         АвтоГЕРМЕС

@@ -8,7 +8,7 @@ const props = defineProps<ModelSliderItemData>()
   <div class="group flex w-full flex-col items-center pb-11 text-center">
     <!-- Картинка авто -->
     <NuxtLink :to="props.cta?.url" class="block aspect-3/2">
-      <img
+      <AppImg
         :src="props.preview"
         :alt="`${props.mark} ${props.model}`"
         class="h-auto w-full transition duration-500 group-hover:scale-105"

@@ -1,10 +1,26 @@
 <script setup lang="ts">
+import { tv } from 'tailwind-variants'
+
 const { page } = usePageData()
 
 const navigation = computed(() => page.value?.navigation)
 
 const showed = ref(false)
 const screen = useScreen()
+
+const menuTV = tv({
+  base: 'shrink-0 grow md:visible! md:flex md:h-full md:items-center md:opacity-100!',
+  variants: {
+    showed: {
+      true: 'visible h-[calc(100vh-var(--nav-height))] opacity-100',
+      false: 'invisible h-0 opacity-0',
+    },
+    animated: {
+      true: 'transition-all duration-500',
+      false: '',
+    },
+  },
+})
 
 onMounted(() => {
   if (import.meta.client) {
@@ -53,12 +69,12 @@ watch(showed, (val) => {
         </div>
 
         <div
-          class="shrink-0 grow md:visible! md:flex md:h-full md:items-center md:opacity-100!"
-          :class="{
-            'invisible h-0 opacity-0': !showed,
-            'visible h-[calc(100vh-var(--nav-height))] opacity-100': showed,
-            'transition-all duration-500': !screen.gte.md,
-          }"
+          :class="
+            menuTV({
+              showed,
+              animated: !screen.gte.md,
+            })
+          "
         >
           <NavigationMainWrapperDefault
             id="navbar-navigation-main"
@@ -67,7 +83,7 @@ watch(showed, (val) => {
           />
         </div>
 
-        <AdvPhoneLink class="ml-6 hidden md:inline-flex" with-icon />
+        <AdvPhoneLink class="ml-6 max-md:hidden" with-icon />
       </UContainer>
     </div>
   </nav>

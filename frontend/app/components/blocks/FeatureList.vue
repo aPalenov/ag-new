@@ -19,7 +19,7 @@ const columnsClass = computed(() => {
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <!-- Заголовок -->
     <HeadingSection v-if="props.title" :level="2">
       {{ props.title }}
@@ -44,5 +44,5 @@ const columnsClass = computed(() => {
         </div>
       </template>
     </div>
-  </section>
+  </UContainer>
 </template>

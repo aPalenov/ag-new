@@ -9,10 +9,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class HeroBannerData extends Data
 {
     public function __construct(
-        public string $title,
-
-        public string $subtitle,
-
-        public string $cta,
+        /** @var HeroBannerItemData[] */
+        public array $items,
     ) {}
 }

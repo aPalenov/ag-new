@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { OfferSliderData } from '@@/types/generated'
+import type { OfferSliderData, OfferSliderItemData } from '@@/types/generated'
 
 const props = defineProps<OfferSliderData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <SliderWithNav v-bind="props">
-      <template #item="{ item }">
+      <template #item="{ item }: { item: OfferSliderItemData }">
         <OfferCardDefault v-bind="item" />
       </template>
     </SliderWithNav>
-  </section>
+  </UContainer>
 </template>

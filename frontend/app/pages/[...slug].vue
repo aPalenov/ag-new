@@ -3,9 +3,6 @@ import { usePageData } from '@/composables/usePageData'
 
 defineOptions({ name: 'CatchAllPage' })
 
-const route = useRoute()
-const path = computed(() => `/${((route.params.slug as string[]) || []).join('/')}`)
-
 const { page, loading, error } = usePageData()
 
 useHead(() => ({
@@ -19,11 +16,10 @@ useHead(() => ({
 
 <template>
   <div>
-    <div class="py-4 text-sm text-gray-500">Path: {{ path }}</div>
     <div v-if="loading">Загрузка...</div>
     <div v-else-if="error" class="text-red-600">Ошибка: {{ error }}</div>
-    <template v-else>
-      <PageBuilder :blocks="page?.page.pageBuilderData as any" />
+    <template v-else-if="page">
+      <PageBuilder :blocks="page.page.pageBuilderData" />
     </template>
   </div>
 </template>
