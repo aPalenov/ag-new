@@ -18,12 +18,12 @@ class ModelListBlock
                     'subtitle' => 'Семейный компактный кроссовер #' . $i,
                     'count' => rand(1, 10),
                     'colors' => [
-                        ['name' => 'Gray', 'hex' => '#111'],
-                        ['name' => 'Gray 3', 'hex' => '#333'],
-                        ['name' => 'Gray 5', 'hex' => '#555'],
-                        ['name' => 'Gray 7', 'hex' => '#777'],
-                        ['name' => 'Gray 9', 'hex' => '#999'],
-                        ['name' => 'Gray B', 'hex' => '#bbb'],
+                        ['name' => 'Gray', 'hex' => '#111', 'id' => 1],
+                        ['name' => 'Gray 3', 'hex' => '#333', 'id' => 2],
+                        ['name' => 'Gray 5', 'hex' => '#555', 'id' => 3],
+                        ['name' => 'Gray 7', 'hex' => '#777', 'id' => 4],
+                        ['name' => 'Gray 9', 'hex' => '#999', 'id' => 5],
+                        ['name' => 'Gray B', 'hex' => '#bbb', 'id' => 6],
                     ],
                     'cta' => [
                         'label' => 'Подробнее',

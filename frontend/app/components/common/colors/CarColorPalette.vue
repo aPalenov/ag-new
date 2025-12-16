@@ -4,6 +4,7 @@ import type { ColorData } from '@@/types/generated'
 const props = defineProps<{
   items: ColorData[]
   readonly?: boolean
+  size?: 'sm' | 'lg'
 }>()
 
 const modelValue = defineModel<ColorData | null>({
@@ -16,10 +17,24 @@ const onSelect = (color: ColorData) => {
   }
   modelValue.value = color
 }
+
+const sizeClass = computed(() => {
+  if (props.size === 'lg') {
+    return 'w-9 lg:w-[60px]'
+  }
+  return 'w-7 lg:w-8'
+})
+
+const gapClass = computed(() => {
+  if (props.size === 'lg') {
+    return 'gap-3.5 md:gap-6'
+  }
+  return 'gap-2 lg:gap-2.5'
+})
 </script>
 
 <template>
-  <div class="flex items-center justify-center gap-2 lg:gap-2.5">
+  <div class="flex flex-wrap" :class="gapClass">
     <div
       v-for="item in props.items"
       :key="item.hex"
@@ -29,12 +44,20 @@ const onSelect = (color: ColorData) => {
       :aria-pressed="modelValue?.hex === item.hex"
       :disabled="readonly"
       :style="{ backgroundColor: item.hex }"
-      class="aspect-square w-7 rounded-full border lg:w-8"
+      class="relative aspect-square overflow-hidden rounded-full border"
       :class="[
         modelValue?.hex === item.hex ? 'border-black/50' : 'border-black/25',
         props.readonly ? 'cursor-default' : 'cursor-pointer',
+        sizeClass,
       ]"
       @click="onSelect(item)"
-    />
+    >
+      <div
+        v-if="modelValue?.hex === item.hex"
+        class="absolute inset-0 flex items-center justify-center text-white drop-shadow-[0_0_5px_rgba(0,0,0,0.7)]"
+      >
+        <UIcon name="ag:checkmark-bold" class="text-2xl" />
+      </div>
+    </div>
   </div>
 </template>

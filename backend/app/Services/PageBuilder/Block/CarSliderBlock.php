@@ -25,7 +25,7 @@ class CarSliderBlock
                             'model' => 'T4',
                             'complectation' => 'Active',
                             'modification' => '2025 г., МКПП , 1.5 л (113 л.с), Бензиновый, Передний привод',
-                            'color' => ['name' => 'Темно-серый', 'hex' => '#4C4C51'],
+                            'color' => ['id' => 1, 'name' => 'Темно-серый', 'hex' => '#4C4C51'],
                             'features' => ['в наличии', 'c ПТС'],
                             'price' => 2200000,
                             'benefit' => 700000,
@@ -54,7 +54,7 @@ class CarSliderBlock
                             'model' => 'T5',
                             'complectation' => 'Active',
                             'modification' => '2025 г., МКПП , 1.5 л (113 л.с), Бензиновый, Передний привод',
-                            'color' => ['name' => 'Красненький', 'hex' => '#e35b55'],
+                            'color' => ['id' => 1, 'name' => 'Красненький', 'hex' => '#e35b55'],
                             'price' => 2200000,
                             'benefit' => 100000,
                             'cta' => [
