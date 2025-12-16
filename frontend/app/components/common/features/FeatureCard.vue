@@ -6,7 +6,7 @@ const props = defineProps<FeatureSliderItemData>()
 
 <template>
   <div
-    class="group relative flex h-full flex-col rounded-3xl bg-black/5 p-5 md:px-8 md:pt-6 md:pb-8"
+    class="group relative flex h-full flex-col rounded-(--card-radius) bg-black/5 p-5 md:px-8 md:pt-6 md:pb-8"
     :class="{ 'cursor-pointer transition-colors hover:bg-black/10': props.url }"
     @click="props.url && navigateTo(props.url)"
   >
@@ -19,12 +19,12 @@ const props = defineProps<FeatureSliderItemData>()
     />
 
     <!-- title -->
-    <div class="max-w-[280px] pb-2 leading-[1.14] font-bold md:pb-3 md:text-lg md:text-[28px]">
+    <div class="leading-head max-w-[280px] pb-2 font-bold md:pb-3 md:text-lg md:text-[28px]">
       {{ props.title }}
     </div>
 
     <!-- description -->
-    <div v-if="props.description" class="text-base leading-[1.444] md:text-lg">
+    <div v-if="props.description" class="leading-prose text-base md:text-lg">
       {{ props.description }}
     </div>
 

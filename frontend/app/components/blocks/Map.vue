@@ -10,7 +10,7 @@ const activeIndex = ref<number>(-1)
   <UContainer as="section">
     <!-- Правая колонка с фото -->
     <div
-      class="-mx-(--ui-container-px) grid overflow-hidden rounded-3xl bg-black/5 sm:mx-0 sm:grid-cols-12"
+      class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-black/5 sm:mx-0 sm:grid-cols-12"
     >
       <!-- Информация -->
       <div class="p-6 pb-12 sm:col-span-6 md:p-8 xl:col-span-4">
@@ -32,7 +32,7 @@ const activeIndex = ref<number>(-1)
           </li>
         </ul>
 
-        <div class="mb-2 text-2xl leading-tight font-bold"><AdvPhoneLink /></div>
+        <div class="leading-head mb-2 text-2xl font-bold"><AdvPhoneLink /></div>
         <div class="mb-12">Ежедневно с 9:00 до 21:00</div>
         <div><UButton variant="solid" color="primary">Заказать звонок</UButton></div>
       </div>

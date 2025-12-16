@@ -5,7 +5,9 @@ const props = defineProps<CarSliderItemData>()
 </script>
 
 <template>
-  <div class="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
+  <div
+    class="group flex h-full w-full flex-col overflow-hidden rounded-(--card-radius) border border-black/25"
+  >
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -16,7 +18,7 @@ const props = defineProps<CarSliderItemData>()
     />
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col p-5 pb-7 md:px-6 md:pt-6 md:pb-9">
+    <div class="flex flex-1 flex-col px-(--card-content-px) py-(--card-content-py)">
       <h3 class="text-2xl font-bold">
         {{ props.mark }}
         <span class="text-brand-accent">{{ props.model }}</span>
@@ -24,15 +26,17 @@ const props = defineProps<CarSliderItemData>()
 
       <!--  -->
       <div class="mb-4 flex justify-between gap-4">
-        <span v-if="props.complectation">{{ props.complectation }}</span>
-        <div v-if="props.color" class="flex items-center gap-2 text-sm">
+        <span v-if="props.complectation" class="text-sm md:text-base">
+          {{ props.complectation }}
+        </span>
+        <div v-if="props.color" class="flex items-center gap-2 text-xs md:text-sm">
           <div :style="{ backgroundColor: props.color.hex }" class="h-5 w-5 rounded-full border" />
           <span>{{ props.color.name }}</span>
         </div>
       </div>
 
       <!--  -->
-      <div v-if="props.modification" class="mb-5 text-sm leading-tight">
+      <div v-if="props.modification" class="leading-prose mb-5 text-sm">
         {{ props.modification }}
       </div>
 

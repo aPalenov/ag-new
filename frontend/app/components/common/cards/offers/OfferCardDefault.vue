@@ -7,7 +7,9 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <div class="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-black/25">
+  <div
+    class="group flex h-full w-full flex-col overflow-hidden rounded-(--card-radius) border border-black/25"
+  >
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -27,24 +29,24 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
     </PreviewImage>
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col gap-5 px-4 pt-4 pb-7 md:gap-6 md:px-7 md:pb-9">
+    <div class="flex flex-1 flex-col gap-5 px-(--card-content-px) py-(--card-content-py) md:gap-6">
       <div class="flex items-center justify-between gap-2">
         <UBadge :color="props.type === 'offer' ? 'primary' : 'secondary'">
           {{ typeLabel }}
         </UBadge>
 
-        <span v-if="props.publishedAt" class="text-right text-[13px] leading-tight text-black/70">
+        <span v-if="props.publishedAt" class="text-right text-[13px] text-black/70">
           {{ formatDate(props.publishedAt) }}
         </span>
       </div>
 
       <div class="space-y-3">
-        <h3 class="text-lg leading-[1.2] font-bold md:text-xl">
+        <h3 class="leading-head text-lg font-bold md:text-xl">
           <NuxtLink :to="props.cta?.url" class="hover:text-brand-accent transition-colors">
             {{ props.title }}
           </NuxtLink>
         </h3>
-        <p class="text-sm leading-snug">
+        <p class="leading-prose text-sm">
           {{ props.description }}
         </p>
       </div>

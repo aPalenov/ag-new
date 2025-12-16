@@ -7,13 +7,13 @@ const props = defineProps<AsideListData>()
 <template>
   <UContainer as="section">
     <div
-      class="-mx-(--ui-container-px) grid overflow-hidden rounded-3xl bg-neutral-600 sm:mx-0 sm:grid-cols-12"
+      class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-neutral-600 sm:mx-0 sm:grid-cols-12"
     >
       <!-- Левая колонка -->
       <div
         class="bg-neutral-700 px-8 pt-9 pb-16 text-white sm:col-span-6 lg:col-span-5 xl:col-span-4"
       >
-        <h2 class="mb-6 text-[32px] leading-[1.2] font-bold">{{ props.title }}</h2>
+        <h2 class="leading-head mb-6 text-[32px] font-bold">{{ props.title }}</h2>
 
         <div class="space-y-8 md:space-y-10">
           <div
@@ -27,7 +27,7 @@ const props = defineProps<AsideListData>()
                 <h3 class="text-lg font-bold">
                   {{ item.title }}
                 </h3>
-                <p class="mt-1 text-base leading-snug">
+                <p class="leading-prose mt-1 text-base">
                   {{ item.description }}
                 </p>
               </div>

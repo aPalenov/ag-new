@@ -24,7 +24,7 @@ const columnClass = computed(() => {
 
     <!-- Контент -->
     <div
-      class="prose line-clamp-11 w-full gap-6 leading-6.5 text-ellipsis lg:text-lg"
+      class="prose leading-prose line-clamp-11 w-full gap-6 text-ellipsis lg:text-lg"
       :class="columnClass"
     >
       <div v-html="props.text" />

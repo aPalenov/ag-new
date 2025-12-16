@@ -15,6 +15,9 @@
 
 @theme {
     --font-roboto: 'Roboto', sans-serif;
+
+    --leading-head: 1.2;
+    --leading-prose: 1.444;
 }
 
 @theme inline {

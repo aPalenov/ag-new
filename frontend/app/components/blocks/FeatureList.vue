@@ -38,7 +38,7 @@ const columnsClass = computed(() => {
         <!-- Только заголовок -->
         <div
           v-else-if="item.type === 'heading'"
-          class="mb-4 self-center text-[32px] leading-[1.18] font-bold md:mb-0"
+          class="leading-head mb-4 self-center text-[32px] font-bold md:mb-0"
         >
           {{ item.title }}
         </div>
