@@ -20,6 +20,14 @@ enum PageBuilderBlockEnum: string
     #[Description('Модель')]
     case Model = 'Model';
 
+    // Single Model
+    #[Description('Т.Х. коротко')]
+    case SpecsShort = 'SpecsShort';
+
+    // Single Model
+    #[Description('Т.Х. таблица')]
+    case SpecsTable = 'SpecsTable';
+
     //
     #[Description('Слайдер моделей')]
     case ModelSlider = 'ModelSlider';

@@ -13,6 +13,8 @@ import Text from '@/components/blocks/Text.vue'
 import ServiceGrid from '@/components/blocks/ServiceGrid.vue'
 import ModelList from '@/components/blocks/ModelList.vue'
 import Model from '@/components/blocks/Model.vue'
+import SpecsShort from '@/components/blocks/SpecsShort.vue'
+import SpecsTable from '@/components/blocks/SpecsTable.vue'
 
 interface BlockDef {
   name: string
@@ -38,6 +40,8 @@ const registry: Record<string, CompLike> = {
   ServiceGrid,
   ModelList,
   Model,
+  SpecsShort,
+  SpecsTable,
 }
 
 const resolveComponent = (name: string) => registry[name] || 'div'
@@ -53,4 +57,3 @@ const resolveComponent = (name: string) => registry[name] || 'div'
     />
   </div>
 </template>
-
