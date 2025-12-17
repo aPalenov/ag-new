@@ -2,8 +2,6 @@
 
 namespace App\Data\PageBuilder\Block\Model;
 
-use App\Data\PageBuilder\Block\Model\Tth\TthFirstData;
-use App\Data\PageBuilder\Block\Model\Tth\TthSecondData;
 use App\Data\PageBuilder\Color\ColorData;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -13,9 +11,11 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class ModelData extends Data
 {
     public function __construct(
-        public string $model_name,
+        public string $title,
 
         public string $preview,
+
+        public Optional|array $images_360,
 
         public int $price_from,
 
@@ -25,11 +25,5 @@ class ModelData extends Data
 
         /** @var ColorData[] */
         public array $colors,
-
-        /** @var TthFirstData[] */
-        public array $first_tth,
-
-        /** @var TthSecondData[] */
-        public array $second_tth,
     ) {}
 }
