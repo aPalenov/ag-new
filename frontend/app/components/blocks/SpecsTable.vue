@@ -48,7 +48,7 @@ function normalizeRow(row: SpecsTableRowData): Array<{
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <HeadingSection v-if="props.title && props.title.length" :level="2">
       {{ props.title }}
     </HeadingSection>
@@ -97,5 +97,5 @@ function normalizeRow(row: SpecsTableRowData): Array<{
         </table>
       </template>
     </UAccordion>
-  </section>
+  </UContainer>
 </template>

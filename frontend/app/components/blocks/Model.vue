@@ -7,7 +7,7 @@ const currentColor = ref(props.colors?.[0] ?? null)
 </script>
 
 <template>
-  <section class="-mt-14 grid items-start gap-6 pb-4 md:-mt-18 lg:grid-cols-12">
+  <UContainer as="section" class="-mt-14 grid items-start gap-6 pb-4 md:-mt-18 lg:grid-cols-12">
     <!-- Car -->
     <div class="lg:col-span-7">
       <div class="relative aspect-3/2">
@@ -47,5 +47,5 @@ const currentColor = ref(props.colors?.[0] ?? null)
       <div class="mb-5 text-[22px]">Цвет: {{ currentColor?.name }}</div>
       <CarColorPalette v-model="currentColor" :items="props.colors" size="lg" class="max-w-lg" />
     </div>
-  </section>
+  </UContainer>
 </template>

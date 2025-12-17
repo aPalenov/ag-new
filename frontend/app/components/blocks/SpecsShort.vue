@@ -5,7 +5,7 @@ const props = defineProps<SpecsShortData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <!-- TTH -->
     <div class="mx-auto max-w-[1100px]">
       <HeadingSection class="text-center" :level="2">
@@ -35,5 +35,5 @@ const props = defineProps<SpecsShortData>()
         </div>
       </div>
     </div>
-  </section>
+  </UContainer>
 </template>
