@@ -54,6 +54,8 @@ class PageBuilder
                 PageBuilderBlockEnum::SpecsShort,
                 PageBuilderBlockEnum::ModelSlider,
                 PageBuilderBlockEnum::SpecsTable,
+                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::CarSlider,
             ];
         }
 
