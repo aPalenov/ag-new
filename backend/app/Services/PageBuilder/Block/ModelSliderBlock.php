@@ -27,7 +27,7 @@ class ModelSliderBlock
                     ],
                     'cta' => [
                         'label' => 'Подробнее',
-                        'url' => '#',
+                        'url' => '/models/tenet-t4',
                     ],
                     'preview' =>
                         'https://www.avtogermes.ru/images/marks/tenet/t4/i/colors/st/tenet-t4-i-seryj-metallik.e981eeadf9d1beff37fd62ffd7d1bb40.png',

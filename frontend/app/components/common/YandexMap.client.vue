@@ -18,17 +18,13 @@ const iconClassName =
 // https://yandex.ru/maps-api/docs/js-api/map/customization.html
 const layerCustomization = [
   {
-    tags: { any: ['water'] },
+    tags: { any: ['water', 'landscape'] },
     stylers: [{ saturation: -0.3 }],
   },
   {
     tags: { any: ['road'] },
     elements: 'geometry',
-    stylers: [{ saturation: -1, lightness: -0.2 }],
-  },
-  {
-    tags: { any: ['landscape'] },
-    stylers: [{ saturation: -0.7 }],
+    stylers: [{ saturation: -1 }],
   },
 ] as YMapsTypes.CustomizationConfig
 

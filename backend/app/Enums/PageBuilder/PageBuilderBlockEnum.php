@@ -15,20 +15,6 @@ enum PageBuilderBlockEnum: string
     #[Description('Главный баннер')]
     case HeroBanner = 'HeroBanner';
 
-
-    // Single Model
-    #[Description('Модель')]
-    case Model = 'Model';
-
-    // Single Model
-    #[Description('Т.Х. коротко')]
-    case SpecsShort = 'SpecsShort';
-
-    // Single Model
-    #[Description('Т.Х. таблица')]
-    case SpecsTable = 'SpecsTable';
-
-    //
     #[Description('Слайдер моделей')]
     case ModelSlider = 'ModelSlider';
 
@@ -57,13 +43,17 @@ enum PageBuilderBlockEnum: string
     case Map = 'Map';
 
     // Models
+
     #[Description('Список моделей')]
     case ModelList = 'ModelList';
 
-    #[Description('Слайдер преимуществ')]
-    case FeatureSlider1 = 'FeatureSlider';
+    #[Description('Модель')]
+    case Model = 'Model';
 
-    #[Description('Текстовый блок')]
-    case Text1 = 'Text';
+    #[Description('Т.Х. коротко')]
+    case SpecsShort = 'SpecsShort';
+
+    #[Description('Т.Х. таблица')]
+    case SpecsTable = 'SpecsTable';
 
 }
