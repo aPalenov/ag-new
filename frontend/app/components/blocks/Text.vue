@@ -18,7 +18,7 @@ const columnClass = computed(() => {
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <!-- Заголовок -->
     <HeadingSection v-if="props.title" :level="2">{{ props.title }}</HeadingSection>
 
@@ -36,5 +36,5 @@ const columnClass = computed(() => {
         {{ props.cta.label }}
       </UButton>
     </div>
-  </section>
+  </UContainer>
 </template>

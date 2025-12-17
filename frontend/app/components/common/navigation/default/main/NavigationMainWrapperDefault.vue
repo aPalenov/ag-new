@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { tv } from 'tailwind-variants'
 import type { NavigationItemData } from '@@/types/generated'
 
 const props = withDefaults(
@@ -13,6 +14,24 @@ const props = withDefaults(
     open: false,
   },
 )
+
+const ulTV = tv({
+  base: 'md:flex',
+  variants: {
+    root: {
+      true: 'h-full',
+      false: '',
+    },
+    nested: {
+      true: 'flex-col md:absolute md:z-10 md:w-[220px] md:bg-[#f5f5f5] md:shadow-sm',
+      false: '',
+    },
+    deep: {
+      true: 'top-0 left-full',
+      false: '',
+    },
+  },
+})
 </script>
 
 <template>
@@ -21,12 +40,13 @@ const props = withDefaults(
       <ul
         v-if="props.level === 0 || props.open"
         :id="props.id"
-        class="md:flex"
-        :class="{
-          'h-full': props.level === 0,
-          'flex-col md:absolute md:z-10 md:w-[220px] md:bg-[#f5f5f5] md:shadow-sm': props.level > 0,
-          'top-0 left-full': props.level > 1,
-        }"
+        :class="
+          ulTV({
+            root: props.level === 0,
+            nested: props.level > 0,
+            deep: props.level > 1,
+          })
+        "
       >
         <NavigationMainItemDefault
           v-for="(item, i) in props.list"

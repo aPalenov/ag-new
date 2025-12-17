@@ -5,7 +5,7 @@ const props = defineProps<ModelSliderData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <!-- Заголовок -->
     <HeadingSection class="pb-3 text-center" :level="2" :spacing="false">
       {{ props.title }}
@@ -29,5 +29,5 @@ const props = defineProps<ModelSliderData>()
     >
       <ModelCardDefault v-bind="item" />
     </UCarousel>
-  </section>
+  </UContainer>
 </template>

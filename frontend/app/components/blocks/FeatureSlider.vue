@@ -5,11 +5,11 @@ const props = defineProps<FeatureSliderData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <SliderWithNav :items="props.items">
       <template #item="{ item }: { item: FeatureSliderItemData }">
         <FeatureCard v-bind="item" />
       </template>
     </SliderWithNav>
-  </section>
+  </UContainer>
 </template>

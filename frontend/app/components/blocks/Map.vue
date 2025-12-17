@@ -7,7 +7,7 @@ const activeIndex = ref<number>(-1)
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <!-- Правая колонка с фото -->
     <div
       class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-black/5 sm:mx-0 sm:grid-cols-12"
@@ -50,5 +50,5 @@ const activeIndex = ref<number>(-1)
         />
       </div>
     </div>
-  </section>
+  </UContainer>
 </template>

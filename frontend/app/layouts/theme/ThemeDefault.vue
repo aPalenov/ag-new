@@ -47,11 +47,7 @@ const locationLabel = computed(() => locations.value[0]?.label || null)
       </div>
     </header>
 
-    <main class="flex grow flex-col">
-      <UContainer>
-        <slot />
-      </UContainer>
-    </main>
+    <main class="flex grow flex-col"><slot /></main>
 
     <footer>
       <UContainer class="py-6">

@@ -5,7 +5,7 @@ const props = defineProps<AsideListData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <div
       class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-neutral-600 sm:mx-0 sm:grid-cols-12"
     >
@@ -45,13 +45,8 @@ const props = defineProps<AsideListData>()
 
       <!-- Правая колонка с фото -->
       <div class="relative aspect-3/2 sm:col-span-6 sm:aspect-auto lg:col-span-7 xl:col-span-8">
-        <img
-          :src="props.photo"
-          :alt="props.title"
-          class="absolute h-full w-full object-cover"
-          loading="lazy"
-        />
+        <AppImg :src="props.photo" :alt="props.title" class="absolute h-full w-full object-cover" />
       </div>
     </div>
-  </section>
+  </UContainer>
 </template>

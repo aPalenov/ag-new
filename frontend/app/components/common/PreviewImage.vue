@@ -18,7 +18,7 @@ const component = props.to ? NuxtLink : 'div'
     class="relative w-full overflow-hidden"
     :class="props.bgClass || 'bg-black/80'"
   >
-    <img
+    <AppImg
       v-if="props.preview"
       :src="props.preview"
       :alt="props.title"

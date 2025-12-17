@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CarSliderData } from '@@/types/generated'
+import type { CarSliderData, CarSliderItemData } from '@@/types/generated'
 
 const props = defineProps<CarSliderData>()
 
@@ -18,8 +18,8 @@ const tabs = computed(() => {
 </script>
 
 <template>
-  <section v-if="currentProps">
-    <SliderWithNav v-bind="currentProps">
+  <UContainer v-if="currentProps" as="section">
+    <SliderWithNav :title="currentProps.title" :cta="currentProps.cta" :items="currentProps.items">
       <template #tabs>
         <UButton
           v-for="tab in tabs"
@@ -32,9 +32,9 @@ const tabs = computed(() => {
           {{ tab.label }}
         </UButton>
       </template>
-      <template #item="{ item }">
+      <template #item="{ item }: { item: CarSliderItemData }">
         <CarCardDefault v-bind="item" />
       </template>
     </SliderWithNav>
-  </section>
+  </UContainer>
 </template>

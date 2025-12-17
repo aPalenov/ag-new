@@ -1,6 +1,6 @@
 import { useState } from '#app'
 import { useApiFetch } from '@/composables/useApiFetch'
-import type { SharedData } from '~~/types/generated'
+import type { SharedData } from '@@/types/generated'
 
 export function usePageData() {
   const pageRef = useState<SharedData | null>('page-data', () => null)

@@ -15,13 +15,9 @@ import ModelList from '@/components/blocks/ModelList.vue'
 import Model from '@/components/blocks/Model.vue'
 import SpecsShort from '@/components/blocks/SpecsShort.vue'
 import SpecsTable from '@/components/blocks/SpecsTable.vue'
+import type { PageBuilderBlockData } from '@@/types/generated'
 
-interface BlockDef {
-  name: string
-  data: Record<string, unknown>
-}
-
-const props = defineProps<{ blocks: BlockDef[] | undefined }>()
+const props = defineProps<{ blocks: PageBuilderBlockData[] | undefined }>()
 
 const blocks = computed(() => props.blocks || [])
 

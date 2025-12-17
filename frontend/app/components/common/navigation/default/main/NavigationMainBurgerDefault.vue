@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const showed = defineModel<boolean>({ required: true })
 
+const lineBaseClass =
+  'absolute block h-0.5 w-8 transform bg-current transition duration-500 ease-in-out'
+
 function toggle() {
   showed.value = !showed.value
 }
@@ -14,19 +17,13 @@ function toggle() {
     @click="toggle"
   >
     <span
-      class="absolute block h-0.5 w-8 transform bg-current transition duration-500 ease-in-out"
       aria-hidden="true"
-      :class="{ 'rotate-45': showed, '-translate-y-2.5': !showed }"
+      :class="[lineBaseClass, { 'rotate-45': showed, '-translate-y-2.5': !showed }]"
     />
+    <span aria-hidden="true" :class="[lineBaseClass, { 'opacity-0': showed }]" />
     <span
-      class="absolute block h-0.5 w-8 transform bg-current transition duration-500 ease-in-out"
       aria-hidden="true"
-      :class="{ 'opacity-0': showed }"
-    />
-    <span
-      class="absolute block h-0.5 w-8 transform bg-current transition duration-500 ease-in-out"
-      aria-hidden="true"
-      :class="{ '-rotate-45': showed, 'translate-y-2.5': !showed }"
+      :class="[lineBaseClass, { '-rotate-45': showed, 'translate-y-2.5': !showed }]"
     />
   </UButton>
 </template>

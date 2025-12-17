@@ -5,11 +5,11 @@ const props = defineProps<OfferSliderData>()
 </script>
 
 <template>
-  <section>
+  <UContainer as="section">
     <SliderWithNav v-bind="props">
-      <template #item="{ item }">
-        <OfferCardDefault v-bind="item as OfferSliderItemData" />
+      <template #item="{ item }: { item: OfferSliderItemData }">
+        <OfferCardDefault v-bind="item" />
       </template>
     </SliderWithNav>
-  </section>
+  </UContainer>
 </template>
