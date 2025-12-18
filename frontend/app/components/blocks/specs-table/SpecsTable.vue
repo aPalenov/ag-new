@@ -38,10 +38,6 @@ const active = ref<string[]>([props.opened_index !== undefined ? String(props.op
       :ui="{
         root: 'rounded-2xl bg-[#f5f5f5] px-9',
         item: 'border-b border-[#C4C4C4] last:border-b-0',
-        trigger: 'py-7.5 gap-4 cursor-pointer',
-        label: 'text-[22px] font-bold leading-head',
-        trailingIcon: 'size-9 transition-transform group-data-[state=open]:rotate-45',
-        body: '',
       }"
     >
       <!-- Группы -->
@@ -52,7 +48,7 @@ const active = ref<string[]>([props.opened_index !== undefined ? String(props.op
       >
         <SpecsTableGroup
           :rows="slotProps.item.rows"
-          :class="{ 'mb-6': index === props.groups.length - 1 }"
+          :class="{ 'mb-8': index === props.groups.length - 1 }"
         />
       </template>
     </UAccordion>

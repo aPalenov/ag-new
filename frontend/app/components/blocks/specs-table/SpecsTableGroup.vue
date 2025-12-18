@@ -28,25 +28,45 @@ function normalizeRow(row: SpecsTableRowData): Array<{
 
   return result
 }
+
+const containerRef = ref<HTMLElement | null>(null)
+const hasOverflow = ref(false)
+
+function checkOverflow() {
+  if (containerRef.value) {
+    hasOverflow.value = containerRef.value.scrollWidth > containerRef.value.clientWidth
+  }
+}
+
+onMounted(() => {
+  checkOverflow()
+  window.addEventListener('resize', checkOverflow)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkOverflow)
+})
 </script>
 
 <template>
-  <table class="w-full table-fixed border-collapse">
-    <template v-if="props.rows?.length">
-      <tbody>
-        <!-- Строки -->
-        <tr v-for="(row, rowIndex) in props.rows" :key="rowIndex">
-          <!-- Ячейки -->
-          <td
-            v-for="(cell, cellIndex) in normalizeRow(row)"
-            :key="cellIndex"
-            :colspan="cell.colspan"
-            class="border-t border-r border-[#c4c4c4] px-8 py-7 text-center first:pl-0 first:text-left first:text-[#8d8d8d] last:border-r-0 last:pr-0"
-          >
-            {{ cell.value }}
-          </td>
-        </tr>
-      </tbody>
-    </template>
-  </table>
+  <div ref="containerRef" class="overflow-x-auto" :class="{ 'mb-6 pb-6': hasOverflow }">
+    <table class="w-full table-fixed border-collapse">
+      <template v-if="props.rows?.length">
+        <tbody>
+          <!-- Строки -->
+          <tr v-for="(row, rowIndex) in props.rows" :key="rowIndex">
+            <!-- Ячейки -->
+            <td
+              v-for="(cell, cellIndex) in normalizeRow(row)"
+              :key="cellIndex"
+              :colspan="cell.colspan"
+              class="border-t border-r border-[#c4c4c4] px-8 py-7 text-center first:pl-0 first:text-left first:text-[#8d8d8d] last:border-r-0 last:pr-0"
+            >
+              {{ cell.value }}
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </table>
+  </div>
 </template>
