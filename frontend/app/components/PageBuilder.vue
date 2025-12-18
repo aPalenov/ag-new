@@ -15,6 +15,7 @@ import ModelList from '@/components/blocks/model-list/ModelList.vue'
 import Model from '@/components/blocks/model/Model.vue'
 import SpecsShort from '@/components/blocks/specs-short/SpecsShort.vue'
 import SpecsTable from '@/components/blocks/specs-table/SpecsTable.vue'
+import ComplectationsTable from '@/components/blocks/complectations-table/ComplectationsTable.vue'
 import type { PageBuilderBlockData } from '@@/types/generated'
 
 const props = defineProps<{ blocks: PageBuilderBlockData[] | undefined }>()
@@ -38,6 +39,7 @@ const registry: Record<string, CompLike> = {
   Model,
   SpecsShort,
   SpecsTable,
+  ComplectationsTable,
 }
 
 const resolveComponent = (name: string) => registry[name] || 'div'
