@@ -56,4 +56,7 @@ enum PageBuilderBlockEnum: string
     #[Description('Т.Х. таблица')]
     case SpecsTable = 'SpecsTable';
 
+    #[Description('Таблица комплектаций')]
+    case ComplectationsTable = 'ComplectationsTable';
+
 }

@@ -52,8 +52,8 @@ class PageBuilder
             $types = [
                 PageBuilderBlockEnum::Model,
                 PageBuilderBlockEnum::SpecsShort,
-                PageBuilderBlockEnum::ModelSlider,
                 PageBuilderBlockEnum::SpecsTable,
+                PageBuilderBlockEnum::ComplectationsTable,
                 PageBuilderBlockEnum::Text,
                 PageBuilderBlockEnum::CarSlider,
             ];
