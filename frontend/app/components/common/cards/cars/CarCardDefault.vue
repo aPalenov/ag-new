@@ -5,9 +5,7 @@ const props = defineProps<CarSliderItemData>()
 </script>
 
 <template>
-  <div
-    class="group flex h-full w-full flex-col overflow-hidden rounded-(--card-radius) border border-black/25"
-  >
+  <AppCard class="group flex h-full w-full flex-col border border-black/25">
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -18,7 +16,7 @@ const props = defineProps<CarSliderItemData>()
     />
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col px-(--card-content-px) py-(--card-content-py)">
+    <AppCardContent class="flex flex-1 flex-col">
       <h3 class="text-2xl font-bold">
         {{ props.mark }}
         <span class="text-brand-accent">{{ props.model }}</span>
@@ -75,6 +73,6 @@ const props = defineProps<CarSliderItemData>()
           {{ props.secondCta.label || 'Подробнее' }}
         </NuxtLink>
       </div>
-    </div>
-  </div>
+    </AppCardContent>
+  </AppCard>
 </template>

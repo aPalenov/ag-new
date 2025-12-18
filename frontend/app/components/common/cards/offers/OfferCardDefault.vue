@@ -7,9 +7,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <div
-    class="group flex h-full w-full flex-col overflow-hidden rounded-(--card-radius) border border-black/25"
-  >
+  <AppCard class="group flex h-full w-full flex-col border border-black/25">
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -17,19 +15,17 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
       :preview="props.preview"
       :title="props.title"
     >
-      <UBadge
-        variant="solid"
-        color="tertiary"
-        class="absolute top-4 right-6 cursor-default"
-        size="sm"
-        @click.stop.prevent="() => {}"
-      >
-        Реклама
-      </UBadge>
+      <AdvertisingPopover
+        v-if="props.advertisingMarking"
+        :advertising="props.advertisingMarking"
+        :ui="{
+          button: 'absolute top-4 right-6',
+        }"
+      />
     </PreviewImage>
 
     <!-- Контент -->
-    <div class="flex flex-1 flex-col gap-5 px-(--card-content-px) py-(--card-content-py) md:gap-6">
+    <AppCardContent class="flex flex-1 flex-col gap-5 md:gap-6">
       <div class="flex items-center justify-between gap-2">
         <UBadge :color="props.type === 'offer' ? 'primary' : 'secondary'">
           {{ typeLabel }}
@@ -62,6 +58,6 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
           {{ props.cta.label || 'Подробнее' }}
         </UButton>
       </div>
-    </div>
-  </div>
+    </AppCardContent>
+  </AppCard>
 </template>

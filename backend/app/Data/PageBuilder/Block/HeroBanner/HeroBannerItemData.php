@@ -16,6 +16,8 @@ class HeroBannerItemData extends Data
 
         public string $subtitle,
 
+        public string $backgroundImageXs,
+
         public string $backgroundImageXl,
 
         public Optional|CtaData $cta,

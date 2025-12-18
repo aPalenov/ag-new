@@ -10,9 +10,24 @@ class HeroBannerBlock
     public function viewData(): ?Data
     {
         $images = [
-            'https://www.avtogermes.ru/images/promo/xl/moskvich-s-gospodderzhkoj.5651d3232f006b8edc9930a9f4ca3058.jpg',
-            'https://www.avtogermes.ru/images/promo/xl/avtomobili-bestune.ec1bb781e72e58224f02c4f271bae678.jpg',
-            'https://www.avtogermes.ru/images/promo/xl/xcite-x-cross-8-s-vygodoj-do-850-000-banner-xl.786e490cd02cef538fde2a6bc3cf7991.jpg',
+            [
+                'xs' =>
+                    'https://www.avtogermes.ru/images/promo/xs/solaris-hc-ot-1-808-000-s-vygodoj-do-600-000.187b689b2354078765efe40844463827_w530.jpg',
+                'xl' =>
+                    'https://www.avtogermes.ru/images/promo/xl/lada-s-gosudarstvennoj-podderzhkoj.fd858a50878c86268fb08b7d71124d1f.jpg',
+            ],
+            [
+                'xs' =>
+                    'https://www.avtogermes.ru/images/promo/xs/moskvich-s-gospodderzhkoj.840ca7049ba94df53ee72088f0150611_w530.jpg',
+                'xl' =>
+                    'https://www.avtogermes.ru/images/promo/xl/solaris-hc-ot-1-808-000-s-vygodoj-do-600-000.b195c9263a66fe6edf6bfd8d4fb09e28.jpg',
+            ],
+            [
+                'xs' =>
+                    'https://www.avtogermes.ru/images/promo/xs/lada-s-gosudarstvennoj-podderzhkoj.dc8c18fd814fb6661ddf9b77aacd2280_w530.jpg',
+                'xl' =>
+                    'https://www.avtogermes.ru/images/promo/xl/lada-s-gosudarstvennoj-podderzhkoj.fd858a50878c86268fb08b7d71124d1f.jpg',
+            ],
         ];
 
         return HeroBannerData::from([
@@ -26,7 +41,8 @@ class HeroBannerBlock
                             'label' => 'Получить предложение',
                             'url' => '#',
                         ],
-                        'backgroundImageXl' => $image,
+                        'backgroundImageXs' => $image['xs'],
+                        'backgroundImageXl' => $image['xl'],
                         'secondCta' => [
                             'label' => 'Подробнее',
                             'url' => '#',

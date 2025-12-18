@@ -1,10 +1,21 @@
 <script setup lang="ts">
 import type { AdvertisingMarkingData } from '@@/types/generated'
+import { tv } from 'tailwind-variants'
 
 const props = defineProps<{
   advertising: AdvertisingMarkingData
-  btnClass?: string
+  ui?: {
+    button?: string
+  }
 }>()
+
+const advertisingPopoverTV = tv({
+  slots: {
+    button: 'px-2 py-1 bg-[#bfbfbf]/60 normal-case rounded-sm text-[#333] text-[10px]/2',
+  },
+})
+
+const styles = advertisingPopoverTV()
 
 const { copyText } = useCopyToClipboard()
 
@@ -19,7 +30,14 @@ async function copyAdUrl(close?: () => void) {
 
 <template>
   <UPopover v-if="advertising" mode="click" arrow>
-    <UButton type="button" size="xs" variant="link" class="px-0" :class="btnClass">Реклама</UButton>
+    <UButton
+      type="button"
+      size="xs"
+      variant="link"
+      :class="styles.button({ class: props.ui?.button })"
+    >
+      Реклама
+    </UButton>
 
     <template #content="{ close }">
       <div class="w-72 p-3">

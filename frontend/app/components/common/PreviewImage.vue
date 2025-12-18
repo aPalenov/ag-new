@@ -1,23 +1,29 @@
 <script setup lang="ts">
 import { NuxtLink } from '#components'
+import { tv } from 'tailwind-variants'
 
 const props = defineProps<{
   preview?: string
   title: string
   to?: string
-  bgClass?: string
+  ui?: {
+    root?: string
+  }
 }>()
 
 const component = props.to ? NuxtLink : 'div'
+
+const previewImageTV = tv({
+  slots: {
+    root: 'relative w-full overflow-hidden bg-black/80',
+  },
+})
+
+const styles = previewImageTV()
 </script>
 
 <template>
-  <component
-    :is="component"
-    :to="props.to"
-    class="relative w-full overflow-hidden"
-    :class="props.bgClass || 'bg-black/80'"
-  >
+  <component :is="component" :to="props.to" :class="styles.root({ class: props.ui?.root })">
     <AppImg
       v-if="props.preview"
       :src="props.preview"

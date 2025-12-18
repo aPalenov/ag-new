@@ -5,8 +5,8 @@ const props = defineProps<FeatureSliderItemData>()
 </script>
 
 <template>
-  <div
-    class="group relative flex h-full flex-col rounded-(--card-radius) bg-black/5 p-5 md:px-8 md:pt-6 md:pb-8"
+  <AppCard
+    class="group relative flex h-full flex-col bg-black/5 p-5 md:px-8 md:pt-6 md:pb-8"
     :class="{ 'cursor-pointer transition-colors hover:bg-black/10': props.url }"
     @click="props.url && navigateTo(props.url)"
   >
@@ -36,5 +36,5 @@ const props = defineProps<FeatureSliderItemData>()
     >
       <UIcon name="ag:arrow-right" size="36" class="-mt-1 -mb-3 text-black/25" />
     </NuxtLink>
-  </div>
+  </AppCard>
 </template>

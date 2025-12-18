@@ -5,10 +5,10 @@ export default {
   variants: {
     size: {
       md: {
-        base: 'text-(length:--btn-text-md) px-(--btn-px-md) py-(--btn-py-md) gap-2',
+        base: 'px-(--btn-px-md) py-(--btn-py-md) text-(length:--btn-text-md) leading-5 gap-2',
       },
       lg: {
-        base: 'text-(length:--btn-text-lg) px-(--btn-px-lg) py-(--btn-py-lg) gap-2',
+        base: 'px-(--btn-px-lg) py-(--btn-py-lg) text-(length:--btn-text-lg) leading-5 gap-2',
       },
     },
     color: {

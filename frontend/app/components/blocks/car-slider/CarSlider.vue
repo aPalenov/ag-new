@@ -19,7 +19,11 @@ const tabs = computed(() => {
 
 <template>
   <UContainer v-if="currentProps" as="section">
-    <SliderWithNav :title="currentProps.title" :cta="currentProps.cta" :items="currentProps.items">
+    <CarouselWithNav
+      :title="currentProps.title"
+      :cta="currentProps.cta"
+      :items="currentProps.items"
+    >
       <template #tabs>
         <UButton
           v-for="tab in tabs"
@@ -35,6 +39,6 @@ const tabs = computed(() => {
       <template #item="{ item }: { item: CarSliderItemData }">
         <CarCardDefault v-bind="item" />
       </template>
-    </SliderWithNav>
+    </CarouselWithNav>
   </UContainer>
 </template>

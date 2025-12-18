@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PhoneType } from '@/stores/advPhone'
+import { tv } from 'tailwind-variants'
 
 const props = defineProps<{
   withIcon?: boolean
@@ -8,7 +9,10 @@ const props = defineProps<{
   dynamicPhone?: string | null
   dynamicHideAfter?: number
   customPhoneText?: string
-  iconClass?: string
+  ui?: {
+    root?: string
+    icon?: string
+  }
 }>()
 
 const store = useAdvPhoneStore()
@@ -42,20 +46,41 @@ function fetchDynamicPhone() {
     store.fetch()
   }
 }
+
+const phoneLinkTV = tv({
+  base: 'whitespace-nowrap',
+  variants: {
+    clickable: {
+      true: 'cursor-pointer',
+      false: '',
+    },
+    withIcon: {
+      true: 'inline-flex items-center gap-2',
+      false: '',
+    },
+  },
+})
+
+const iconTV = tv({ base: '' })
+
+const ui = computed(() => ({
+  root: phoneLinkTV({
+    clickable: !isDynamicPhoneShow.value,
+    withIcon: !!props.withIcon,
+    class: props.ui?.root,
+  }),
+  icon: iconTV({ class: props.ui?.icon }),
+}))
 </script>
 
 <template>
   <component
     :is="phoneLink ? 'a' : 'span'"
     :href="phoneLink"
-    class="whitespace-nowrap"
-    :class="{
-      'cursor-pointer': !isDynamicPhoneShow,
-      'inline-flex items-center gap-2': props.withIcon,
-    }"
+    :class="ui.root"
     @click="fetchDynamicPhone"
   >
-    <UIcon v-if="props.withIcon" :class="props.iconClass" name="ag:phone-fill" />
+    <UIcon v-if="props.withIcon" :class="ui.icon" name="ag:phone-fill" />
     {{ phoneText }}
   </component>
 </template>

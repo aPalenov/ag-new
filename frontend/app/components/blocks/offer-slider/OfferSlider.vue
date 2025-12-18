@@ -6,10 +6,10 @@ const props = defineProps<OfferSliderData>()
 
 <template>
   <UContainer as="section">
-    <SliderWithNav v-bind="props">
+    <CarouselWithNav v-bind="props">
       <template #item="{ item }: { item: OfferSliderItemData }">
         <OfferCardDefault v-bind="item" />
       </template>
-    </SliderWithNav>
+    </CarouselWithNav>
   </UContainer>
 </template>

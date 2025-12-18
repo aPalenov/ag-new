@@ -7,11 +7,11 @@ const props = defineProps<VideoSliderData>()
 <template>
   <section>
     <UContainer>
-      <SliderWithNav v-bind="props">
+      <CarouselWithNav v-bind="props">
         <template #item="{ item }: { item: VideoSliderItemData }">
           <VideoCardDefault v-bind="item" />
         </template>
-      </SliderWithNav>
+      </CarouselWithNav>
     </UContainer>
   </section>
 </template>

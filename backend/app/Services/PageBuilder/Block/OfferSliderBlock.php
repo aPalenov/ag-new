@@ -29,6 +29,11 @@ class OfferSliderBlock
                         'label' => 'Подробнее',
                         'url' => '#',
                     ],
+                    'advertisingMarking' => [
+                        'label' => 'ООО «АвтоГЕРМЕС-Запад»',
+                        'erid' => '2SDnjbspBT5',
+                        'url' => 'https://www.avtogermes.ru/sale/soueast/?erid=2SDnjbspBT5',
+                    ],
                 ],
             ),
         ]);

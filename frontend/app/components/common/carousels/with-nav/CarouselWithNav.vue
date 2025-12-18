@@ -79,11 +79,10 @@ const slots = useSlots()
       :align="align || 'start'"
       loop
       wheel-gestures
-      class="max-xl:-mx-(--ui-container-px)"
       :ui="{
-        viewport: 'max-xl:px-(--ui-container-px)',
         item: `${perViewClass} self-stretch`,
       }"
+      class="select-none"
     >
       <slot name="item" :item="item" />
     </UCarousel>

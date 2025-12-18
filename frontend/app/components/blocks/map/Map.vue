@@ -9,9 +9,7 @@ const activeIndex = ref<number>(-1)
 <template>
   <UContainer as="section">
     <!-- Правая колонка с фото -->
-    <div
-      class="-mx-(--ui-container-px) grid overflow-hidden rounded-(--card-radius) bg-black/5 sm:mx-0 sm:grid-cols-12"
-    >
+    <AppCard class="grid bg-black/5 sm:mx-0 sm:grid-cols-12">
       <!-- Информация -->
       <div class="p-6 pb-12 sm:col-span-6 md:p-8 xl:col-span-4">
         <HeadingSection>
@@ -49,6 +47,6 @@ const activeIndex = ref<number>(-1)
           class="absolute inset-0"
         />
       </div>
-    </div>
+    </AppCard>
   </UContainer>
 </template>

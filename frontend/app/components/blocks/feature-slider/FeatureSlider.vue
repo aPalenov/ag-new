@@ -6,10 +6,10 @@ const props = defineProps<FeatureSliderData>()
 
 <template>
   <UContainer as="section">
-    <SliderWithNav :items="props.items">
+    <CarouselWithNav :items="props.items">
       <template #item="{ item }: { item: FeatureSliderItemData }">
         <FeatureCard v-bind="item" />
       </template>
-    </SliderWithNav>
+    </CarouselWithNav>
   </UContainer>
 </template>
