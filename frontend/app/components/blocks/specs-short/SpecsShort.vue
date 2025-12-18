@@ -7,7 +7,7 @@ const props = defineProps<SpecsShortData>()
 <template>
   <UContainer as="section">
     <!-- TTH -->
-    <div class="mx-auto max-w-[1100px]">
+    <div class="mx-auto max-w-275">
       <HeadingSection class="text-center" :level="2">
         {{ props.title }}
       </HeadingSection>
