@@ -6,8 +6,8 @@ const props = defineProps<FeatureSliderItemData>()
 
 <template>
   <AppCard
-    class="group relative flex h-full flex-col bg-black/5 p-5 md:px-8 md:pt-6 md:pb-8"
-    :class="{ 'cursor-pointer transition-colors hover:bg-black/10': props.url }"
+    class="group relative flex h-full flex-col bg-[#F5F5F5] p-5 md:px-8 md:pt-6 md:pb-8"
+    :class="{ 'cursor-pointer transition-colors hover:bg-[#F0F0F0]': props.url }"
     @click="props.url && navigateTo(props.url)"
   >
     <UIcon
@@ -19,7 +19,7 @@ const props = defineProps<FeatureSliderItemData>()
     />
 
     <!-- title -->
-    <div class="leading-head max-w-[280px] pb-2 font-bold md:pb-3 md:text-lg md:text-[28px]">
+    <div class="leading-head max-w-70 pb-2 font-bold md:pb-3 md:text-lg md:text-[28px]">
       {{ props.title }}
     </div>
 
@@ -34,7 +34,7 @@ const props = defineProps<FeatureSliderItemData>()
       class="mt-auto ml-auto md:pb-2"
       :class="{ 'transition-transform duration-300 group-hover:translate-x-2': props.url }"
     >
-      <UIcon name="ag:arrow-right" size="36" class="-mt-1 -mb-3 text-black/25" />
+      <UIcon name="ag:arrow-right" size="36" class="-mt-1 -mb-3 text-[#BFBFBF]" />
     </NuxtLink>
   </AppCard>
 </template>

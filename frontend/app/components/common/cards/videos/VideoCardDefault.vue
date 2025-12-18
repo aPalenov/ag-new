@@ -23,7 +23,7 @@ const props = defineProps<VideoSliderItemData>()
     </h3>
 
     <!--  -->
-    <div v-if="props.publishedAt" class="text-[13px] text-black/70">
+    <div v-if="props.publishedAt" class="text-[13px] text-[#4C4C51]">
       {{ formatDate(props.publishedAt) }}
     </div>
   </div>

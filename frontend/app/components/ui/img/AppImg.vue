@@ -25,7 +25,7 @@ watch(
   <img
     :src="props.src"
     :loading="!props.noLazy ? 'lazy' : undefined"
-    :class="{ 'animate-pulse bg-black/10': props.showLoadingAnimation && !isLoaded }"
+    :class="{ 'animate-pulse bg-[#333333]': props.showLoadingAnimation && !isLoaded }"
     @load="isLoaded = true"
     @error="isLoaded = true"
   />

@@ -44,7 +44,7 @@ export default {
     {
       color: 'tertiary',
       variant: 'solid',
-      class: 'bg-neutral-200/70',
+      class: 'bg-[#f0f0f0]',
     },
   ],
 }

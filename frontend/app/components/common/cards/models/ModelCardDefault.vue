@@ -24,7 +24,7 @@ const props = defineProps<ModelSliderItemData>()
     </HeadingSection>
 
     <!-- Подзаголовок -->
-    <div class="mb-2 text-sm text-black/25 lg:text-base">{{ props.subtitle }}</div>
+    <div class="mb-2 text-sm text-[#BFBFBF] lg:text-base">{{ props.subtitle }}</div>
 
     <!-- Чип с количеством авто -->
     <UBadge variant="solid" color="tertiary" class="mb-6">

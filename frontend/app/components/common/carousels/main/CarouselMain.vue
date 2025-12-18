@@ -21,7 +21,7 @@ const appConfig = useAppConfig()
       item: 'relative h-[700px]',
       controls: [appConfig.ui.container.base, 'relative'],
       dots: 'absolute flex bottom-16 left-auto right-(--ui-container-px) flex-wrap items-center justify-center gap-3',
-      dot: 'relative w-8 h-[3px] rounded bg-white data-[state=active]:bg-black/70 before:absolute before:-inset-1',
+      dot: 'relative w-8 h-[3px] rounded bg-white data-[state=active]:bg-[#4C4C51] before:absolute before:-inset-1',
     }"
   >
     <slot :item="item" />
