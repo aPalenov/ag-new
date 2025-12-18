@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HeroBannerData } from '@@/types/generated'
+import HeroBannerImage from './HeroBannerImage.vue'
 
 const props = defineProps<HeroBannerData>()
 </script>
