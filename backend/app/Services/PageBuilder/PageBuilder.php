@@ -10,7 +10,7 @@ class PageBuilder
 {
     protected $blockList = [];
 
-    public function buildPage(): array
+    public function buildPage(string $path): array
     {
         // public function buildPage(Model $model): array
         // $blockData = [];
@@ -25,10 +25,42 @@ class PageBuilder
         // }
 
         // return $blockData;
+        $types = [];
+
+        if (str_ends_with($path, '/pages')) {
+            $types = [
+                PageBuilderBlockEnum::HeroBanner,
+                PageBuilderBlockEnum::ModelSlider,
+                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::OfferSlider,
+                PageBuilderBlockEnum::VideoSlider,
+                PageBuilderBlockEnum::FeatureList,
+                PageBuilderBlockEnum::CarSlider,
+                PageBuilderBlockEnum::AsideList,
+                PageBuilderBlockEnum::FeatureSlider,
+                PageBuilderBlockEnum::Map,
+            ];
+        } elseif (str_ends_with($path, '/models')) {
+            $types = [
+                //
+                PageBuilderBlockEnum::ModelList,
+                PageBuilderBlockEnum::FeatureSlider,
+                PageBuilderBlockEnum::Text,
+            ];
+        } elseif (preg_match('/models\/.+/', $path)) {
+            // Remove some blocks for models page
+            $types = [
+                PageBuilderBlockEnum::Model,
+                PageBuilderBlockEnum::SpecsShort,
+                PageBuilderBlockEnum::ModelSlider,
+                PageBuilderBlockEnum::SpecsTable,
+                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::CarSlider,
+            ];
+        }
 
         $blockData = [];
-        foreach (PageBuilderBlockEnum::options() as $block) {
-            $type = PageBuilderBlockEnum::fromName($block);
+        foreach ($types as $type) {
             $blockData[] = new PageBuilderBlockData(
                 name: $type->value,
                 data: $this->getBlockFromEnum($type)->viewData()->toArray(),

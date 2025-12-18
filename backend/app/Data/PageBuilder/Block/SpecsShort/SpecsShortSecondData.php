@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Data\PageBuilder\Color;
+namespace App\Data\PageBuilder\Block\SpecsShort;
 
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]
-class ColorData extends Data
+class SpecsShortSecondData extends Data
 {
     public function __construct(
-        public int $id,
+        public string $label,
 
-        public string $name,
-
-        public string $hex,
+        public string $value,
     ) {}
 }

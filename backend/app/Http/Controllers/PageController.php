@@ -19,6 +19,6 @@ class PageController extends Controller
         $this->meta()->setTitle("Тестовый заголовок - {$tenant}");
         $this->meta()->setDescription('Описание главной страницы');
 
-        return new PageData($this->pageBuilder->buildPage());
+        return new PageData($this->pageBuilder->buildPage($request->path()));
     }
 }

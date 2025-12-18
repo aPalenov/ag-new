@@ -11,6 +11,7 @@ enum PageBuilderBlockEnum: string
 {
     use EnumTrait;
 
+    // Home
     #[Description('Главный баннер')]
     case HeroBanner = 'HeroBanner';
 
@@ -40,4 +41,19 @@ enum PageBuilderBlockEnum: string
 
     #[Description('Карта')]
     case Map = 'Map';
+
+    // Models
+
+    #[Description('Список моделей')]
+    case ModelList = 'ModelList';
+
+    #[Description('Модель')]
+    case Model = 'Model';
+
+    #[Description('Т.Х. коротко')]
+    case SpecsShort = 'SpecsShort';
+
+    #[Description('Т.Х. таблица')]
+    case SpecsTable = 'SpecsTable';
+
 }

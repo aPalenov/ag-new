@@ -2,14 +2,14 @@
 
 namespace App\Services\PageBuilder\Block;
 
-use App\Data\PageBuilder\Block\ModelSlider\ModelSliderData;
+use App\Data\PageBuilder\Block\ModelList\ModelListData;
 use Spatie\LaravelData\Data;
 
-class ModelSliderBlock
+class ModelListBlock
 {
     public function viewData(): ?Data
     {
-        return ModelSliderData::from([
+        return ModelListData::from([
             'title' => 'Официальный дилер TENET в Москве',
             'items' => collect(range(0, 5))->map(
                 fn($i) => [

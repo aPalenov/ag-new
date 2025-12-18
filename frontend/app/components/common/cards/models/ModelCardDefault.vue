@@ -33,7 +33,7 @@ const props = defineProps<ModelSliderItemData>()
     </UBadge>
 
     <!-- Цвета -->
-    <CarColorPalette :items="props.colors" readonly class="mb-5.5" />
+    <CarColorPalette :items="props.colors" readonly class="mb-5.5 justify-center" />
 
     <!-- Цены -->
     <div
