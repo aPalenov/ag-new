@@ -15,6 +15,7 @@ class ModelData extends Data
 
         public string $preview,
 
+        /** @var array<string> */
         public Optional|array $images_360,
 
         public int $price_from,
