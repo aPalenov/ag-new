@@ -28,28 +28,11 @@ function normalizeRow(row: SpecsTableRowData): Array<{
 
   return result
 }
-
-const containerRef = ref<HTMLElement | null>(null)
-const hasOverflow = ref(false)
-
-function checkOverflow() {
-  if (containerRef.value) {
-    hasOverflow.value = containerRef.value.scrollWidth > containerRef.value.clientWidth
-  }
-}
-
-onMounted(() => {
-  checkOverflow()
-  window.addEventListener('resize', checkOverflow)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', checkOverflow)
-})
 </script>
 
 <template>
-  <div ref="containerRef" class="overflow-x-auto" :class="{ 'mb-6 pb-6': hasOverflow }">
+  <div class="spaced-scrollbar overflow-x-auto">
+    <!-- table-fixed -->
     <table class="w-full table-fixed border-collapse">
       <template v-if="props.rows?.length">
         <tbody>

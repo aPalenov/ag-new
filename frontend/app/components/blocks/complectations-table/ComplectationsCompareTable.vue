@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="mb-6 overflow-x-auto pb-8">
+  <div class="spaced-scrollbar overflow-x-auto">
     <table class="w-full border-collapse">
       <ComplectationsTableHeader :complectations="complectations" />
       <tbody>
