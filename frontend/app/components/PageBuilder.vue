@@ -8,11 +8,11 @@ import CarSlider from '@/components/blocks/car-slider/CarSlider.vue'
 import AsideList from '@/components/blocks/aside-list/AsideList.vue'
 import FeatureList from '@/components/blocks/feature-list/FeatureList.vue'
 import FeatureSlider from '@/components/blocks/feature-slider/FeatureSlider.vue'
-import Map from '@/components/blocks/map/Map.vue'
-import Text from '@/components/blocks/text/Text.vue'
+import MapContacts from '@/components/blocks/map-contacts/MapContacts.vue'
+import TextContent from '@/components/blocks/text-content/TextContent.vue'
 import ServiceGrid from '@/components/blocks/service-grid/ServiceGrid.vue'
 import ModelList from '@/components/blocks/model-list/ModelList.vue'
-import Model from '@/components/blocks/model/Model.vue'
+import ModelGeneral from '@/components/blocks/model-general/ModelGeneral.vue'
 import SpecsShort from '@/components/blocks/specs-short/SpecsShort.vue'
 import SpecsTable from '@/components/blocks/specs-table/SpecsTable.vue'
 import ComplectationsTable from '@/components/blocks/complectations-table/ComplectationsTable.vue'
@@ -32,11 +32,11 @@ const registry: Record<string, CompLike> = {
   FeatureList,
   FeatureSlider,
   AsideList,
-  Map,
-  Text,
+  MapContacts,
+  TextContent,
   ServiceGrid,
   ModelList,
-  Model,
+  ModelGeneral,
   SpecsShort,
   SpecsTable,
   ComplectationsTable,

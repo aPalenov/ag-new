@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\PageBuilder\Block\Model;
+namespace App\Data\PageBuilder\Block\ModelGeneral;
 
 use App\Data\PageBuilder\Color\ColorData;
 use Spatie\LaravelData\Data;
@@ -8,7 +8,7 @@ use Spatie\LaravelData\Optional;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]
-class ModelData extends Data
+class ModelGeneralData extends Data
 {
     public function __construct(
         public string $title,

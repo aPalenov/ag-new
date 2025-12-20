@@ -2,14 +2,14 @@
 
 namespace App\Services\PageBuilder\Block;
 
-use App\Data\PageBuilder\Block\Model\ModelData;
+use App\Data\PageBuilder\Block\ModelGeneral\ModelGeneralData;
 use Spatie\LaravelData\Data;
 
-class ModelBlock
+class ModelGeneralBlock
 {
     public function viewData(): ?Data
     {
-        return ModelData::from([
+        return ModelGeneralData::from([
             'title' => 'TENET T4',
             'preview' =>
                 'https://www.avtogermes.ru/images/marks/tenet/t4/i/colors/st/tenet-t4-i-seryj-metallik.e981eeadf9d1beff37fd62ffd7d1bb40.png',

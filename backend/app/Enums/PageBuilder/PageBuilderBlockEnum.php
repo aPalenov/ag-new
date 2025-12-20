@@ -19,7 +19,7 @@ enum PageBuilderBlockEnum: string
     case ModelSlider = 'ModelSlider';
 
     #[Description('Текстовый блок')]
-    case Text = 'Text';
+    case TextContent = 'TextContent';
 
     #[Description('Слайдер предложений')]
     case OfferSlider = 'OfferSlider';
@@ -39,8 +39,8 @@ enum PageBuilderBlockEnum: string
     #[Description('Слайдер преимуществ')]
     case FeatureSlider = 'FeatureSlider';
 
-    #[Description('Карта')]
-    case Map = 'Map';
+    #[Description('Карта с контактами')]
+    case MapContacts = 'MapContacts';
 
     // Models
 
@@ -48,7 +48,7 @@ enum PageBuilderBlockEnum: string
     case ModelList = 'ModelList';
 
     #[Description('Модель')]
-    case Model = 'Model';
+    case ModelGeneral = 'ModelGeneral';
 
     #[Description('Т.Х. коротко')]
     case SpecsShort = 'SpecsShort';

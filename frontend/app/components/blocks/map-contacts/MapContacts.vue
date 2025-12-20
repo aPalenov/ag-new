@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { MapData } from '@@/types/generated'
+import type { MapContactsData } from '@@/types/generated'
 
-const props = defineProps<MapData>()
+const props = defineProps<MapContactsData>()
 
 const activeIndex = ref<number>(-1)
 </script>

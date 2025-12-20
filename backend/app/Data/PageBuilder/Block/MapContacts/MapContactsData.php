@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Data\PageBuilder\Block\Map;
+namespace App\Data\PageBuilder\Block\MapContacts;
 
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\LiteralTypeScriptType;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]
-class MapData extends Data
+class MapContactsData extends Data
 {
     public function __construct(
         public string $title,

@@ -31,30 +31,30 @@ class PageBuilder
             $types = [
                 PageBuilderBlockEnum::HeroBanner,
                 PageBuilderBlockEnum::ModelSlider,
-                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::TextContent,
                 PageBuilderBlockEnum::OfferSlider,
                 PageBuilderBlockEnum::VideoSlider,
                 PageBuilderBlockEnum::FeatureList,
                 PageBuilderBlockEnum::CarSlider,
                 PageBuilderBlockEnum::AsideList,
                 PageBuilderBlockEnum::FeatureSlider,
-                PageBuilderBlockEnum::Map,
+                PageBuilderBlockEnum::MapContacts,
             ];
         } elseif (str_ends_with($path, '/models')) {
             $types = [
                 //
                 PageBuilderBlockEnum::ModelList,
                 PageBuilderBlockEnum::FeatureSlider,
-                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::TextContent,
             ];
         } elseif (preg_match('/models\/.+/', $path)) {
             // Remove some blocks for models page
             $types = [
-                PageBuilderBlockEnum::Model,
+                PageBuilderBlockEnum::ModelGeneral,
                 PageBuilderBlockEnum::SpecsShort,
                 PageBuilderBlockEnum::SpecsTable,
                 PageBuilderBlockEnum::ComplectationsTable,
-                PageBuilderBlockEnum::Text,
+                PageBuilderBlockEnum::TextContent,
                 PageBuilderBlockEnum::CarSlider,
             ];
         }

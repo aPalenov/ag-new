@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Data\PageBuilder\Block\Text;
+namespace App\Data\PageBuilder\Block\TextContent;
 
 use App\Data\PageBuilder\Cta\CtaData;
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]
-class TextData extends Data
+class TextContentData extends Data
 {
     public function __construct(
         public string $title,

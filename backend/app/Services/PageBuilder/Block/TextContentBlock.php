@@ -2,14 +2,14 @@
 
 namespace App\Services\PageBuilder\Block;
 
-use App\Data\PageBuilder\Block\Text\TextData;
+use App\Data\PageBuilder\Block\TextContent\TextContentData;
 use Spatie\LaravelData\Data;
 
-class TextBlock
+class TextContentBlock
 {
     public function viewData(): ?Data
     {
-        return TextData::from([
+        return TextContentData::from([
             'title' => 'Купить автомобили TENET в Москве',
             'columns' => 2,
             'text' => 'Во всех автосалонах «АвтоГЕРМЕС» каждому нашему клиенту гарантирован индивидуальный подход. С Вами будет общаться Ваш персональный менеджер, который будет лично контролировать процесс подготовки Вашего автомобиля до момента выезда автомобиля из салона. Покупая автомобиль у нас, Вы получаете персональную дисконтную карту, которая предоставляет скидки на обслуживание в техническом центре.<br><br>
