@@ -227,7 +227,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="rootEl" class="bg-black/5">
+  <div ref="rootEl">
     <div ref="mapContainer" class="h-full w-full" />
     <div
       v-if="!isLoaded"

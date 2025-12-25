@@ -5,14 +5,14 @@ const props = defineProps<CarSliderItemData>()
 </script>
 
 <template>
-  <AppCard class="group flex h-full w-full flex-col border border-black/25">
+  <AppCard class="group flex h-full w-full flex-col border border-[#BFBFBF]">
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
-      bg-class="bg-black/5"
       :to="props.cta?.url"
       :preview="props.preview"
       :title="`${props.mark} ${props.model}`"
+      :ui="{ root: 'bg-[#f0f0f0]' }"
     />
 
     <!-- Контент -->

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { MapData } from '@@/types/generated'
+import type { MapContactsData } from '@@/types/generated'
 
-const props = defineProps<MapData>()
+const props = defineProps<MapContactsData>()
 
 const activeIndex = ref<number>(-1)
 </script>
@@ -9,7 +9,7 @@ const activeIndex = ref<number>(-1)
 <template>
   <UContainer as="section">
     <!-- Правая колонка с фото -->
-    <AppCard class="grid bg-black/5 sm:mx-0 sm:grid-cols-12">
+    <AppCard class="grid bg-[#f0f0f0] sm:mx-0 sm:grid-cols-12">
       <!-- Информация -->
       <div class="p-6 sm:col-span-6 md:px-8 md:pt-9 md:pb-14 xl:col-span-4">
         <HeadingSection>
@@ -37,7 +37,7 @@ const activeIndex = ref<number>(-1)
 
       <!-- Карта -->
       <div
-        class="relative aspect-11/9 bg-black/5 sm:-order-1 sm:col-span-6 sm:aspect-auto xl:col-span-8"
+        class="relative aspect-11/9 bg-[#333333] sm:-order-1 sm:col-span-6 sm:aspect-auto xl:col-span-8"
       >
         <YandexMap
           v-model:active-index="activeIndex"

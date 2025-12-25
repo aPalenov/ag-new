@@ -7,7 +7,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
 </script>
 
 <template>
-  <AppCard class="group flex h-full w-full flex-col border border-black/25">
+  <AppCard class="group flex h-full w-full flex-col border border-[#BFBFBF]">
     <!-- Картинка / заглушка -->
     <PreviewImage
       class="aspect-3/2"
@@ -31,7 +31,7 @@ const typeLabel = computed(() => (props.type === 'news' ? 'Новости' : 'С
           {{ typeLabel }}
         </UBadge>
 
-        <span v-if="props.publishedAt" class="text-right text-[13px] text-black/70">
+        <span v-if="props.publishedAt" class="text-right text-[13px] text-[#4C4C51]">
           {{ formatDate(props.publishedAt) }}
         </span>
       </div>

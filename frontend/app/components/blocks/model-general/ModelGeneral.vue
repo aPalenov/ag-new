@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ModelData } from '@@/types/generated'
+import type { ModelGeneralData } from '@@/types/generated'
 
-const props = defineProps<ModelData>()
+const props = defineProps<ModelGeneralData>()
 
 const currentColor = ref(props.colors?.[0] ?? null)
 </script>

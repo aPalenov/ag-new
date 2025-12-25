@@ -16,7 +16,7 @@ const component = props.to ? NuxtLink : 'div'
 
 const previewImageTV = tv({
   slots: {
-    root: 'relative w-full overflow-hidden bg-black/80',
+    root: 'relative w-full overflow-hidden bg-[#333333]',
   },
 })
 

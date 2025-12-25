@@ -1,3 +1,4 @@
+import accordion from './config/ui/accordion'
 import button from './config/ui/button'
 import input from './config/ui/input'
 import select from './config/ui/select'
@@ -19,5 +20,6 @@ export default defineAppConfig({
     select,
     badge,
     carousel,
+    accordion,
   },
 })

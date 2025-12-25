@@ -2,15 +2,14 @@
 
 namespace App\Services\PageBuilder\Block;
 
-use App\Data\PageBuilder\Block\Map\MapData;
-use App\Data\PageBuilder\Block\Map\MapItemData;
+use App\Data\PageBuilder\Block\MapContacts\MapContactsData;
 use Spatie\LaravelData\Data;
 
-class MapBlock
+class MapContactsBlock
 {
     public function viewData(): ?Data
     {
-        return MapData::from([
+        return MapContactsData::from([
             'title' => 'Контакты',
             'center' => [37.573, 55.751],
             'zoom' => 10,

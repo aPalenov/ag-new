@@ -44,12 +44,8 @@ const gapClass = computed(() => {
       :aria-pressed="modelValue?.hex === item.hex"
       :disabled="readonly"
       :style="{ backgroundColor: item.hex }"
-      class="relative aspect-square overflow-hidden rounded-full border"
-      :class="[
-        modelValue?.hex === item.hex ? 'border-black/50' : 'border-black/25',
-        props.readonly ? 'cursor-default' : 'cursor-pointer',
-        sizeClass,
-      ]"
+      class="relative aspect-square overflow-hidden rounded-full border border-[#BFBFBF]"
+      :class="[props.readonly ? 'cursor-default' : 'cursor-pointer', sizeClass]"
       @click="onSelect(item)"
     >
       <div

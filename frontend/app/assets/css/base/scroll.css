@@ -17,4 +17,39 @@
     body *::-webkit-scrollbar-thumb:hover {
         background: #8f8f8f;
     }
+
+    /* Скролл с отступами */
+
+    .spaced-scrollbar {
+        --scrollbar-size: 70px;
+        --thumb-size: 4px;
+        --thumb-offset: calc((var(--scrollbar-size) - var(--thumb-size)) / 2);
+        --thumb-color: #bdbdbd;
+        --thumb-hover-color: #8f8f8f;
+        --track-color: #fff;
+        --border-radius: calc(var(--thumb-size) / 2);
+    }
+
+    .spaced-scrollbar::-webkit-scrollbar {
+        height: var(--scrollbar-size);
+        width: var(--scrollbar-size);
+    }
+
+    .spaced-scrollbar::-webkit-scrollbar-track {
+        background: var(--track-color);
+    }
+    .spaced-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--thumb-color);
+    }
+
+    .spaced-scrollbar::-webkit-scrollbar-track,
+    .spaced-scrollbar::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        border-block: var(--thumb-offset) solid transparent;
+    }
+
+    .spaced-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: var(--thumb-hover-color);
+        background-clip: padding-box;
+    }
 }

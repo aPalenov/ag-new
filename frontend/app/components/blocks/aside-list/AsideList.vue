@@ -6,10 +6,10 @@ const props = defineProps<AsideListData>()
 
 <template>
   <UContainer as="section">
-    <AppCard class="-mx-(--ui-container-px) grid bg-neutral-600 sm:mx-0 sm:grid-cols-12">
+    <AppCard class="-mx-(--ui-container-px) grid bg-[#333333] sm:mx-0 sm:grid-cols-12">
       <!-- Левая колонка -->
       <div
-        class="bg-neutral-700 px-8 pt-9 pb-16 text-white sm:col-span-6 lg:col-span-5 xl:col-span-4"
+        class="bg-[#4c4c51] px-8 pt-9 pb-16 text-white sm:col-span-6 lg:col-span-5 xl:col-span-4"
       >
         <h2 class="leading-head mb-6 text-[32px] font-bold">{{ props.title }}</h2>
 

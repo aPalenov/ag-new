@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { TextData } from '@@/types/generated'
+import type { TextContentData } from '@@/types/generated'
 
-const props = defineProps<TextData>()
+const props = defineProps<TextContentData>()
 
 const columnClass = computed(() => {
   switch (props.columns) {
