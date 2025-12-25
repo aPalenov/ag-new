@@ -9,6 +9,7 @@ const props = defineProps<{
   dynamicPhone?: string | null
   dynamicHideAfter?: number
   customPhoneText?: string
+  class?: any
   ui?: {
     root?: string
     icon?: string
@@ -65,9 +66,9 @@ const iconTV = tv({ base: '' })
 
 const ui = computed(() => ({
   root: phoneLinkTV({
+    class: [props.ui?.root, props.class],
     clickable: !isDynamicPhoneShow.value,
     withIcon: !!props.withIcon,
-    class: props.ui?.root,
   }),
   icon: iconTV({ class: props.ui?.icon }),
 }))

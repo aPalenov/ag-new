@@ -19,7 +19,7 @@ const templates = {
 }
 
 const liTV = tv({
-  base: 'relative px-4',
+  base: 'relative px-[22px]',
   variants: {
     root: {
       true: 'md:first:pl-0',
@@ -37,7 +37,7 @@ const linkTV = tv({
   variants: {
     nested: {
       true: 'hover:text-brand-accent py-2',
-      false: 'cursor-pointer py-4',
+      false: 'cursor-pointer py-[15px]',
     },
   },
 })
@@ -60,6 +60,10 @@ function toggle() {
 const target = useTemplateRef<HTMLLIElement>('target')
 onClickOutside(target, () => {
   opened.value = false
+})
+
+const iconArrow = computed(() => {
+  return opened.value ? 'ag:chevron-up' : 'ag:chevron-down'
 })
 </script>
 
@@ -88,7 +92,7 @@ onClickOutside(target, () => {
       <UIcon
         v-if="templateComponent || props.item.children.length"
         class="ml-2 text-xl leading-none"
-        :name="props.level < 1 || !screen.gte.md ? 'ag:chevron-down' : 'ag:chevron-right'"
+        :name="props.level < 1 || !screen.gte.md ? iconArrow : 'ag:chevron-right'"
       />
     </component>
 

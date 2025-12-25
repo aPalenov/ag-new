@@ -6,6 +6,7 @@ const props = defineProps<{
   preview?: string
   title: string
   to?: string
+  class?: any
   ui?: {
     root?: string
   }
@@ -20,10 +21,14 @@ const previewImageTV = tv({
 })
 
 const styles = previewImageTV()
+
+const ui = computed(() => ({
+  root: styles.root({ class: [props.ui?.root, props.class] }),
+}))
 </script>
 
 <template>
-  <component :is="component" :to="props.to" :class="styles.root({ class: props.ui?.root })">
+  <component :is="component" :to="props.to" :class="ui.root">
     <AppImg
       v-if="props.preview"
       :src="props.preview"

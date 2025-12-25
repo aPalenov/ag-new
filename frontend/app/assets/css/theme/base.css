@@ -9,13 +9,13 @@
         --ui-container-px: 10px;
 
         /* Button styles */
-        --btn-radius: 0.5rem;
+        --btn-radius: 0.625rem;
 
         /* Button Size */
-        --btn-px-md: 1.5rem;
+        --btn-px-md: 1.25rem;
         --btn-py-md: 0.8125rem;
         --btn-text-md: 0.875rem;
-        --btn-px-lg: 1.25rem;
+        --btn-px-lg: 1.5rem;
         --btn-py-lg: 0.9375rem;
         --btn-text-lg: 0.875rem;
 

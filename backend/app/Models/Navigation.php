@@ -27,31 +27,7 @@ class Navigation extends BaseModel
         return [
             'main' => [
                 [
-                    'label' => 'Главная',
-                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/'],
-                    'classes' => 'nav-item-home',
-                    'children' => [],
-                ],
-                [
                     'label' => 'Модельный ряд',
-                    'data' => null,
-                    'children' => collect(['T4', 'T5', 'T6'])
-                        ->map(
-                            fn($m) => [
-                                'label' => 'TENET ' . $m,
-                                'data' => [
-                                    'type' => LinkTypeEnum::INTERNAL_LINK,
-                                    'href' => '/models/' . strtolower($m),
-                                ],
-                                'children' => [],
-                            ],
-                        )
-                        ->toArray(),
-                ],
-                // Demo of custom template-based item (no direct link data)
-                [
-                    'label' => 'Подбор модели',
-                    'data' => null,
                     'template' => [
                         'name' => 'NavigationCarSelectionDefaultTemplate',
                         'props' => [
@@ -65,25 +41,24 @@ class Navigation extends BaseModel
                     ],
                     'children' => [],
                 ],
+                // Demo of custom template-based item (no direct link data)
                 [
                     'label' => 'Автомобили в наличии',
-                    'data' => null,
-                    'children' => [
-                        [
-                            'label' => 'Новые',
-                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/cars/new'],
-                            'children' => [],
-                        ],
-                        [
-                            'label' => 'С пробегом',
-                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/cars/used'],
-                            'children' => [],
-                        ],
-                    ],
+                    'children' => collect(['T4', 'T5', 'T6'])
+                        ->map(
+                            fn($m) => [
+                                'label' => 'TENET ' . $m,
+                                'data' => [
+                                    'type' => LinkTypeEnum::INTERNAL_LINK,
+                                    'href' => '/models/' . strtolower($m),
+                                ],
+                                'children' => [],
+                            ],
+                        )
+                        ->toArray(),
                 ],
                 [
                     'label' => 'Спецпредложения',
-                    'data' => null,
                     'children' => [
                         [
                             'label' => 'Покупка',
@@ -99,7 +74,6 @@ class Navigation extends BaseModel
                 ],
                 [
                     'label' => 'Сервис и ТО',
-                    'data' => null,
                     'children' => [
                         [
                             'label' => 'Запись на ТО',
@@ -115,7 +89,6 @@ class Navigation extends BaseModel
                 ],
                 [
                     'label' => 'О компании',
-                    'data' => null,
                     'children' => [
                         [
                             'label' => 'История',
@@ -142,18 +115,96 @@ class Navigation extends BaseModel
             ],
             'footer' => [
                 [
-                    'label' => 'Политика',
-                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/policy'],
-                    'children' => [],
+                    'name' => 'models',
+                    'label' => 'Модели',
+                    'children' => [
+                        [
+                            'label' => 'TENET T4',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/models/t4'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'TENET T4',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/models/t4'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'TENET T4',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/models/t4'],
+                            'children' => [],
+                        ],
+                    ],
                 ],
                 [
-                    'label' => 'Конфиденциальность',
-                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/privacy'],
-                    'children' => [],
+                    'label' => 'Покупателям',
+                    'children' => [
+                        [
+                            'label' => 'Автомобили в наличии',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/cars'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Лизинг',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/leasing'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Кредит',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/credit'],
+                            'children' => [],
+                        ],
+                    ],
                 ],
                 [
-                    'label' => 'Правила сайта',
-                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/terms'],
+                    'label' => 'Владельцам',
+                    'children' => [
+                        [
+                            'label' => 'Запись на ТО',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/service/maintenance'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Гарантийное обслуживание',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/service/warranty'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'О нас',
+                    'children' => [
+                        [
+                            'label' => 'О компании',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/about'],
+                            'children' => [],
+                        ],
+                        [
+                            'name' => 'contacts',
+                            'label' => 'Контакты',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/contacts'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Новости',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/news'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'Видеообзоры',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/videos'],
+                            'children' => [],
+                        ],
+                        [
+                            'label' => 'О бренде',
+                            'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/brand'],
+                            'children' => [],
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'Контакты',
+                    'name' => 'contacts',
+                    'data' => ['type' => LinkTypeEnum::INTERNAL_LINK, 'href' => '/contacts'],
                     'children' => [],
                 ],
             ],

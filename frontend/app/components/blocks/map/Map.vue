@@ -11,7 +11,7 @@ const activeIndex = ref<number>(-1)
     <!-- Правая колонка с фото -->
     <AppCard class="grid bg-black/5 sm:mx-0 sm:grid-cols-12">
       <!-- Информация -->
-      <div class="p-6 pb-12 sm:col-span-6 md:p-8 xl:col-span-4">
+      <div class="p-6 sm:col-span-6 md:px-8 md:pt-9 md:pb-14 xl:col-span-4">
         <HeadingSection>
           {{ props.title }}
         </HeadingSection>
@@ -32,7 +32,7 @@ const activeIndex = ref<number>(-1)
 
         <div class="leading-head mb-2 text-2xl font-bold"><AdvPhoneLink /></div>
         <div class="mb-12">Ежедневно с 9:00 до 21:00</div>
-        <div><UButton variant="solid" color="primary">Заказать звонок</UButton></div>
+        <div><UButton variant="solid" color="primary" size="lg">Заказать звонок</UButton></div>
       </div>
 
       <!-- Карта -->

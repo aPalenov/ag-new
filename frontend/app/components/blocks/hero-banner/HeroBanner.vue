@@ -25,9 +25,9 @@ const props = defineProps<HeroBannerData>()
           />
           <div class="mb-15">
             <div class="text-4xl font-bold text-white">{{ item.title }}</div>
-            <div v-if="item.subtitle" class="mt-2 text-xl text-white">{{ item.subtitle }}</div>
+            <div v-if="item.subtitle" class="mt-5 text-2xl text-white">{{ item.subtitle }}</div>
 
-            <div v-if="item.cta || item.secondCta" class="mt-7 flex gap-4">
+            <div v-if="item.cta || item.secondCta" class="mt-10 flex gap-5">
               <UButton v-if="item.cta" :to="item.cta.url" size="lg" color="primary" variant="solid">
                 {{ item.cta.label }}
               </UButton>
@@ -38,6 +38,7 @@ const props = defineProps<HeroBannerData>()
                 size="lg"
                 color="tertiary"
                 variant="solid"
+                trailing-icon="ag:arrow-right"
               >
                 {{ item.secondCta.label }}
               </UButton>

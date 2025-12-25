@@ -28,7 +28,7 @@ export const useAdvPhoneStore = defineStore('advPhone', {
     },
     phoneFormatter(): string | undefined {
       const phone = (this as any).phone as string | null
-      return phone ? phone.replace(/(...)(..)(..)/, '+7 (495) $1-$2-$3') : undefined
+      return phone ? phone.replace(/(\d{3})(\d{2})(\d{2})/, '+7 (495) $1-$2-$3') : undefined
     },
     phoneLink(): string | undefined {
       if (

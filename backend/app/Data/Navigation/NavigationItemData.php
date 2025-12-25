@@ -14,7 +14,9 @@ class NavigationItemData extends Data
     public function __construct(
         public string $label,
 
-        public ?LinkData $data,
+        public Optional|string $name,
+
+        public Optional|LinkData $data,
 
         public Optional|string $classes,
 

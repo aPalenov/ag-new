@@ -10,8 +10,6 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class SettingsContactData extends Data
 {
     public function __construct(
-        public string $phone,
-
         // prettier-ignore
         /** @var DataCollection<SettingsContactLocationData> */
         public DataCollection $locations,

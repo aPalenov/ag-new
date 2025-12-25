@@ -3,7 +3,6 @@
 return [
     'general' => [
         'contact' => [
-            'phone' => '77777777777',
             'locations' => [
                 [
                     'label' => 'г. Москва, Дмитровское ш., д. 161А',
